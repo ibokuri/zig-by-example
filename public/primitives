@@ -13,6 +13,10 @@
           }
           
           
+          if (e.key == "ArrowRight") {
+              window.location.href = 'assignment';
+          }
+          
       }
   </script>
   <body>
@@ -104,7 +108,7 @@ can do things like pass around types as function arguments.</p>
           </td>
           <td class="code">
             
-            <pre class="chroma"><span class="gp">$</span> zig run hello-world.zig
+            <pre class="chroma"><span class="gp">$</span> zig run primitives.zig
 <span class="go">false
 </span><span class="go">true
 </span><span class="go">2
@@ -118,6 +122,10 @@ can do things like pass around types as function arguments.</p>
         
       </table>
       
+      
+      <p class="next">
+        Next example: <a href="assignment">Assignment</a>.
+      </p>
       
 
     <p class="footer">

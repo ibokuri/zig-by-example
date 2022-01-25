@@ -1,4 +1,4 @@
-$ zig run hello-world.zig
+$ zig run primitives.zig
 false
 true
 2
