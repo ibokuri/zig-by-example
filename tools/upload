@@ -1,3 +1,0 @@
-#!/bin/bash
-
-exec go run tools/upload.go -region us-east-1 -bucket zig-by-example.com
