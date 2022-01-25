@@ -3,11 +3,11 @@
   <br/>
   <br/>
   <a href="https://ziglang.org/download"><img alt="Zig" src="https://img.shields.io/badge/zig-master-fd9930.svg?style=flat-square"></a>
-  <a href="https://actions-badge.atrox.dev/ibokuri/zigbyexample/goto?ref=main"><img alt="Build status" src="https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Fibokuri%2Fzigbyexample%2Fbadge%3Fref%3Dmain&style=flat-square" /></a>
-  <a href="https://github.com/ibokuri/zigbyexample#license"><img alt="License" src="https://img.shields.io/badge/license-MIT-blue?style=flat-square"></a>
+  <a href="https://actions-badge.atrox.dev/ibokuri/zig-by-example/goto?ref=main"><img alt="Build status" src="https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Fibokuri%2Fzig-by-example%2Fbadge%3Fref%3Dmain&style=flat-square" /></a>
+  <a href="https://github.com/ibokuri/zig-by-example#license"><img alt="License" src="https://img.shields.io/badge/license-MIT-blue?style=flat-square"></a>
 </p>
 
-<p align="center">Content and build toolchain for <a href="https://zigbyexample.com">Zig by Example</a>.</p>
+<p align="center">Content and build toolchain for <a href="https://zig-by-example.com">Zig by Example</a>.</p>
 
 ## Building
 

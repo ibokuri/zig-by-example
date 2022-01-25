@@ -9,6 +9,10 @@
       onkeydown = (e) => {
           
           
+          if (e.key == "ArrowRight") {
+              window.location.href = 'primitives';
+          }
+          
       }
   </script>
   <body>
@@ -36,7 +40,7 @@
           <td class="code">
             
             <pre class="chroma"><span class="kr">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="kt">anyerror</span><span class="o">!</span><span class="kt">void</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span><span class="w">    </span><span class="n">std</span><span class="p">.</span><span class="n">debug</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&#34;Hello, World!</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span><span class="w">
+</span><span class="w">    </span><span class="n">std</span><span class="p">.</span><span class="n">debug</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&#34;Hello, World!</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{});</span><span class="w">
 </span><span class="w"></span><span class="p">}</span></pre>
           </td>
         </tr>
@@ -76,15 +80,19 @@ using <code>zig build-exe</code>.</p>
       </table>
       
       
+      <p class="next">
+        Next example: <a href="primitives">Primitives</a>.
+      </p>
+      
 
     <p class="footer">
-      by <a href="https://ket.so">Jason Phan</a> | <a href="https://github.com/ibokuri/zigbyexample">source</a> | <a href="https://github.com/ibokuri/zigbyexample#license">license</a>
+      by <a href="https://ket.so">Jason Phan</a> | <a href="https://github.com/ibokuri/zig-by-example">source</a> | <a href="https://github.com/ibokuri/zig-by-example#license">license</a>
     </p>
 
     </div>
     <script>
       var codeLines = [];
-      codeLines.push('const std \u003D @import(\"std\");\u000A');codeLines.push('pub fn main() anyerror!void {\u000A    std.debug.print(\"Hello, World!\\n\");\u000A}\u000A');codeLines.push('');codeLines.push('');
+      codeLines.push('const std \u003D @import(\"std\");\u000A');codeLines.push('pub fn main() anyerror!void {\u000A    std.debug.print(\"Hello, World!\\n\", .{});\u000A}\u000A');codeLines.push('');codeLines.push('');
     </script>
     <script src="site.js" async></script>
   </body>

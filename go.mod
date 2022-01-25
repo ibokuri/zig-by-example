@@ -1,4 +1,4 @@
-module github.com/ibokuri/zigbyexample
+module github.com/ibokuri/zig-by-example
 
 go 1.17
 

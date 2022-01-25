@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Zig by Example: Primitives</title>
+    <link rel=stylesheet href="site.css">
+  </head>
+  <script>
+      onkeydown = (e) => {
+          
+          if (e.key == "ArrowLeft") {
+              window.location.href = 'hello-world';
+          }
+          
+          
+      }
+  </script>
+  <body>
+    <div class="example" id="primitives">
+      <h2><a href="./">Zig by Example</a>: Primitives</h2>
+      
+      <table>
+        
+        <tr>
+          <td class="docs">
+            <p>There are two ways to store values in Zig: constants and variables.</p>
+
+          </td>
+          <td class="code leading">
+            <img title="Copy code" src="clipboard.png" class="copy" />
+            <pre class="chroma"><span class="kr">const</span><span class="w"> </span><span class="n">std</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">@import</span><span class="p">(</span><span class="s">&#34;std&#34;</span><span class="p">);</span></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code leading">
+            
+            <pre class="chroma"><span class="kr">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="kt">anyerror</span><span class="o">!</span><span class="kt">void</span><span class="w"> </span><span class="p">{</span></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Here, we assign the value <code>true</code> to the identifier <code>constant</code>.
+Identifiers are always immutable, meaning that you cannot re-assign an
+identifier&rsquo;s value after it is created.</p>
+
+          </td>
+          <td class="code leading">
+            
+            <pre class="chroma"><span class="w">    </span><span class="kr">const</span><span class="w"> </span><span class="n">constant</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Here, we assign the value <code>false</code> to the variable <code>variable</code>. As their
+name suggests, variables can change, meaning that we can re-assign
+<code>variable</code>&rsquo;s value to <code>true</code>.</p>
+
+          </td>
+          <td class="code leading">
+            
+            <pre class="chroma"><span class="w">    </span><span class="kr">var</span><span class="w"> </span><span class="n">variable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span><span class="w">
+</span><span class="w">    </span><span class="n">variable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code">
+            
+            <pre class="chroma"><span class="w">    </span><span class="n">std</span><span class="p">.</span><span class="n">debug</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&#34;{}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="n">constant</span><span class="p">});</span><span class="w">
+</span><span class="w">    </span><span class="n">std</span><span class="p">.</span><span class="n">debug</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&#34;{}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="n">variable</span><span class="p">});</span><span class="w">
+</span><span class="w"></span><span class="p">}</span></pre>
+          </td>
+        </tr>
+        
+      </table>
+      
+      <table>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code">
+            
+            <pre class="chroma"><span class="gp">$</span> zig run hello-world.zig
+<span class="go">true
+</span><span class="go">true</span></pre>
+          </td>
+        </tr>
+        
+      </table>
+      
+      
+
+    <p class="footer">
+      by <a href="https://ket.so">Jason Phan</a> | <a href="https://github.com/ibokuri/zig-by-example">source</a> | <a href="https://github.com/ibokuri/zig-by-example#license">license</a>
+    </p>
+
+    </div>
+    <script>
+      var codeLines = [];
+      codeLines.push('const std \u003D @import(\"std\");\u000A');codeLines.push('pub fn main() anyerror!void {\u000A');codeLines.push('    const constant \u003D true;\u000A');codeLines.push('    var variable \u003D false;\u000A    variable \u003D true;\u000A');codeLines.push('    std.debug.print(\"{}\\n\", .{constant});\u000A    std.debug.print(\"{}\\n\", .{variable});\u000A}\u000A');codeLines.push('');
+    </script>
+    <script src="site.js" async></script>
+  </body>
+</html>
