@@ -7,7 +7,7 @@
   <a href="https://github.com/ibokuri/zig-by-example#license"><img alt="License" src="https://img.shields.io/badge/license-MIT-blue?style=flat-square"></a>
 </p>
 
-<p align="center">Content and build toolchain for <a href="https://zig-by-example.com">Zig by Example</a>.</p>
+<p align="center">Content and build toolchain for <em><a href="https://zig-by-example.com">Zig by Example</a></em>.</p>
 
 ## Building
 
