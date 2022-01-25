@@ -103,6 +103,7 @@ func whichLexer(path string) string {
 	} else if strings.HasSuffix(path, ".zig") {
 		return "zig"
 	}
+
 	panic("No lexer for " + path)
 }
 
@@ -157,12 +158,15 @@ func parseSegs(sourcePath string) ([]*Seg, string) {
 		lines  []string
 		source []string
 	)
+
 	// Convert tabs to spaces for uniform rendering.
 	for _, line := range readLines(sourcePath) {
 		lines = append(lines, strings.Replace(line, "\t", "    ", -1))
 		source = append(source, line)
 	}
+
 	filecontent := strings.Join(source, "\n")
+
 	segs := []*Seg{}
 	lastSeen := ""
 	for _, line := range lines {
@@ -185,6 +189,7 @@ func parseSegs(sourcePath string) ([]*Seg, string) {
 			} else {
 				segs[len(segs)-1].Docs = segs[len(segs)-1].Docs + "\n" + trimmed
 			}
+
 			debug("DOCS: " + line)
 			lastSeen = "docs"
 		} else if matchCode {
@@ -194,15 +199,18 @@ func parseSegs(sourcePath string) ([]*Seg, string) {
 			} else {
 				segs[len(segs)-1].Code = segs[len(segs)-1].Code + "\n" + line
 			}
+
 			debug("CODE: " + line)
 			lastSeen = "code"
 		}
 	}
+
 	for i, seg := range segs {
 		seg.CodeEmpty = (seg.Code == "")
 		seg.CodeLeading = (i < (len(segs) - 1))
 		seg.CodeRun = strings.Contains(seg.Code, "package main")
 	}
+
 	return segs, filecontent
 }
 
@@ -212,23 +220,24 @@ func chromaFormat(code, filePath string) string {
 	if lexer == nil {
 		lexer = lexers.Fallback
 	}
-
 	if strings.HasSuffix(filePath, ".sh") {
 		lexer = SimpleShellOutputLexer
 	}
-
 	lexer = chroma.Coalesce(lexer)
 
 	style := styles.Get("swapoff")
 	if style == nil {
 		style = styles.Fallback
 	}
+
 	formatter := html.New(html.WithClasses(true))
 	iterator, err := lexer.Tokenise(nil, string(code))
 	check(err)
+
 	buf := new(bytes.Buffer)
 	err = formatter.Format(buf, style, iterator)
 	check(err)
+
 	return buf.String()
 }
 
@@ -239,6 +248,7 @@ func parseAndRenderSegs(sourcePath string) ([]*Seg, string) {
 		if seg.Docs != "" {
 			seg.DocsRendered = markdown(seg.Docs)
 		}
+
 		if seg.Code != "" {
 			seg.CodeRendered = chromaFormat(seg.Code, sourcePath)
 
@@ -252,21 +262,26 @@ func parseAndRenderSegs(sourcePath string) ([]*Seg, string) {
 	if lexer != "go" {
 		filecontent = ""
 	}
+
 	return segs, filecontent
 }
 
 func parseExamples() []*Example {
+	// Gather example names.
 	var exampleNames []string
 	for _, line := range readLines("examples.txt") {
 		if line != "" && !strings.HasPrefix(line, "#") {
 			exampleNames = append(exampleNames, line)
 		}
 	}
+
+	// Create examples.
 	examples := make([]*Example, 0)
 	for i, exampleName := range exampleNames {
 		if verbose() {
 			fmt.Printf("Processing %s [%d/%d]\n", exampleName, i+1, len(exampleNames))
 		}
+
 		example := Example{Name: exampleName}
 		exampleID := strings.ToLower(exampleName)
 		exampleID = strings.Replace(exampleID, " ", "-", -1)
@@ -275,6 +290,7 @@ func parseExamples() []*Example {
 		exampleID = dashPat.ReplaceAllString(exampleID, "-")
 		example.ID = exampleID
 		example.Segs = make([][]*Seg, 0)
+
 		sourcePaths := mustGlob("examples/" + exampleID + "/*")
 		for _, sourcePath := range sourcePaths {
 			if strings.HasSuffix(sourcePath, ".hash") {
@@ -291,8 +307,10 @@ func parseExamples() []*Example {
 		if example.GoCodeHash != newCodeHash {
 			example.URLHash = resetURLHashFile(newCodeHash, example.GoCode, "examples/"+example.ID+"/"+example.ID+".hash")
 		}
+
 		examples = append(examples, &example)
 	}
+
 	for i, example := range examples {
 		if i > 0 {
 			example.PrevExample = examples[i-1]
@@ -347,6 +365,7 @@ func main() {
 	copyFile("templates/404.html", siteDir+"/404.html")
 	copyFile("templates/play.png", siteDir+"/play.png")
 	copyFile("templates/clipboard.png", siteDir+"/clipboard.png")
+
 	examples := parseExamples()
 	renderIndex(examples)
 	renderExamples(examples)
