@@ -22,6 +22,10 @@ jobs:
         with:
           go-version: ${{ matrix.go-version }}
 
+      - uses: goto-bus-stop/setup-zig@v1
+        with:
+          version: master
+
       - name: build
         run: tools/build
         env:
