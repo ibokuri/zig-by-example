@@ -1,6 +1,6 @@
-## Contributing
+# Contributing
 
-Thanks for your interest in contributing to Go by Example!
+Thanks for your interest in contributing to Zig by Example!
 
 * When sending a PR that affects the displayed contents of the site, run
   `tools/build` locally and include the generated HTML in the PR. If you
