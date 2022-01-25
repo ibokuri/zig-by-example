@@ -23,8 +23,19 @@
         
         <tr>
           <td class="docs">
-            <p>There are two ways to store values in Zig: constants and variables.</p>
+            <p>Zig provides a number of primitive types for you to use.
+Here are a few examples.</p>
 
+          </td>
+          <td class="code empty leading">
+            
+            
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            
           </td>
           <td class="code leading">
             <img title="Copy code" src="clipboard.png" class="copy" />
@@ -44,39 +55,49 @@
         
         <tr>
           <td class="docs">
-            <p>Here, we assign the value <code>true</code> to the identifier <code>constant</code>.
-Identifiers are always immutable, meaning that you cannot re-assign an
-identifier&rsquo;s value after it is created.</p>
+            <p>Booleans.</p>
 
           </td>
           <td class="code leading">
             
-            <pre class="chroma"><span class="w">    </span><span class="kr">const</span><span class="w"> </span><span class="n">constant</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span></pre>
+            <pre class="chroma"><span class="w">    </span><span class="n">std</span><span class="p">.</span><span class="n">debug</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&#34;{}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="kt">bool</span><span class="p">});</span></pre>
           </td>
         </tr>
         
         <tr>
           <td class="docs">
-            <p>Here, we assign the value <code>false</code> to the variable <code>variable</code>. As their
-name suggests, variables can change, meaning that we can re-assign
-<code>variable</code>&rsquo;s value to <code>true</code>.</p>
+            <p>Floats.</p>
 
           </td>
           <td class="code leading">
             
-            <pre class="chroma"><span class="w">    </span><span class="kr">var</span><span class="w"> </span><span class="n">variable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span><span class="w">
-</span><span class="w">    </span><span class="n">variable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span></pre>
+            <pre class="chroma"><span class="w">    </span><span class="n">std</span><span class="p">.</span><span class="n">debug</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&#34;{}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="kt">f32</span><span class="p">});</span><span class="w">
+</span><span class="w">    </span><span class="n">std</span><span class="p">.</span><span class="n">debug</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&#34;{}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="kt">comptime_float</span><span class="p">});</span></pre>
           </td>
         </tr>
         
         <tr>
           <td class="docs">
+            <p>Integers, which may have arbitrary bit widths.</p>
+
+          </td>
+          <td class="code leading">
             
+            <pre class="chroma"><span class="w">    </span><span class="n">std</span><span class="p">.</span><span class="n">debug</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&#34;{}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="n">i5</span><span class="p">});</span><span class="w">
+</span><span class="w">    </span><span class="n">std</span><span class="p">.</span><span class="n">debug</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&#34;{}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="kt">comptime_int</span><span class="p">});</span></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>And here&rsquo;s one that may surprise you: <code>type</code>! In Zig, types can be used
+as values, hence why they have their own type. In fact, we&rsquo;ve been using
+types as function arguments for <code>std.debug.print</code> for a while now.</p>
+
           </td>
           <td class="code">
             
-            <pre class="chroma"><span class="w">    </span><span class="n">std</span><span class="p">.</span><span class="n">debug</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&#34;{}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="n">constant</span><span class="p">});</span><span class="w">
-</span><span class="w">    </span><span class="n">std</span><span class="p">.</span><span class="n">debug</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&#34;{}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="n">variable</span><span class="p">});</span><span class="w">
+            <pre class="chroma"><span class="w">    </span><span class="n">std</span><span class="p">.</span><span class="n">debug</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&#34;{}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="kt">type</span><span class="p">});</span><span class="w">
 </span><span class="w"></span><span class="p">}</span></pre>
           </td>
         </tr>
@@ -92,8 +113,12 @@ name suggests, variables can change, meaning that we can re-assign
           <td class="code">
             
             <pre class="chroma"><span class="gp">$</span> zig run hello-world.zig
-<span class="go">true
-</span><span class="go">true</span></pre>
+<span class="go">bool
+</span><span class="go">f32
+</span><span class="go">comptime_float
+</span><span class="go">i5
+</span><span class="go">comptime_int
+</span><span class="go">type</span></pre>
           </td>
         </tr>
         
@@ -108,7 +133,7 @@ name suggests, variables can change, meaning that we can re-assign
     </div>
     <script>
       var codeLines = [];
-      codeLines.push('const std \u003D @import(\"std\");\u000A');codeLines.push('pub fn main() anyerror!void {\u000A');codeLines.push('    const constant \u003D true;\u000A');codeLines.push('    var variable \u003D false;\u000A    variable \u003D true;\u000A');codeLines.push('    std.debug.print(\"{}\\n\", .{constant});\u000A    std.debug.print(\"{}\\n\", .{variable});\u000A}\u000A');codeLines.push('');
+      codeLines.push('');codeLines.push('const std \u003D @import(\"std\");\u000A');codeLines.push('pub fn main() anyerror!void {\u000A');codeLines.push('    std.debug.print(\"{}\\n\", .{bool});\u000A');codeLines.push('    std.debug.print(\"{}\\n\", .{f32});\u000A    std.debug.print(\"{}\\n\", .{comptime_float});\u000A');codeLines.push('    std.debug.print(\"{}\\n\", .{i5});\u000A    std.debug.print(\"{}\\n\", .{comptime_int});\u000A');codeLines.push('    std.debug.print(\"{}\\n\", .{type});\u000A}\u000A');codeLines.push('');
     </script>
     <script src="site.js" async></script>
   </body>

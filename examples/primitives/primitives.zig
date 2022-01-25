@@ -1,19 +1,23 @@
-// There are two ways to store values in Zig: constants and variables.
+// Zig provides a number of primitive types for you to use.
+// Here are a few examples.
+
 const std = @import("std");
 
 pub fn main() anyerror!void {
 
-    // Here, we assign the value `true` to the identifier `constant`.
-    // Identifiers are always immutable, meaning that you cannot re-assign an
-    // identifier's value after it is created.
-    const constant = true;
+    // Booleans.
+    std.debug.print("{}\n", .{bool});
 
-    // Here, we assign the value `false` to the variable `variable`. As their
-    // name suggests, variables can change, meaning that we can re-assign
-    // `variable`'s value to `true`.
-    var variable = false;
-    variable = true;
+    // Floats.
+    std.debug.print("{}\n", .{f32});
+    std.debug.print("{}\n", .{comptime_float});
 
-    std.debug.print("{}\n", .{constant});
-    std.debug.print("{}\n", .{variable});
+    // Integers, which may have arbitrary bit widths.
+    std.debug.print("{}\n", .{i5});
+    std.debug.print("{}\n", .{comptime_int});
+
+    // And here's one that may surprise you: `type`! In Zig, types can be used
+    // as values, hence why they have their own type. In fact, we've been using
+    // types as function arguments for `std.debug.print` for a while now.
+    std.debug.print("{}\n", .{type});
 }

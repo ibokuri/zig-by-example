@@ -1,3 +1,7 @@
 $ zig run hello-world.zig
-true
-true
+bool
+f32
+comptime_float
+i5
+comptime_int
+type
