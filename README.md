@@ -1,6 +1,13 @@
-# Zig by Example
+<p align="center">
+  <img alt="Ziggy (fast)" src="https://user-images.githubusercontent.com/25558240/150919341-66bce11d-25cf-4d6f-972e-bb2efc0f3a84.png" width="410px">
+  <br/>
+  <br/>
+  <a href="https://ziglang.org/download"><img alt="Zig" src="https://img.shields.io/badge/zig-master-fd9930.svg?style=flat-square"></a>
+  <a href="https://actions-badge.atrox.dev/ibokuri/zigbyexample/goto?ref=main"><img alt="Build status" src="https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Fibokuri%2Fzigbyexample%2Fbadge%3Fref%3Dmain&style=flat-square" /></a>
+  <a href="https://github.com/ibokuri/zigbyexample#license"><img alt="License" src="https://img.shields.io/badge/license-MIT-blue?style=flat-square"></a>
+</p>
 
-Content and build toolchain for [Zig by Example](https://zigbyexample.com).
+<p align="center">Content and build toolchain for <a href="https://zigbyexample.com">Zig by Example</a>.</p>
 
 ## Building
 
