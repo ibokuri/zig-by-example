@@ -10,6 +10,7 @@ import (
 	"os/exec"
 	"path/filepath"
 	"regexp"
+	"sort"
 	"strings"
 	"text/template"
 
@@ -96,12 +97,10 @@ func mustGlob(glob string) []string {
 }
 
 func whichLexer(path string) string {
-	if strings.HasSuffix(path, ".go") {
-		return "go"
+	if strings.HasSuffix(path, ".zig") {
+		return "zig"
 	} else if strings.HasSuffix(path, ".sh") {
 		return "console"
-	} else if strings.HasSuffix(path, ".zig") {
-		return "zig"
 	}
 
 	panic("No lexer for " + path)
@@ -208,13 +207,18 @@ func parseSegs(sourcePath string) ([]*Seg, string) {
 	for i, seg := range segs {
 		seg.CodeEmpty = (seg.Code == "")
 		seg.CodeLeading = (i < (len(segs) - 1))
-		seg.CodeRun = strings.Contains(seg.Code, "package main")
+		seg.CodeRun = strings.Contains(seg.Code, "const std = @import(\"std\");")
 	}
 
 	return segs, filecontent
 }
 
 func chromaFormat(code, filePath string) string {
+	// Without this workaround, the copy icon for a code example appears on its
+	// own, blank line.
+	if strings.HasSuffix(filePath, ".zig") {
+		code = strings.Trim(code, "\n")
+	}
 
 	lexer := lexers.Get(filePath)
 	if lexer == nil {
@@ -243,7 +247,6 @@ func chromaFormat(code, filePath string) string {
 
 func parseAndRenderSegs(sourcePath string) ([]*Seg, string) {
 	segs, filecontent := parseSegs(sourcePath)
-	lexer := whichLexer(sourcePath)
 	for _, seg := range segs {
 		if seg.Docs != "" {
 			seg.DocsRendered = markdown(seg.Docs)
@@ -252,14 +255,15 @@ func parseAndRenderSegs(sourcePath string) ([]*Seg, string) {
 		if seg.Code != "" {
 			seg.CodeRendered = chromaFormat(seg.Code, sourcePath)
 
-			// adding the content to the js code for copying to the clipboard
-			if strings.HasSuffix(sourcePath, ".go") {
+			// Add content to the JS code for copying to the clipboard.
+			if strings.HasSuffix(sourcePath, ".zig") {
 				seg.CodeForJs = strings.Trim(seg.Code, "\n") + "\n"
 			}
 		}
 	}
-	// we are only interested in the 'go' code to pass to play.golang.org
-	if lexer != "go" {
+
+	// When passing code to play.ziglang.org, we only care about Zig code.
+	if lexer := whichLexer(sourcePath); lexer != "zig" {
 		filecontent = ""
 	}
 
@@ -291,7 +295,10 @@ func parseExamples() []*Example {
 		example.ID = exampleID
 		example.Segs = make([][]*Seg, 0)
 
+		// Zig files are globbed after shell files, but must be rendered first.
+		// So, we just reverse the slice of file paths to fix that.
 		sourcePaths := mustGlob("examples/" + exampleID + "/*")
+		sort.Sort(sort.Reverse(sort.StringSlice(sourcePaths)))
 		for _, sourcePath := range sourcePaths {
 			if strings.HasSuffix(sourcePath, ".hash") {
 				example.CodeHash, example.URLHash = parseHashFile(sourcePath)
