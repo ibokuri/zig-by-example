@@ -60,44 +60,36 @@ Here are a few examples.</p>
           </td>
           <td class="code leading">
             
-            <pre class="chroma"><span class="w">    </span><span class="n">std</span><span class="p">.</span><span class="n">debug</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&#34;{}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="kt">bool</span><span class="p">});</span></pre>
+            <pre class="chroma"><span class="w">    </span><span class="n">std</span><span class="p">.</span><span class="n">debug</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&#34;{}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="kc">true</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="kc">false</span><span class="p">});</span><span class="w">
+</span><span class="w">    </span><span class="n">std</span><span class="p">.</span><span class="n">debug</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&#34;{}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="kc">true</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="kc">false</span><span class="p">});</span></pre>
           </td>
         </tr>
         
         <tr>
           <td class="docs">
-            <p>Floats.</p>
+            <p>Integers and floats.</p>
 
           </td>
           <td class="code leading">
             
-            <pre class="chroma"><span class="w">    </span><span class="n">std</span><span class="p">.</span><span class="n">debug</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&#34;{}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="kt">f32</span><span class="p">});</span><span class="w">
-</span><span class="w">    </span><span class="n">std</span><span class="p">.</span><span class="n">debug</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&#34;{}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="kt">comptime_float</span><span class="p">});</span></pre>
+            <pre class="chroma"><span class="w">    </span><span class="n">std</span><span class="p">.</span><span class="n">debug</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&#34;{}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">});</span><span class="w">
+</span><span class="w">    </span><span class="n">std</span><span class="p">.</span><span class="n">debug</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&#34;{}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="mf">1.0</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">2.0</span><span class="p">});</span></pre>
           </td>
         </tr>
         
         <tr>
           <td class="docs">
-            <p>Integers, which may have arbitrary bit widths.</p>
-
-          </td>
-          <td class="code leading">
-            
-            <pre class="chroma"><span class="w">    </span><span class="n">std</span><span class="p">.</span><span class="n">debug</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&#34;{}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="n">i5</span><span class="p">});</span><span class="w">
-</span><span class="w">    </span><span class="n">std</span><span class="p">.</span><span class="n">debug</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&#34;{}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="kt">comptime_int</span><span class="p">});</span></pre>
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>And here&rsquo;s one that may surprise you: <code>type</code>! In Zig, types can be used
-as values, hence why they have their own type. In fact, we&rsquo;ve been using
-types as function arguments for <code>std.debug.print</code> for a while now.</p>
+            <p>And here&rsquo;s one that might surprise you: <code>type</code>! In Zig, types can be
+used as values, hence why they have their own type. This means that we
+can do things like pass around types as function arguments.</p>
 
           </td>
           <td class="code">
             
             <pre class="chroma"><span class="w">    </span><span class="n">std</span><span class="p">.</span><span class="n">debug</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&#34;{}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="kt">type</span><span class="p">});</span><span class="w">
+</span><span class="w">    </span><span class="n">std</span><span class="p">.</span><span class="n">debug</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&#34;{}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="kt">bool</span><span class="p">});</span><span class="w">
+</span><span class="w">    </span><span class="n">std</span><span class="p">.</span><span class="n">debug</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&#34;{}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="kt">i32</span><span class="p">});</span><span class="w">
+</span><span class="w">    </span><span class="n">std</span><span class="p">.</span><span class="n">debug</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&#34;{}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="kt">f32</span><span class="p">});</span><span class="w">
 </span><span class="w"></span><span class="p">}</span></pre>
           </td>
         </tr>
@@ -113,12 +105,14 @@ types as function arguments for <code>std.debug.print</code> for a while now.</p
           <td class="code">
             
             <pre class="chroma"><span class="gp">$</span> zig run hello-world.zig
-<span class="go">bool
-</span><span class="go">f32
-</span><span class="go">comptime_float
-</span><span class="go">i5
-</span><span class="go">comptime_int
-</span><span class="go">type</span></pre>
+<span class="go">false
+</span><span class="go">true
+</span><span class="go">2
+</span><span class="go">5.0e-01
+</span><span class="go">type
+</span><span class="go">bool
+</span><span class="go">i32
+</span><span class="go">f32</span></pre>
           </td>
         </tr>
         
@@ -133,7 +127,7 @@ types as function arguments for <code>std.debug.print</code> for a while now.</p
     </div>
     <script>
       var codeLines = [];
-      codeLines.push('');codeLines.push('const std \u003D @import(\"std\");\u000A');codeLines.push('pub fn main() anyerror!void {\u000A');codeLines.push('    std.debug.print(\"{}\\n\", .{bool});\u000A');codeLines.push('    std.debug.print(\"{}\\n\", .{f32});\u000A    std.debug.print(\"{}\\n\", .{comptime_float});\u000A');codeLines.push('    std.debug.print(\"{}\\n\", .{i5});\u000A    std.debug.print(\"{}\\n\", .{comptime_int});\u000A');codeLines.push('    std.debug.print(\"{}\\n\", .{type});\u000A}\u000A');codeLines.push('');
+      codeLines.push('');codeLines.push('const std \u003D @import(\"std\");\u000A');codeLines.push('pub fn main() anyerror!void {\u000A');codeLines.push('    std.debug.print(\"{}\\n\", .{true and false});\u000A    std.debug.print(\"{}\\n\", .{true or false});\u000A');codeLines.push('    std.debug.print(\"{}\\n\", .{1 + 1});\u000A    std.debug.print(\"{}\\n\", .{1.0 / 2.0});\u000A');codeLines.push('    std.debug.print(\"{}\\n\", .{type});\u000A    std.debug.print(\"{}\\n\", .{bool});\u000A    std.debug.print(\"{}\\n\", .{i32});\u000A    std.debug.print(\"{}\\n\", .{f32});\u000A}\u000A');codeLines.push('');
     </script>
     <script src="site.js" async></script>
   </body>

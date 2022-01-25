@@ -1,7 +1,9 @@
 $ zig run hello-world.zig
-bool
-f32
-comptime_float
-i5
-comptime_int
+false
+true
+2
+5.0e-01
 type
+bool
+i32
+f32
