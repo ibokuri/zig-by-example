@@ -10,7 +10,7 @@
           
           
           if (e.key == "ArrowRight") {
-              window.location.href = 'primitives';
+              window.location.href = 'assignment';
           }
           
       }
@@ -81,7 +81,7 @@ using <code>zig build-exe</code>.</p>
       
       
       <p class="next">
-        Next example: <a href="primitives">Primitives</a>.
+        Next example: <a href="assignment">Assignment</a>.
       </p>
       
 

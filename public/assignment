@@ -9,9 +9,13 @@
       onkeydown = (e) => {
           
           if (e.key == "ArrowLeft") {
-              window.location.href = 'primitives';
+              window.location.href = 'hello-world';
           }
           
+          
+          if (e.key == "ArrowRight") {
+              window.location.href = 'integers';
+          }
           
       }
   </script>
@@ -23,7 +27,7 @@
         
         <tr>
           <td class="docs">
-            <p>To assign a value in Zig, you have two options: constants and variables.</p>
+            <p>In Zig, values may be assigned to constants or variables.</p>
 
           </td>
           <td class="code empty leading">
@@ -54,41 +58,37 @@
         
         <tr>
           <td class="docs">
-            <p>Here, we assign the value <code>true</code> to the identifier <code>constant</code>.
-Identifiers are immutable, which means you cannot change their initial
-value.</p>
+            <p>Here, we assign the value <code>true</code> to the <code>bool</code> constant <code>c</code>.</p>
 
           </td>
           <td class="code leading">
             
-            <pre class="chroma"><span class="w">    </span><span class="kr">const</span><span class="w"> </span><span class="n">constant</span><span class="o">:</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span></pre>
+            <pre class="chroma"><span class="w">    </span><span class="kr">const</span><span class="w"> </span><span class="n">c</span><span class="o">:</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span></pre>
           </td>
         </tr>
         
         <tr>
           <td class="docs">
-            <p>Here, we assign the value <code>false</code> to the variable <code>variable</code>. As their
-name suggests, variables are mutable, meaning we can re-assign
-<code>variable</code>&rsquo;s value from <code>false</code> to <code>true</code>.</p>
+            <p>Here, we assign the value <code>false</code> to the <code>bool</code> variable <code>v</code>.
+Afterwards, we re-assign <code>v</code>&rsquo;s value to <code>true</code>.</p>
 
           </td>
           <td class="code leading">
             
-            <pre class="chroma"><span class="w">    </span><span class="kr">var</span><span class="w"> </span><span class="n">variable</span><span class="o">:</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span><span class="w">
-</span><span class="w">    </span><span class="n">variable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span></pre>
+            <pre class="chroma"><span class="w">    </span><span class="kr">var</span><span class="w"> </span><span class="n">v</span><span class="o">:</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span><span class="w">
+</span><span class="w">    </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span></pre>
           </td>
         </tr>
         
         <tr>
           <td class="docs">
-            <p>For convenience, you can omit type annotations during assignment. The
-compiler will infer the type for you.</p>
+            <p>Note that in most cases, you can omit type annotations.</p>
 
           </td>
           <td class="code leading">
             
-            <pre class="chroma"><span class="w">    </span><span class="kr">const</span><span class="w"> </span><span class="n">inferred_constant</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span><span class="w">
-</span><span class="w">    </span><span class="kr">var</span><span class="w"> </span><span class="n">inferred_variable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span></pre>
+            <pre class="chroma"><span class="w">    </span><span class="kr">const</span><span class="w"> </span><span class="n">inferred_c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span><span class="w">
+</span><span class="w">    </span><span class="kr">var</span><span class="w"> </span><span class="n">inferred_v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span></pre>
           </td>
         </tr>
         
@@ -98,10 +98,10 @@ compiler will infer the type for you.</p>
           </td>
           <td class="code">
             
-            <pre class="chroma"><span class="w">    </span><span class="n">std</span><span class="p">.</span><span class="n">debug</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&#34;{}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="n">constant</span><span class="p">});</span><span class="w">
-</span><span class="w">    </span><span class="n">std</span><span class="p">.</span><span class="n">debug</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&#34;{}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="n">variable</span><span class="p">});</span><span class="w">
-</span><span class="w">    </span><span class="n">std</span><span class="p">.</span><span class="n">debug</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&#34;{}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="n">inferred_constant</span><span class="p">});</span><span class="w">
-</span><span class="w">    </span><span class="n">std</span><span class="p">.</span><span class="n">debug</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&#34;{}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="n">inferred_variable</span><span class="p">});</span><span class="w">
+            <pre class="chroma"><span class="w">    </span><span class="n">std</span><span class="p">.</span><span class="n">debug</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&#34;{}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="n">c</span><span class="p">});</span><span class="w">
+</span><span class="w">    </span><span class="n">std</span><span class="p">.</span><span class="n">debug</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&#34;{}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="n">v</span><span class="p">});</span><span class="w">
+</span><span class="w">    </span><span class="n">std</span><span class="p">.</span><span class="n">debug</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&#34;{}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="n">inferred_c</span><span class="p">});</span><span class="w">
+</span><span class="w">    </span><span class="n">std</span><span class="p">.</span><span class="n">debug</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&#34;{}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="n">inferred_v</span><span class="p">});</span><span class="w">
 </span><span class="w"></span><span class="p">}</span></pre>
           </td>
         </tr>
@@ -127,6 +127,10 @@ compiler will infer the type for you.</p>
       </table>
       
       
+      <p class="next">
+        Next example: <a href="integers">Integers</a>.
+      </p>
+      
 
     <p class="footer">
       by <a href="https://ket.so">Jason Phan</a> | <a href="https://github.com/ibokuri/zig-by-example">source</a> | <a href="https://github.com/ibokuri/zig-by-example#license">license</a>
@@ -135,7 +139,7 @@ compiler will infer the type for you.</p>
     </div>
     <script>
       var codeLines = [];
-      codeLines.push('');codeLines.push('const std \u003D @import(\"std\");\u000A');codeLines.push('pub fn main() anyerror!void {\u000A');codeLines.push('    const constant: bool \u003D true;\u000A');codeLines.push('    var variable: bool \u003D false;\u000A    variable \u003D true;\u000A');codeLines.push('    const inferred_constant \u003D true;\u000A    var inferred_variable \u003D true;\u000A');codeLines.push('    std.debug.print(\"{}\\n\", .{constant});\u000A    std.debug.print(\"{}\\n\", .{variable});\u000A    std.debug.print(\"{}\\n\", .{inferred_constant});\u000A    std.debug.print(\"{}\\n\", .{inferred_variable});\u000A}\u000A');codeLines.push('');
+      codeLines.push('');codeLines.push('const std \u003D @import(\"std\");\u000A');codeLines.push('pub fn main() anyerror!void {\u000A');codeLines.push('    const c: bool \u003D true;\u000A');codeLines.push('    var v: bool \u003D false;\u000A    v \u003D true;\u000A');codeLines.push('    const inferred_c \u003D true;\u000A    var inferred_v \u003D true;\u000A');codeLines.push('    std.debug.print(\"{}\\n\", .{c});\u000A    std.debug.print(\"{}\\n\", .{v});\u000A    std.debug.print(\"{}\\n\", .{inferred_c});\u000A    std.debug.print(\"{}\\n\", .{inferred_v});\u000A}\u000A');codeLines.push('');
     </script>
     <script src="site.js" async></script>
   </body>
