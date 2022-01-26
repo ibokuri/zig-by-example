@@ -13,6 +13,10 @@
           }
           
           
+          if (e.key == "ArrowRight") {
+              window.location.href = 'floats';
+          }
+          
       }
   </script>
   <body>
@@ -68,7 +72,7 @@
         
         <tr>
           <td class="docs">
-            <p>Hang on a second&hellip; Are those 42-bit and 69-bit integers? Yes they are! Zig
+            <p>But wait a second&hellip; Are those 42-bit and 69-bit integers? Yes they are! Zig
 supports arbitrary bit widths for integers.</p>
 
           </td>
@@ -82,8 +86,8 @@ supports arbitrary bit widths for integers.</p>
         <tr>
           <td class="docs">
             <p>Zig also provides a type for compile-time known integers.
-<code>comptime_int</code>s have no size limit and are the default type of integer
-literals and Unicode code point literals.</p>
+The <code>comptime_int</code> type has no size limit and is the default type for
+integer literals and Unicode code point literals.</p>
 
           </td>
           <td class="code leading">
@@ -138,6 +142,10 @@ literals and Unicode code point literals.</p>
         
       </table>
       
+      
+      <p class="next">
+        Next example: <a href="floats">Floats</a>.
+      </p>
       
 
     <p class="footer">

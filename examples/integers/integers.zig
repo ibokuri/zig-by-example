@@ -10,14 +10,14 @@ pub fn main() anyerror!void {
     const c: u64 = 100;
     const d: isize = 1_000;
 
-    // Hang on a second... Are those 42-bit and 69-bit integers? Yes they are! Zig
+    // But wait a second... Are those 42-bit and 69-bit integers? Yes they are! Zig
     // supports arbitrary bit widths for integers.
     const e: i42 = 10_000;
     const f: u69 = 100_000;
 
     // Zig also provides a type for compile-time known integers.
-    // `comptime_int`s have no size limit and are the default type of integer
-    // literals and Unicode code point literals.
+    // The `comptime_int` type has no size limit and is the default type for
+    // integer literals and Unicode code point literals.
     const g: comptime_int = 1_000_000;
     const h = 10_000_000;
     const i = '💯';
