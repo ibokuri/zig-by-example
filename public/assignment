@@ -82,7 +82,8 @@ Afterwards, we re-assign <code>v</code>&rsquo;s value to <code>true</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>Note that in most cases, you can omit type annotations.</p>
+            <p>You can omit type annotations during assignment, in which case the
+complier will infer the type for you.</p>
 
           </td>
           <td class="code leading">

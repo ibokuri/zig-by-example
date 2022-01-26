@@ -12,7 +12,8 @@ pub fn main() anyerror!void {
     var v: bool = false;
     v = true;
 
-    // Note that in most cases, you can omit type annotations.
+    // You can omit type annotations during assignment, in which case the
+    // complier will infer the type for you.
     const inferred_c = true;
     var inferred_v = true;
 
