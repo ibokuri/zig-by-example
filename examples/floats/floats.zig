@@ -1,16 +1,16 @@
-// Unlike integers, floating-points in Zig are as you'd expect.
+// Floating-points in Zig are more or less what you'd expect.
 
 const std = @import("std");
 
 pub fn main() anyerror!void {
 
-    // We have the usual suspects.
+    // You have your usual types.
     const a: f16 = 1.0;
     const b: f32 = 100.0;
     const c: f64 = 1_000.0;
     const d: f128 = 10_000.0;
 
-    // And compile-time known floats
+    // As well as compile-time known floats
     // (i.e., float literals).
     const e: comptime_float = 100_000.0;
     const f = 1_000_000.0;

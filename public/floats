@@ -13,6 +13,10 @@
           }
           
           
+          if (e.key == "ArrowRight") {
+              window.location.href = 'arrays';
+          }
+          
       }
   </script>
   <body>
@@ -23,7 +27,7 @@
         
         <tr>
           <td class="docs">
-            <p>Unlike integers, floating-points in Zig are as you&rsquo;d expect.</p>
+            <p>Floating-points in Zig are more or less what you&rsquo;d expect.</p>
 
           </td>
           <td class="code empty leading">
@@ -54,7 +58,7 @@
         
         <tr>
           <td class="docs">
-            <p>We have the usual suspects.</p>
+            <p>You have your usual types.</p>
 
           </td>
           <td class="code leading">
@@ -68,7 +72,7 @@
         
         <tr>
           <td class="docs">
-            <p>And compile-time known floats
+            <p>As well as compile-time known floats
 (i.e., float literals).</p>
 
           </td>
@@ -117,6 +121,10 @@
         
       </table>
       
+      
+      <p class="next">
+        Next example: <a href="arrays">Arrays</a>.
+      </p>
       
 
     <p class="footer">
