@@ -4,17 +4,17 @@ const std = @import("std");
 
 pub fn main() anyerror!void {
 
-    // We have the usual suspects.
+    // You have the usual suspects.
     const a: u8 = 1;
     const b: i32 = 10;
     const c: u64 = 100;
     const d: isize = 1_000;
 
-    // But we also have arbitrary bit-width integers!
+    // But you also have arbitrary bit-width integers!
     const e: i42 = 10_000;
     const f: u69 = 100_000;
 
-    // Not only that, Zig also has compile-time known integers. These integers
+    // Not only that, Zig supports compile-time known integers. These integers
     // have no size limit and are written as either integer literals or Unicode
     // code point literals.
     const g: comptime_int = 1_000_000;
