@@ -27,8 +27,8 @@
         
         <tr>
           <td class="docs">
-            <p>In Zig, an <em>array</em> is a fixed-size, sequential collection of elements of the
-same type.</p>
+            <p>Zig supports two kinds of pointers: <em>single-item pointers</em> and <em>many-item
+pointers</em>.</p>
 
           </td>
           <td class="code empty leading">
@@ -49,59 +49,62 @@ same type.</p>
         
         <tr>
           <td class="docs">
-            
-          </td>
-          <td class="code leading">
-            
-            <pre class="chroma"><span class="kr">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="kt">anyerror</span><span class="o">!</span><span class="kt">void</span><span class="w"> </span><span class="p">{</span></pre>
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>One way to create an array is by using an <em>array literal</em>. The compiler
-can infer its size if you specify it as <code>_</code>.</p>
+            <p>Single-item pointers point to a single memory address.</p>
 
           </td>
           <td class="code leading">
             
-            <pre class="chroma"><span class="w">    </span><span class="kr">const</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="n">i8</span><span class="p">{</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="p">};</span><span class="w">
-</span><span class="w">    </span><span class="kr">const</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">_</span><span class="p">]</span><span class="n">i8</span><span class="p">{</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="p">};</span></pre>
+            <pre class="chroma"><span class="kr">const</span><span class="w"> </span><span class="n">SingleItemPointer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="kt">bool</span><span class="p">;</span></pre>
           </td>
         </tr>
         
         <tr>
           <td class="docs">
-            <p>Another way to create an array is by using <em>anonymous list literals</em>.</p>
+            <p>Many-item pointers point to an unknown number of memory addresses. They&rsquo;re
+mostly used when interfacing with C code (e.g., C arrays), so we won&rsquo;t discuss
+them here.</p>
 
           </td>
           <td class="code leading">
             
-            <pre class="chroma"><span class="w">    </span><span class="kr">const</span><span class="w"> </span><span class="n">c</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="n">i8</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.{</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="w"> </span><span class="p">};</span></pre>
+            <pre class="chroma"><span class="kr">const</span><span class="w"> </span><span class="n">ManyItemPointer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="o">*</span><span class="p">]</span><span class="kt">bool</span><span class="p">;</span></pre>
           </td>
         </tr>
         
         <tr>
           <td class="docs">
-            <p>All arrays have a <code>len</code> field, allowing you to see their size.</p>
+            
+          </td>
+          <td class="code leading">
+            
+            <pre class="chroma"><span class="kr">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="kt">anyerror</span><span class="o">!</span><span class="kt">void</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="w">    </span><span class="kr">var</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>To get a single-item pointer from a value, use <code>&amp;</code>.</p>
 
           </td>
           <td class="code leading">
             
-            <pre class="chroma"><span class="w">    </span><span class="n">std</span><span class="p">.</span><span class="n">debug</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&#34;{}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="n">c</span><span class="p">.</span><span class="n">len</span><span class="p">});</span></pre>
+            <pre class="chroma"><span class="w">    </span><span class="kr">const</span><span class="w"> </span><span class="n">pointer</span><span class="o">:</span><span class="w"> </span><span class="o">*</span><span class="kt">bool</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">value</span><span class="p">;</span><span class="w">
+</span><span class="w">    </span><span class="n">std</span><span class="p">.</span><span class="n">debug</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&#34;{}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="n">pointer</span><span class="p">});</span></pre>
           </td>
         </tr>
         
         <tr>
           <td class="docs">
-            <p>You can concatenate and repeat arrays if they are both compile-time
-known.</p>
+            <p>To access the value pointed to by a single-item pointer, dereference the
+pointer using the <code>*</code> operator.</p>
 
           </td>
           <td class="code">
             
-            <pre class="chroma"><span class="w">    </span><span class="n">std</span><span class="p">.</span><span class="n">debug</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&#34;{any}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="n">a</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="n">b</span><span class="p">});</span><span class="w">
-</span><span class="w">    </span><span class="n">std</span><span class="p">.</span><span class="n">debug</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&#34;{any}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{[</span><span class="n">_</span><span class="p">]</span><span class="n">i8</span><span class="p">{</span><span class="mi">0</span><span class="p">}</span><span class="w"> </span><span class="o">**</span><span class="w"> </span><span class="mi">6</span><span class="p">});</span><span class="w">
+            <pre class="chroma"><span class="w">    </span><span class="n">std</span><span class="p">.</span><span class="n">debug</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&#34;{}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="n">pointer</span><span class="p">.</span><span class="o">*</span><span class="p">});</span><span class="w">
+</span><span class="w">    </span><span class="n">pointer</span><span class="p">.</span><span class="o">*</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span><span class="w">
+</span><span class="w">    </span><span class="n">std</span><span class="p">.</span><span class="n">debug</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&#34;{}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="n">pointer</span><span class="p">.</span><span class="o">*</span><span class="p">});</span><span class="w">
 </span><span class="w"></span><span class="p">}</span></pre>
           </td>
         </tr>
@@ -116,7 +119,10 @@ known.</p>
           </td>
           <td class="code">
             
-            <pre class="chroma"><span class="gp">$</span> zig run pointers.zig</pre>
+            <pre class="chroma"><span class="gp">$</span> zig run pointers.zig
+<span class="go">bool@7ff7bef324a7
+</span><span class="go">true
+</span><span class="go">false</span></pre>
           </td>
         </tr>
         
@@ -135,7 +141,7 @@ known.</p>
     </div>
     <script>
       var codeLines = [];
-      codeLines.push('');codeLines.push('const std \u003D @import(\"std\");\u000A');codeLines.push('pub fn main() anyerror!void {\u000A');codeLines.push('    const a \u003D [3]i8{ 1, 2, 3 };\u000A    const b \u003D [_]i8{ 4, 5, 6 };\u000A');codeLines.push('    const c: [3]i8 \u003D .{ 7, 8, 9 };\u000A');codeLines.push('    std.debug.print(\"{}\\n\", .{c.len});\u000A');codeLines.push('    std.debug.print(\"{any}\\n\", .{a ++ b});\u000A    std.debug.print(\"{any}\\n\", .{[_]i8{0} ** 6});\u000A}\u000A');codeLines.push('');
+      codeLines.push('');codeLines.push('const std \u003D @import(\"std\");\u000A');codeLines.push('const SingleItemPointer \u003D *bool;\u000A');codeLines.push('const ManyItemPointer \u003D [*]bool;\u000A');codeLines.push('pub fn main() anyerror!void {\u000A    var value \u003D true;\u000A');codeLines.push('    const pointer: *bool \u003D \u0026value;\u000A    std.debug.print(\"{}\\n\", .{pointer});\u000A');codeLines.push('    std.debug.print(\"{}\\n\", .{pointer.*});\u000A    pointer.* \u003D false;\u000A    std.debug.print(\"{}\\n\", .{pointer.*});\u000A}\u000A');codeLines.push('');
     </script>
     <script src="site.js" async></script>
   </body>
