@@ -17,11 +17,6 @@ pub fn main() anyerror!void {
     const inferred_c = true;
     var inferred_v = true;
 
-    std.debug.print("{}\n", .{c});
-    std.debug.print("{}\n", .{v});
-    std.debug.print("{}\n", .{inferred_c});
-    std.debug.print("{}\n", .{inferred_v});
-
     // To create an uninitialized constant or variable, you assign the
     // `undefined` value to it.
     const undefined_c: bool = undefined;
@@ -29,6 +24,10 @@ pub fn main() anyerror!void {
 
     // An assignment can also be used to ignore expressions. Here, we use it to
     // reference our previous declarations.
+    _ = c;
+    _ = v;
+    _ = inferred_c;
+    _ = inferred_v;
     _ = undefined_c;
     _ = undefined_v;
 }
