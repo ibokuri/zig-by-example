@@ -23,4 +23,9 @@ pub fn main() anyerror!void {
     // them.
     std.debug.print("{any}\n", .{a ++ b});
     std.debug.print("{any}\n", .{[_]i32{0} ** 6});
+
+    // To iterate over an array, a `for` loop can be used.
+    for (a) |elem| {
+        std.debug.print("{}\n", .{elem});
+    }
 }

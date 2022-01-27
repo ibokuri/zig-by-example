@@ -109,10 +109,23 @@ can infer its size if you specify it as <code>_</code>.</p>
 them.</p>
 
           </td>
-          <td class="code">
+          <td class="code leading">
             
             <pre class="chroma"><span class="w">    </span><span class="n">std</span><span class="p">.</span><span class="n">debug</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&#34;{any}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="n">a</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="n">b</span><span class="p">});</span><span class="w">
-</span><span class="w">    </span><span class="n">std</span><span class="p">.</span><span class="n">debug</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&#34;{any}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{[</span><span class="n">_</span><span class="p">]</span><span class="kt">i32</span><span class="p">{</span><span class="mi">0</span><span class="p">}</span><span class="w"> </span><span class="o">**</span><span class="w"> </span><span class="mi">6</span><span class="p">});</span><span class="w">
+</span><span class="w">    </span><span class="n">std</span><span class="p">.</span><span class="n">debug</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&#34;{any}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{[</span><span class="n">_</span><span class="p">]</span><span class="kt">i32</span><span class="p">{</span><span class="mi">0</span><span class="p">}</span><span class="w"> </span><span class="o">**</span><span class="w"> </span><span class="mi">6</span><span class="p">});</span></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>To easily iterate over an array, a <code>for</code> loop can be used.</p>
+
+          </td>
+          <td class="code">
+            
+            <pre class="chroma"><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="n">elem</span><span class="o">|</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="w">        </span><span class="n">std</span><span class="p">.</span><span class="n">debug</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&#34;{}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="n">elem</span><span class="p">});</span><span class="w">
+</span><span class="w">    </span><span class="p">}</span><span class="w">
 </span><span class="w"></span><span class="p">}</span></pre>
           </td>
         </tr>
@@ -150,7 +163,7 @@ them.</p>
     </div>
     <script>
       var codeLines = [];
-      codeLines.push('');codeLines.push('const std \u003D @import(\"std\");\u000A');codeLines.push('pub fn main() anyerror!void {\u000A');codeLines.push('    const a \u003D [3]i32{ 1, 2, 3 };\u000A    const b \u003D [_]i32{ 4, 5, 6 };\u000A');codeLines.push('    const c: [3]i32 \u003D .{ 7, 8, 9 };\u000A');codeLines.push('    std.debug.print(\"{}\\n\", .{c.len});\u000A');codeLines.push('    std.debug.print(\"{}\\n\", .{c[0]});\u000A');codeLines.push('    std.debug.print(\"{any}\\n\", .{a ++ b});\u000A    std.debug.print(\"{any}\\n\", .{[_]i32{0} ** 6});\u000A}\u000A');codeLines.push('');
+      codeLines.push('');codeLines.push('const std \u003D @import(\"std\");\u000A');codeLines.push('pub fn main() anyerror!void {\u000A');codeLines.push('    const a \u003D [3]i32{ 1, 2, 3 };\u000A    const b \u003D [_]i32{ 4, 5, 6 };\u000A');codeLines.push('    const c: [3]i32 \u003D .{ 7, 8, 9 };\u000A');codeLines.push('    std.debug.print(\"{}\\n\", .{c.len});\u000A');codeLines.push('    std.debug.print(\"{}\\n\", .{c[0]});\u000A');codeLines.push('    std.debug.print(\"{any}\\n\", .{a ++ b});\u000A    std.debug.print(\"{any}\\n\", .{[_]i32{0} ** 6});\u000A');codeLines.push('    for (a) |elem| {\u000A        std.debug.print(\"{}\\n\", .{elem});\u000A    }\u000A}\u000A');codeLines.push('');
     </script>
     <script src="site.js" async></script>
   </body>
