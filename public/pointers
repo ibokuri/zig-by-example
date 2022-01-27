@@ -2,26 +2,26 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Zig by Example: Arrays</title>
+    <title>Zig by Example: Pointers</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
       onkeydown = (e) => {
           
           if (e.key == "ArrowLeft") {
-              window.location.href = 'floats';
+              window.location.href = 'arrays';
           }
           
           
           if (e.key == "ArrowRight") {
-              window.location.href = 'pointers';
+              window.location.href = 'slices';
           }
           
       }
   </script>
   <body>
-    <div class="example" id="arrays">
-      <h2><a href="./">Zig by Example</a>: Arrays</h2>
+    <div class="example" id="pointers">
+      <h2><a href="./">Zig by Example</a>: Pointers</h2>
       
       <table>
         
@@ -116,10 +116,7 @@ known.</p>
           </td>
           <td class="code">
             
-            <pre class="chroma"><span class="gp">$</span> zig run arrays.zig
-<span class="go">3
-</span><span class="go">{ 1, 2, 3, 4, 5, 6 }
-</span><span class="go">{ 0, 0, 0, 0, 0, 0 }</span></pre>
+            <pre class="chroma"><span class="gp">$</span> zig run pointers.zig</pre>
           </td>
         </tr>
         
@@ -127,7 +124,7 @@ known.</p>
       
       
       <p class="next">
-        Next example: <a href="pointers">Pointers</a>.
+        Next example: <a href="slices">Slices</a>.
       </p>
       
 
