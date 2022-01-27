@@ -1,4 +1,4 @@
-// Floating-points in Zig are more or less what you'd expect.
+// Zig floating-points are more or less what you'd expect.
 
 const std = @import("std");
 

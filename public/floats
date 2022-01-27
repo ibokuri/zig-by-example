@@ -27,7 +27,7 @@
         
         <tr>
           <td class="docs">
-            <p>Floating-points in Zig are more or less what you&rsquo;d expect.</p>
+            <p>Zig floating-points are more or less what you&rsquo;d expect.</p>
 
           </td>
           <td class="code empty leading">
