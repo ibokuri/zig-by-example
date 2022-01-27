@@ -1,23 +1,22 @@
-// Integers in Zig are just like in any other language... Right?
+// Integers in Zig are just like integers in other languages... Sort of.
 
 const std = @import("std");
 
 pub fn main() anyerror!void {
 
-    // Well, it looks like the usual suspects are definitely here...
+    // We have the usual suspects.
     const a: u8 = 1;
     const b: i32 = 10;
     const c: u64 = 100;
     const d: isize = 1_000;
 
-    // But wait a second... Are those 42-bit and 69-bit integers? Yes they are! Zig
-    // supports arbitrary bit widths for integers.
+    // But we also have arbitrary bit-width integers!
     const e: i42 = 10_000;
     const f: u69 = 100_000;
 
-    // Zig also provides a type for compile-time known integers.
-    // The `comptime_int` type has no size limit and is the default type for
-    // integer literals and Unicode code point literals.
+    // Not only that, Zig also has compile-time known integers. These integers
+    // have no size limit and are written as either integer literals or Unicode
+    // code point literals.
     const g: comptime_int = 1_000_000;
     const h = 10_000_000;
     const i = '💯';
