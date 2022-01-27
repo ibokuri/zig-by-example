@@ -1,4 +1,4 @@
-// Integers in Zig are just like integers in other languages... Sort of.
+// Zig integers are just like integers in any other language... Sort of.
 
 const std = @import("std");
 
@@ -14,7 +14,7 @@ pub fn main() anyerror!void {
     const e: i42 = 10_000;
     const f: u69 = 100_000;
 
-    // Not only that, Zig supports compile-time known integers. These integers
+    // Additionally, Zig supports compile-time known integers. These integers
     // have no size limit and are written as either integer literals or Unicode
     // code point literals.
     const g: comptime_int = 1_000_000;

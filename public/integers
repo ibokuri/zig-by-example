@@ -27,7 +27,7 @@
         
         <tr>
           <td class="docs">
-            <p>Integers in Zig are just like integers in other languages&hellip; Sort of.</p>
+            <p>Zig integers are just like integers in any other language&hellip; Sort of.</p>
 
           </td>
           <td class="code empty leading">
@@ -84,7 +84,7 @@
         
         <tr>
           <td class="docs">
-            <p>Not only that, Zig supports compile-time known integers. These integers
+            <p>Additionally, Zig supports compile-time known integers. These integers
 have no size limit and are written as either integer literals or Unicode
 code point literals.</p>
 
