@@ -82,8 +82,8 @@ Afterwards, we re-assign <code>v</code>&rsquo;s value to <code>true</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>You can omit type annotations during assignment, in which case the
-complier will infer the type for you.</p>
+            <p>For convenience, you may omit type annotations during assignment, and
+the complier will infer the type for you.</p>
 
           </td>
           <td class="code leading">
@@ -97,12 +97,39 @@ complier will infer the type for you.</p>
           <td class="docs">
             
           </td>
-          <td class="code">
+          <td class="code leading">
             
             <pre class="chroma"><span class="w">    </span><span class="n">std</span><span class="p">.</span><span class="n">debug</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&#34;{}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="n">c</span><span class="p">});</span><span class="w">
 </span><span class="w">    </span><span class="n">std</span><span class="p">.</span><span class="n">debug</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&#34;{}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="n">v</span><span class="p">});</span><span class="w">
 </span><span class="w">    </span><span class="n">std</span><span class="p">.</span><span class="n">debug</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&#34;{}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="n">inferred_c</span><span class="p">});</span><span class="w">
-</span><span class="w">    </span><span class="n">std</span><span class="p">.</span><span class="n">debug</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&#34;{}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="n">inferred_v</span><span class="p">});</span><span class="w">
+</span><span class="w">    </span><span class="n">std</span><span class="p">.</span><span class="n">debug</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&#34;{}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="n">inferred_v</span><span class="p">});</span></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>To leave a constant or variable uninitialized, assign it the value
+<code>undefined</code>. Note that type annotations are required here because the
+compiler has no hints about the type of the constant or variable.</p>
+
+          </td>
+          <td class="code leading">
+            
+            <pre class="chroma"><span class="w">    </span><span class="kr">const</span><span class="w"> </span><span class="n">undefined_c</span><span class="o">:</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">undefined</span><span class="p">;</span><span class="w">
+</span><span class="w">    </span><span class="kr">var</span><span class="w"> </span><span class="n">undefined_v</span><span class="o">:</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">undefined</span><span class="p">;</span></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>An assignment can also be used to ignore expressions. Here, we use it
+to reference, but not use, <code>undefined_c</code> and <code>undefined_v</code>.</p>
+
+          </td>
+          <td class="code">
+            
+            <pre class="chroma"><span class="w">    </span><span class="n">_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">undefined_c</span><span class="p">;</span><span class="w">
+</span><span class="w">    </span><span class="n">_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">undefined_v</span><span class="p">;</span><span class="w">
 </span><span class="w"></span><span class="p">}</span></pre>
           </td>
         </tr>
@@ -140,7 +167,7 @@ complier will infer the type for you.</p>
     </div>
     <script>
       var codeLines = [];
-      codeLines.push('');codeLines.push('const std \u003D @import(\"std\");\u000A');codeLines.push('pub fn main() anyerror!void {\u000A');codeLines.push('    const c: bool \u003D true;\u000A');codeLines.push('    var v: bool \u003D false;\u000A    v \u003D true;\u000A');codeLines.push('    const inferred_c \u003D true;\u000A    var inferred_v \u003D true;\u000A');codeLines.push('    std.debug.print(\"{}\\n\", .{c});\u000A    std.debug.print(\"{}\\n\", .{v});\u000A    std.debug.print(\"{}\\n\", .{inferred_c});\u000A    std.debug.print(\"{}\\n\", .{inferred_v});\u000A}\u000A');codeLines.push('');
+      codeLines.push('');codeLines.push('const std \u003D @import(\"std\");\u000A');codeLines.push('pub fn main() anyerror!void {\u000A');codeLines.push('    const c: bool \u003D true;\u000A');codeLines.push('    var v: bool \u003D false;\u000A    v \u003D true;\u000A');codeLines.push('    const inferred_c \u003D true;\u000A    var inferred_v \u003D true;\u000A');codeLines.push('    std.debug.print(\"{}\\n\", .{c});\u000A    std.debug.print(\"{}\\n\", .{v});\u000A    std.debug.print(\"{}\\n\", .{inferred_c});\u000A    std.debug.print(\"{}\\n\", .{inferred_v});\u000A');codeLines.push('    const undefined_c: bool \u003D undefined;\u000A    var undefined_v: bool \u003D undefined;\u000A');codeLines.push('    _ \u003D undefined_c;\u000A    _ \u003D undefined_v;\u000A}\u000A');codeLines.push('');
     </script>
     <script src="site.js" async></script>
   </body>
