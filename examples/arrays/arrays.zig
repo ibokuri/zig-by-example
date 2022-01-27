@@ -10,14 +10,18 @@ pub fn main() anyerror!void {
     const a = [3]i32{ 1, 2, 3 };
     const b = [_]i32{ 4, 5, 6 };
 
-    // Another way to create an array is by using _anonymous list literals_.
+    // Another way to create an array is by using an _anonymous list literal_.
+    // Anonymous literals are written as `.{ ... }`.
     const c: [3]i32 = .{ 7, 8, 9 };
 
     // All arrays have a `len` field, allowing you to see their size.
     std.debug.print("{}\n", .{c.len});
 
-    // You can concatenate and repeat arrays if they are both compile-time
-    // known.
+    // To access an element of an array, you index into it.
+    std.debug.print("{}\n", .{c[0]});
+
+    // If two arrays are compile-time known, you can concatenate and repeat
+    // them.
     std.debug.print("{any}\n", .{a ++ b});
     std.debug.print("{any}\n", .{[_]i32{0} ** 6});
 }

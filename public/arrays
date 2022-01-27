@@ -72,7 +72,8 @@ can infer its size if you specify it as <code>_</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>Another way to create an array is by using <em>anonymous list literals</em>.</p>
+            <p>Another way to create an array is by using an <em>anonymous list literal</em>.
+Anonymous literals are written as <code>.{ ... }</code>.</p>
 
           </td>
           <td class="code leading">
@@ -94,8 +95,19 @@ can infer its size if you specify it as <code>_</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>You can concatenate and repeat arrays if they are both compile-time
-known.</p>
+            <p>To access an element of an array, you index into it.</p>
+
+          </td>
+          <td class="code leading">
+            
+            <pre class="chroma"><span class="w">    </span><span class="n">std</span><span class="p">.</span><span class="n">debug</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&#34;{}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">]});</span></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>If two arrays are compile-time known, you can concatenate and repeat
+them.</p>
 
           </td>
           <td class="code">
@@ -118,6 +130,7 @@ known.</p>
             
             <pre class="chroma"><span class="gp">$</span> zig run arrays.zig
 <span class="go">3
+</span><span class="go">7
 </span><span class="go">{ 1, 2, 3, 4, 5, 6 }
 </span><span class="go">{ 0, 0, 0, 0, 0, 0 }</span></pre>
           </td>
@@ -138,7 +151,7 @@ known.</p>
     </div>
     <script>
       var codeLines = [];
-      codeLines.push('');codeLines.push('const std \u003D @import(\"std\");\u000A');codeLines.push('pub fn main() anyerror!void {\u000A');codeLines.push('    const a \u003D [3]i32{ 1, 2, 3 };\u000A    const b \u003D [_]i32{ 4, 5, 6 };\u000A');codeLines.push('    const c: [3]i32 \u003D .{ 7, 8, 9 };\u000A');codeLines.push('    std.debug.print(\"{}\\n\", .{c.len});\u000A');codeLines.push('    std.debug.print(\"{any}\\n\", .{a ++ b});\u000A    std.debug.print(\"{any}\\n\", .{[_]i32{0} ** 6});\u000A}\u000A');codeLines.push('');
+      codeLines.push('');codeLines.push('const std \u003D @import(\"std\");\u000A');codeLines.push('pub fn main() anyerror!void {\u000A');codeLines.push('    const a \u003D [3]i32{ 1, 2, 3 };\u000A    const b \u003D [_]i32{ 4, 5, 6 };\u000A');codeLines.push('    const c: [3]i32 \u003D .{ 7, 8, 9 };\u000A');codeLines.push('    std.debug.print(\"{}\\n\", .{c.len});\u000A');codeLines.push('    std.debug.print(\"{}\\n\", .{c[0]});\u000A');codeLines.push('    std.debug.print(\"{any}\\n\", .{a ++ b});\u000A    std.debug.print(\"{any}\\n\", .{[_]i32{0} ** 6});\u000A}\u000A');codeLines.push('');
     </script>
     <script src="site.js" async></script>
   </body>
