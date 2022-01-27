@@ -27,7 +27,7 @@
         
         <tr>
           <td class="docs">
-            <p>In Zig, values may be assigned to constants or variables.</p>
+            <p>In Zig, values can be assigned to <em>constants</em> or <em>variables</em>.</p>
 
           </td>
           <td class="code empty leading">
@@ -58,7 +58,8 @@
         
         <tr>
           <td class="docs">
-            <p>Here, we assign the value <code>true</code> to the <code>bool</code> constant <code>c</code>.</p>
+            <p>Here, we assign the value <code>true</code> to the <code>bool</code> constant <code>c</code>.
+Constants are immutable, so the value of <code>c</code> cannot change.</p>
 
           </td>
           <td class="code leading">
@@ -70,7 +71,7 @@
         <tr>
           <td class="docs">
             <p>Here, we assign the value <code>false</code> to the <code>bool</code> variable <code>v</code>.
-Afterwards, we re-assign <code>v</code>&rsquo;s value to <code>true</code>.</p>
+Variables are mutable, so the value of <code>v</code> can be re-assigned.</p>
 
           </td>
           <td class="code leading">
@@ -82,7 +83,7 @@ Afterwards, we re-assign <code>v</code>&rsquo;s value to <code>true</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>Often times, the compiler is able to infer types for you.</p>
+            <p>Note that the compiler can often infer types for you.</p>
 
           </td>
           <td class="code leading">
@@ -107,8 +108,8 @@ Afterwards, we re-assign <code>v</code>&rsquo;s value to <code>true</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>If you want to create an uninitialized constant or variable, you must
-use the <code>undefined</code> value.</p>
+            <p>To create an uninitialized constant or variable, you assign the
+<code>undefined</code> value to it.</p>
 
           </td>
           <td class="code leading">

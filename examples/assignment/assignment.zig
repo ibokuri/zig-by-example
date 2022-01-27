@@ -1,18 +1,19 @@
-// In Zig, values may be assigned to constants or variables.
+// In Zig, values can be assigned to _constants_ or _variables_.
 
 const std = @import("std");
 
 pub fn main() anyerror!void {
 
     // Here, we assign the value `true` to the `bool` constant `c`.
+    // Constants are immutable, so the value of `c` cannot change.
     const c: bool = true;
 
     // Here, we assign the value `false` to the `bool` variable `v`.
-    // Afterwards, we re-assign `v`'s value to `true`.
+    // Variables are mutable, so the value of `v` can be re-assigned.
     var v: bool = false;
     v = true;
 
-    // Often times, the compiler is able to infer types for you.
+    // Note that the compiler can often infer types for you.
     const inferred_c = true;
     var inferred_v = true;
 
@@ -21,8 +22,8 @@ pub fn main() anyerror!void {
     std.debug.print("{}\n", .{inferred_c});
     std.debug.print("{}\n", .{inferred_v});
 
-    // If you want to create an uninitialized constant or variable, you must
-    // use the `undefined` value.
+    // To create an uninitialized constant or variable, you assign the
+    // `undefined` value to it.
     const undefined_c: bool = undefined;
     var undefined_v: bool = undefined;
 
