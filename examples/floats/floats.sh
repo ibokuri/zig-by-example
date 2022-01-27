@@ -1,2 +1,2 @@
 $ zig run floats.zig
-float literal: 3.14e+00
+1.0e+06
