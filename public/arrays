@@ -72,8 +72,7 @@ can infer its size if you specify it as <code>_</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>Another way to create an array is by using an <em>anonymous list literal</em>.
-Anonymous literals are written as <code>.{ ... }</code>.</p>
+            <p>Another way to create an array is by using an <em>anonymous list literal</em>.</p>
 
           </td>
           <td class="code leading">

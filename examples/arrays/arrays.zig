@@ -11,7 +11,6 @@ pub fn main() anyerror!void {
     const b = [_]i32{ 4, 5, 6 };
 
     // Another way to create an array is by using an _anonymous list literal_.
-    // Anonymous literals are written as `.{ ... }`.
     const c: [3]i32 = .{ 7, 8, 9 };
 
     // All arrays have a `len` field, allowing you to see their size.
