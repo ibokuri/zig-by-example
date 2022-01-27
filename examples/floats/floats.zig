@@ -1,8 +1,8 @@
-// Zig floating-points are more or less what you'd expect.
+// Zig floating-points a bit less exciting compared to integers.
 
 const std = @import("std");
 
-// You have your usual floating-point types.
+// You have your usual suspects...
 const a: f16 = 1.0;
 const b: f32 = 100.0;
 const c: f64 = 1_000.0;

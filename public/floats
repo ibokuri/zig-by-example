@@ -27,7 +27,7 @@
         
         <tr>
           <td class="docs">
-            <p>Zig floating-points are more or less what you&rsquo;d expect.</p>
+            <p>Zig floating-points a bit less exciting compared to integers.</p>
 
           </td>
           <td class="code empty leading">
@@ -48,7 +48,7 @@
         
         <tr>
           <td class="docs">
-            <p>You have your usual floating-point types.</p>
+            <p>You have your usual suspects&hellip;</p>
 
           </td>
           <td class="code leading">
