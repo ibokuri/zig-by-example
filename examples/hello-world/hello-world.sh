@@ -2,8 +2,8 @@
 $ zig run hello-world.zig
 Hello, World!
 
-# Alternatively, you may compile the program into a binary
-# using `zig build-exe`.
+# To compile the program into a binary, use
+# `zig build-exe`.
 $ zig build-exe hello-world.zig
 $ ./hello-world
 Hello, World!

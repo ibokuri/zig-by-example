@@ -64,8 +64,8 @@
         
         <tr>
           <td class="docs">
-            <p>Alternatively, you may compile the program into a binary
-using <code>zig build-exe</code>.</p>
+            <p>To compile the program into a binary, use
+<code>zig build-exe</code>.</p>
 
           </td>
           <td class="code">
