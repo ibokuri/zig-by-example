@@ -1,5 +1,6 @@
-// Zig supports two kinds of pointers: _single-item pointers_ and _many-item
-// pointers_.
+// In Zig, a _pointer_ is an object that stores a memory address. Zig provides
+// two types of pointers: single- and many-item. Both types of pointers are
+// guaranteed to point to a value.
 
 const std = @import("std");
 
@@ -12,9 +13,9 @@ const SingleItemPointer = *bool;
 const ManyItemPointer = [*]bool;
 
 pub fn main() anyerror!void {
-    var value = true;
 
-    // To get a single-item pointer from a value, use `&`.
+    // To create a single-item pointer from a value, use `&`.
+    var value = true;
     const pointer: *bool = &value;
     std.debug.print("{}\n", .{pointer});
 
@@ -23,4 +24,10 @@ pub fn main() anyerror!void {
     std.debug.print("{}\n", .{pointer.*});
     pointer.* = false;
     std.debug.print("{}\n", .{pointer.*});
+
+    // Note that if the pointed-to value is `const`, the pointer type must
+    // reflect that.
+    const const_value = true;
+    const const_pointer: *const bool = &const_value;
+    std.debug.print("{}\n", .{const_pointer});
 }
