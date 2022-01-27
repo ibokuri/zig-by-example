@@ -107,9 +107,8 @@ Afterwards, we re-assign <code>v</code>&rsquo;s value to <code>true</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>The <code>undefined</code> value can be used to create uninitialized constants or
-variables. Note that type annotations are required here since the
-compiler has no type hints.</p>
+            <p>If you want to create an uninitialized constant or variable, you must
+use the <code>undefined</code> value.</p>
 
           </td>
           <td class="code leading">
@@ -121,8 +120,8 @@ compiler has no type hints.</p>
         
         <tr>
           <td class="docs">
-            <p>Assignments can also be used to ignore expressions. For example, we use
-it here to reference, but not use, <code>undefined_c</code> and <code>undefined_v</code>.</p>
+            <p>An assignment can also be used to ignore expressions. Here, we use it to
+reference our previous declarations.</p>
 
           </td>
           <td class="code">
