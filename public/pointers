@@ -111,7 +111,7 @@ pointer using the <code>*</code> operator.</p>
         
         <tr>
           <td class="docs">
-            <p>Note that if the pointed-to value is <code>const</code>, the pointer type must
+            <p>Note that if a pointed-to value is <code>const</code>, its pointer type must
 reflect that.</p>
 
           </td>

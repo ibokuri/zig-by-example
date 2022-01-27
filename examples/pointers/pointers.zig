@@ -25,7 +25,7 @@ pub fn main() anyerror!void {
     pointer.* = false;
     std.debug.print("{}\n", .{pointer.*});
 
-    // Note that if the pointed-to value is `const`, the pointer type must
+    // Note that if a pointed-to value is `const`, its pointer type must
     // reflect that.
     const const_value = true;
     const const_pointer: *const bool = &const_value;
