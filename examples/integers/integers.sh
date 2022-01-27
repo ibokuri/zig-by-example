@@ -1,10 +1,3 @@
 $ zig run integers.zig
-1
-10
-100
-1000
-10000
-100000
-1000000
-10000000
-128175
+integer literal: 1000
+unicode literal: 128175
