@@ -55,7 +55,7 @@ guaranteed to point to a value.</p>
           </td>
           <td class="code leading">
             
-            <pre class="chroma"><span class="kr">const</span><span class="w"> </span><span class="n">SingleItemPointer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="kt">bool</span><span class="p">;</span></pre>
+            <pre class="chroma"><span class="kr">const</span><span class="w"> </span><span class="n">Single</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="kt">bool</span><span class="p">;</span></pre>
           </td>
         </tr>
         
@@ -68,7 +68,7 @@ them here.</p>
           </td>
           <td class="code leading">
             
-            <pre class="chroma"><span class="kr">const</span><span class="w"> </span><span class="n">ManyItemPointer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="o">*</span><span class="p">]</span><span class="kt">bool</span><span class="p">;</span></pre>
+            <pre class="chroma"><span class="kr">const</span><span class="w"> </span><span class="n">Many</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="o">*</span><span class="p">]</span><span class="kt">bool</span><span class="p">;</span></pre>
           </td>
         </tr>
         
@@ -157,7 +157,7 @@ reflect that.</p>
     </div>
     <script>
       var codeLines = [];
-      codeLines.push('');codeLines.push('const std \u003D @import(\"std\");\u000A');codeLines.push('const SingleItemPointer \u003D *bool;\u000A');codeLines.push('const ManyItemPointer \u003D [*]bool;\u000A');codeLines.push('pub fn main() anyerror!void {\u000A');codeLines.push('    var value \u003D true;\u000A    const pointer: *bool \u003D \u0026value;\u000A    std.debug.print(\"{}\\n\", .{pointer});\u000A');codeLines.push('    std.debug.print(\"{}\\n\", .{pointer.*});\u000A    pointer.* \u003D false;\u000A    std.debug.print(\"{}\\n\", .{pointer.*});\u000A');codeLines.push('    const const_value \u003D true;\u000A    const const_pointer: *const bool \u003D \u0026const_value;\u000A    std.debug.print(\"{}\\n\", .{const_pointer});\u000A}\u000A');codeLines.push('');
+      codeLines.push('');codeLines.push('const std \u003D @import(\"std\");\u000A');codeLines.push('const Single \u003D *bool;\u000A');codeLines.push('const Many \u003D [*]bool;\u000A');codeLines.push('pub fn main() anyerror!void {\u000A');codeLines.push('    var value \u003D true;\u000A    const pointer: *bool \u003D \u0026value;\u000A    std.debug.print(\"{}\\n\", .{pointer});\u000A');codeLines.push('    std.debug.print(\"{}\\n\", .{pointer.*});\u000A    pointer.* \u003D false;\u000A    std.debug.print(\"{}\\n\", .{pointer.*});\u000A');codeLines.push('    const const_value \u003D true;\u000A    const const_pointer: *const bool \u003D \u0026const_value;\u000A    std.debug.print(\"{}\\n\", .{const_pointer});\u000A}\u000A');codeLines.push('');
     </script>
     <script src="site.js" async></script>
   </body>

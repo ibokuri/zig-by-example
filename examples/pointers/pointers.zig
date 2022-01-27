@@ -5,12 +5,12 @@
 const std = @import("std");
 
 // Single-item pointers point to a single memory address.
-const SingleItemPointer = *bool;
+const Single = *bool;
 
 // Many-item pointers point to an unknown number of memory addresses. They're
 // mostly used when interfacing with C code (e.g., C arrays), so we won't discuss
 // them here.
-const ManyItemPointer = [*]bool;
+const Many = [*]bool;
 
 pub fn main() anyerror!void {
 
