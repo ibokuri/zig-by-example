@@ -59,8 +59,8 @@ same type.</p>
         
         <tr>
           <td class="docs">
-            <p>One way to create an array is by using an <em>array literal</em>. The compiler
-can infer its size if you specify it as <code>_</code>.</p>
+            <p>To create a new array, you can write an <em>array literal</em>. Doing so
+allows the compiler to infer its size if it is <code>_</code>.</p>
 
           </td>
           <td class="code leading">
@@ -72,7 +72,9 @@ can infer its size if you specify it as <code>_</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>Another way to create an array is by using an <em>anonymous list literal</em>.</p>
+            <p>Another approach is to use an <em>anonymous list literal</em>. Here, the
+array&rsquo;s type is specified within a type annotation and the assigned
+anonymous list literal coerces to it.</p>
 
           </td>
           <td class="code leading">
@@ -83,23 +85,12 @@ can infer its size if you specify it as <code>_</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>All arrays have a <code>len</code> field, allowing you to see their size.</p>
+            <p>To see the size of an array, access its <code>len</code> field.</p>
 
           </td>
           <td class="code leading">
             
             <pre class="chroma"><span class="w">    </span><span class="n">std</span><span class="p">.</span><span class="n">debug</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&#34;{}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="n">c</span><span class="p">.</span><span class="n">len</span><span class="p">});</span></pre>
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>To access an element of an array, you index into it.</p>
-
-          </td>
-          <td class="code leading">
-            
-            <pre class="chroma"><span class="w">    </span><span class="n">std</span><span class="p">.</span><span class="n">debug</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&#34;{}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">]});</span></pre>
           </td>
         </tr>
         
@@ -118,12 +109,26 @@ them.</p>
         
         <tr>
           <td class="docs">
+            <p>To access an element of an array, index into it using <code>[N]</code>.</p>
+
+          </td>
+          <td class="code leading">
+            
+            <pre class="chroma"><span class="w">    </span><span class="kr">var</span><span class="w"> </span><span class="n">d</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="kt">i32</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">undefined</span><span class="p">;</span><span class="w">
+</span><span class="w">    </span><span class="n">d</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w">
+</span><span class="w">    </span><span class="n">d</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">11</span><span class="p">;</span><span class="w">
+</span><span class="w">    </span><span class="n">d</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">12</span><span class="p">;</span></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
             <p>To iterate over an array, a <code>for</code> loop can be used.</p>
 
           </td>
           <td class="code">
             
-            <pre class="chroma"><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="n">elem</span><span class="o">|</span><span class="w"> </span><span class="p">{</span><span class="w">
+            <pre class="chroma"><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">d</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="n">elem</span><span class="o">|</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span><span class="w">        </span><span class="n">std</span><span class="p">.</span><span class="n">debug</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&#34;{}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="n">elem</span><span class="p">});</span><span class="w">
 </span><span class="w">    </span><span class="p">}</span><span class="w">
 </span><span class="w"></span><span class="p">}</span></pre>
@@ -142,12 +147,11 @@ them.</p>
             
             <pre class="chroma"><span class="gp">$</span> zig run arrays.zig
 <span class="go">3
-</span><span class="go">7
 </span><span class="go">{ 1, 2, 3, 4, 5, 6 }
 </span><span class="go">{ 0, 0, 0, 0, 0, 0 }
-</span><span class="go">1
-</span><span class="go">2
-</span><span class="go">3</span></pre>
+</span><span class="go">10
+</span><span class="go">11
+</span><span class="go">12</span></pre>
           </td>
         </tr>
         
@@ -166,7 +170,7 @@ them.</p>
     </div>
     <script>
       var codeLines = [];
-      codeLines.push('');codeLines.push('const std \u003D @import(\"std\");\u000A');codeLines.push('pub fn main() anyerror!void {\u000A');codeLines.push('    const a \u003D [3]i32{ 1, 2, 3 };\u000A    const b \u003D [_]i32{ 4, 5, 6 };\u000A');codeLines.push('    const c: [3]i32 \u003D .{ 7, 8, 9 };\u000A');codeLines.push('    std.debug.print(\"{}\\n\", .{c.len});\u000A');codeLines.push('    std.debug.print(\"{}\\n\", .{c[0]});\u000A');codeLines.push('    std.debug.print(\"{any}\\n\", .{a ++ b});\u000A    std.debug.print(\"{any}\\n\", .{[_]i32{0} ** 6});\u000A');codeLines.push('    for (a) |elem| {\u000A        std.debug.print(\"{}\\n\", .{elem});\u000A    }\u000A}\u000A');codeLines.push('');
+      codeLines.push('');codeLines.push('const std \u003D @import(\"std\");\u000A');codeLines.push('pub fn main() anyerror!void {\u000A');codeLines.push('    const a \u003D [3]i32{ 1, 2, 3 };\u000A    const b \u003D [_]i32{ 4, 5, 6 };\u000A');codeLines.push('    const c: [3]i32 \u003D .{ 7, 8, 9 };\u000A');codeLines.push('    std.debug.print(\"{}\\n\", .{c.len});\u000A');codeLines.push('    std.debug.print(\"{any}\\n\", .{a ++ b});\u000A    std.debug.print(\"{any}\\n\", .{[_]i32{0} ** 6});\u000A');codeLines.push('    var d: [3]i32 \u003D undefined;\u000A    d[0] \u003D 10;\u000A    d[1] \u003D 11;\u000A    d[2] \u003D 12;\u000A');codeLines.push('    for (d) |elem| {\u000A        std.debug.print(\"{}\\n\", .{elem});\u000A    }\u000A}\u000A');codeLines.push('');
     </script>
     <script src="site.js" async></script>
   </body>
