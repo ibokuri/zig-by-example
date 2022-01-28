@@ -1,8 +1,8 @@
-// _Floating-points_, unlike integers, are pretty normal.
+// _Floating-points_, unlike integers, are relatively normal.
 
 const std = @import("std");
 
-// There's the usual suspects...
+// You have your usual suspects...
 const a: f16 = 1.0;
 const b: f32 = 100.0;
 const c: f64 = 1_000.0;

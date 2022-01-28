@@ -27,7 +27,7 @@
         
         <tr>
           <td class="docs">
-            <p><em>Floating-points</em>, unlike integers, are pretty normal.</p>
+            <p><em>Floating-points</em>, unlike integers, are relatively normal.</p>
 
           </td>
           <td class="code empty leading">
@@ -48,7 +48,7 @@
         
         <tr>
           <td class="docs">
-            <p>There&rsquo;s the usual suspects&hellip;</p>
+            <p>You have your usual suspects&hellip;</p>
 
           </td>
           <td class="code leading">
