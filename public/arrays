@@ -59,8 +59,8 @@ same type.</p>
         
         <tr>
           <td class="docs">
-            <p>To create a new array, you can write an <em>array literal</em>. Doing so
-allows the compiler to infer its size if it is <code>_</code>.</p>
+            <p>To create an array, you can use an <em>array literal</em>. Doing so
+allows the compiler to infer its size if it is specified as <code>_</code>.</p>
 
           </td>
           <td class="code leading">
@@ -73,8 +73,8 @@ allows the compiler to infer its size if it is <code>_</code>.</p>
         <tr>
           <td class="docs">
             <p>Another approach is to use an <em>anonymous list literal</em>. Here, the
-array&rsquo;s type is specified within a type annotation and the assigned
-anonymous list literal coerces to it.</p>
+anonymous list literal on the right-hand side coerces to the array type
+specified in the type annotation.</p>
 
           </td>
           <td class="code leading">
@@ -109,7 +109,7 @@ them.</p>
         
         <tr>
           <td class="docs">
-            <p>To access an element of an array, index into it using <code>[N]</code>.</p>
+            <p>To access an element of an array, use the <code>[N]</code> syntax.</p>
 
           </td>
           <td class="code leading">
@@ -123,7 +123,7 @@ them.</p>
         
         <tr>
           <td class="docs">
-            <p>To iterate over an array, a <code>for</code> loop can be used.</p>
+            <p>To iterate over an array, you can use a <code>for</code> loop.</p>
 
           </td>
           <td class="code">
