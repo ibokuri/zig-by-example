@@ -16,18 +16,17 @@ pub fn main() anyerror!void {
 
     // To create a single-item pointer from a value, use `&`.
     var value = true;
-    const pointer: *bool = &value;
-    std.debug.print("{}\n", .{pointer});
+    var ptr: *bool = &value;
+    std.debug.print("{}\n", .{ptr});
 
     // To access the value pointed to by a single-item pointer, dereference the
     // pointer using the `*` operator.
-    std.debug.print("{}\n", .{pointer.*});
-    pointer.* = false;
-    std.debug.print("{}\n", .{pointer.*});
+    std.debug.print("{}\n", .{ptr.*});
+    ptr.* = false;
+    std.debug.print("{}\n", .{ptr.*});
 
-    // Note that if a pointed-to value is `const`, its pointer type must
-    // reflect that.
+    // Note that if a value is `const`, its pointer type is also `const`.
     const const_value = true;
-    const const_pointer: *const bool = &const_value;
-    std.debug.print("{}\n", .{const_pointer});
+    var ptr_to_const: *const bool = &const_value;
+    std.debug.print("{}\n", .{ptr_to_const});
 }
