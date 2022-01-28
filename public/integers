@@ -62,7 +62,7 @@
         
         <tr>
           <td class="docs">
-            <p>But you also have things like a 42- or 55-bit integer!</p>
+            <p>But you also have things like 42- and 55-bit integers!</p>
 
           </td>
           <td class="code leading">

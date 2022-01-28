@@ -8,7 +8,7 @@ const b: i32 = 10;
 const c: i64 = 100;
 const d: usize = 1_000;
 
-// But you also have things like a 42- or 55-bit integer!
+// But you also have things like 42- and 55-bit integers!
 const e: i42 = 10_000;
 const f: u55 = 100_000;
 
