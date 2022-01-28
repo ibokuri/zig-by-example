@@ -1,6 +1,6 @@
-// In Zig, a _pointer_ is an object that stores a memory address. Zig provides
-// two types of pointers: single- and many-item. Both types of pointers are
-// guaranteed to point to a value.
+// A _pointer_ is an object that stores a memory address. Zig has two types of
+// pointers: single-item and many-item. Both pointer types are guaranteed to
+// point to a value.
 
 const std = @import("std");
 
