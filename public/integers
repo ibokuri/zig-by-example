@@ -27,7 +27,7 @@
         
         <tr>
           <td class="docs">
-            <p>In Zig, <em>integers</em> can have arbitrary bit widths.</p>
+            <p>In Zig, <em>integers</em> have arbitrary bit widths.</p>
 
           </td>
           <td class="code empty leading">
@@ -48,7 +48,7 @@
         
         <tr>
           <td class="docs">
-            <p>That means you have your usual integer types&hellip;</p>
+            <p>There&rsquo;s the usual integer types&hellip;</p>
 
           </td>
           <td class="code leading">
@@ -62,7 +62,7 @@
         
         <tr>
           <td class="docs">
-            <p>But you also have things like 42- and 55-bit integers!</p>
+            <p>But there&rsquo;s also things like 42- and 55-bit integers!</p>
 
           </td>
           <td class="code leading">

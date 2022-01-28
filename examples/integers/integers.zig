@@ -1,14 +1,14 @@
-// In Zig, _integers_ can have arbitrary bit widths.
+// In Zig, _integers_ have arbitrary bit widths.
 
 const std = @import("std");
 
-// That means you have your usual integer types...
+// There's the usual integer types...
 const a: u8 = 1;
 const b: i32 = 10;
 const c: i64 = 100;
 const d: usize = 1_000;
 
-// But you also have things like 42- and 55-bit integers!
+// But there's also things like 42- and 55-bit integers!
 const e: i42 = 10_000;
 const f: u55 = 100_000;
 
