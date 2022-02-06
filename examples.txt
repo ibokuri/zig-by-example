@@ -4,17 +4,3 @@ Integers
 Floats
 Arrays
 Pointers
-Slices
-Strings
-Structs
-Enums
-Unions
-Optionals
-If-Else
-Switch
-While
-For
-Defer
-Errors
-Functions
-Comptime
