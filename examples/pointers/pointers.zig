@@ -25,7 +25,7 @@ pub fn main() anyerror!void {
     std.debug.print("{}\n", .{ptr});
 
     // To access the value located at the memory address stored by a
-    // single-item pointer, you use the `*` operator.
+    // single-item pointer, use the `*` operator.
     std.debug.print("{}\n", .{ptr.*});
     ptr.* = false;
     std.debug.print("{}\n", .{ptr.*});
@@ -34,4 +34,10 @@ pub fn main() anyerror!void {
     const const_value = true;
     var ptr_to_const: *const bool = &const_value;
     std.debug.print("{}\n", .{ptr_to_const});
+
+    // And if a pointer is `const`, that just means you can't change the
+    // address stored by the pointer.
+    const const_ptr = &value;
+    const_ptr.* = true;
+    std.debug.print("{}\n", .{ptr.*});
 }
