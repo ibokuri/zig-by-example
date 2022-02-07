@@ -17,10 +17,11 @@ const Many = [*]bool;
 const Null = ?*bool;
 
 pub fn main() anyerror!void {
+    var value = true;
+    const const_value = true;
 
     // To create a single-item pointer, you use the `&` operator. Here, `ptr`
     // is a pointer that stores `value`'s memory address.
-    var value = true;
     var ptr: *bool = &value;
     std.debug.print("{}\n", .{ptr});
 
@@ -31,13 +32,6 @@ pub fn main() anyerror!void {
     std.debug.print("{}\n", .{ptr.*});
 
     // Note that if a value is `const`, its pointer type is also `const`.
-    const const_value = true;
     var ptr_to_const: *const bool = &const_value;
     std.debug.print("{}\n", .{ptr_to_const});
-
-    // And if a pointer is `const`, that just means you can't change the
-    // address stored by the pointer.
-    const const_ptr = &value;
-    const_ptr.* = true;
-    std.debug.print("{}\n", .{ptr.*});
 }

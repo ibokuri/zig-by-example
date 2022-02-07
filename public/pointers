@@ -86,7 +86,9 @@ href="https://zig-by-example.com/optionals">Optionals</a>.</p>
           </td>
           <td class="code leading">
             
-            <pre class="chroma"><span class="kr">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="kt">anyerror</span><span class="o">!</span><span class="kt">void</span><span class="w"> </span><span class="p">{</span></pre>
+            <pre class="chroma"><span class="kr">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="kt">anyerror</span><span class="o">!</span><span class="kt">void</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="w">    </span><span class="kr">var</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span><span class="w">
+</span><span class="w">    </span><span class="kr">const</span><span class="w"> </span><span class="n">const_value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span></pre>
           </td>
         </tr>
         
@@ -98,8 +100,7 @@ is a pointer that stores <code>value</code>&rsquo;s memory address.</p>
           </td>
           <td class="code leading">
             
-            <pre class="chroma"><span class="w">    </span><span class="kr">var</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span><span class="w">
-</span><span class="w">    </span><span class="kr">var</span><span class="w"> </span><span class="n">ptr</span><span class="o">:</span><span class="w"> </span><span class="o">*</span><span class="kt">bool</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">value</span><span class="p">;</span><span class="w">
+            <pre class="chroma"><span class="w">    </span><span class="kr">var</span><span class="w"> </span><span class="n">ptr</span><span class="o">:</span><span class="w"> </span><span class="o">*</span><span class="kt">bool</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">value</span><span class="p">;</span><span class="w">
 </span><span class="w">    </span><span class="n">std</span><span class="p">.</span><span class="n">debug</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&#34;{}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="n">ptr</span><span class="p">});</span></pre>
           </td>
         </tr>
@@ -123,25 +124,10 @@ single-item pointer, use the <code>*</code> operator.</p>
             <p>Note that if a value is <code>const</code>, its pointer type is also <code>const</code>.</p>
 
           </td>
-          <td class="code leading">
-            
-            <pre class="chroma"><span class="w">    </span><span class="kr">const</span><span class="w"> </span><span class="n">const_value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span><span class="w">
-</span><span class="w">    </span><span class="kr">var</span><span class="w"> </span><span class="n">ptr_to_const</span><span class="o">:</span><span class="w"> </span><span class="o">*</span><span class="kr">const</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">const_value</span><span class="p">;</span><span class="w">
-</span><span class="w">    </span><span class="n">std</span><span class="p">.</span><span class="n">debug</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&#34;{}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="n">ptr_to_const</span><span class="p">});</span></pre>
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>And if a pointer is <code>const</code>, that just means you can&rsquo;t change the
-address stored by the pointer.</p>
-
-          </td>
           <td class="code">
             
-            <pre class="chroma"><span class="w">    </span><span class="kr">const</span><span class="w"> </span><span class="n">const_ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">value</span><span class="p">;</span><span class="w">
-</span><span class="w">    </span><span class="n">const_ptr</span><span class="p">.</span><span class="o">*</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span><span class="w">
-</span><span class="w">    </span><span class="n">std</span><span class="p">.</span><span class="n">debug</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&#34;{}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="n">ptr</span><span class="p">.</span><span class="o">*</span><span class="p">});</span><span class="w">
+            <pre class="chroma"><span class="w">    </span><span class="kr">var</span><span class="w"> </span><span class="n">ptr_to_const</span><span class="o">:</span><span class="w"> </span><span class="o">*</span><span class="kr">const</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">const_value</span><span class="p">;</span><span class="w">
+</span><span class="w">    </span><span class="n">std</span><span class="p">.</span><span class="n">debug</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&#34;{}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="n">ptr_to_const</span><span class="p">});</span><span class="w">
 </span><span class="w"></span><span class="p">}</span></pre>
           </td>
         </tr>
@@ -160,8 +146,7 @@ address stored by the pointer.</p>
 <span class="go">bool@7ff7b26e24a7
 </span><span class="go">true
 </span><span class="go">false
-</span><span class="go">bool@10d869c68
-</span><span class="go">true</span></pre>
+</span><span class="go">bool@10d869c68</span></pre>
           </td>
         </tr>
         
@@ -176,7 +161,7 @@ address stored by the pointer.</p>
     </div>
     <script>
       var codeLines = [];
-      codeLines.push('');codeLines.push('const std \u003D @import(\"std\");\u000A');codeLines.push('const Single \u003D *bool;\u000A');codeLines.push('const Many \u003D [*]bool;\u000A');codeLines.push('const Null \u003D ?*bool;\u000A');codeLines.push('pub fn main() anyerror!void {\u000A');codeLines.push('    var value \u003D true;\u000A    var ptr: *bool \u003D \u0026value;\u000A    std.debug.print(\"{}\\n\", .{ptr});\u000A');codeLines.push('    std.debug.print(\"{}\\n\", .{ptr.*});\u000A    ptr.* \u003D false;\u000A    std.debug.print(\"{}\\n\", .{ptr.*});\u000A');codeLines.push('    const const_value \u003D true;\u000A    var ptr_to_const: *const bool \u003D \u0026const_value;\u000A    std.debug.print(\"{}\\n\", .{ptr_to_const});\u000A');codeLines.push('    const const_ptr \u003D \u0026value;\u000A    const_ptr.* \u003D true;\u000A    std.debug.print(\"{}\\n\", .{ptr.*});\u000A}\u000A');codeLines.push('');
+      codeLines.push('');codeLines.push('const std \u003D @import(\"std\");\u000A');codeLines.push('const Single \u003D *bool;\u000A');codeLines.push('const Many \u003D [*]bool;\u000A');codeLines.push('const Null \u003D ?*bool;\u000A');codeLines.push('pub fn main() anyerror!void {\u000A    var value \u003D true;\u000A    const const_value \u003D true;\u000A');codeLines.push('    var ptr: *bool \u003D \u0026value;\u000A    std.debug.print(\"{}\\n\", .{ptr});\u000A');codeLines.push('    std.debug.print(\"{}\\n\", .{ptr.*});\u000A    ptr.* \u003D false;\u000A    std.debug.print(\"{}\\n\", .{ptr.*});\u000A');codeLines.push('    var ptr_to_const: *const bool \u003D \u0026const_value;\u000A    std.debug.print(\"{}\\n\", .{ptr_to_const});\u000A}\u000A');codeLines.push('');
     </script>
     <script src="site.js" async></script>
   </body>
