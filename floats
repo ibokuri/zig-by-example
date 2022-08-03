@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Zig by Example: Floats</title>
+    <link rel=stylesheet href="site.css">
+  </head>
+  <script>
+      onkeydown = (e) => {
+          
+          if (e.key == "ArrowLeft") {
+              window.location.href = 'integers';
+          }
+          
+          
+          if (e.key == "ArrowRight") {
+              window.location.href = 'arrays';
+          }
+          
+      }
+  </script>
+  <body>
+    <div class="example" id="floats">
+      <h2><a href="./">Zig by Example</a>: Floats</h2>
+      
+      <table>
+        
+        <tr>
+          <td class="docs">
+            <p><em>Floating-points</em> in Zig are just like integers, except there aren&rsquo;t any arbitrary bit-width floats.</p>
+
+          </td>
+          <td class="code empty leading">
+            
+            
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code leading">
+            <img title="Copy code" src="clipboard.png" class="copy" />
+            <pre class="chroma"><span class="kr">const</span><span class="w"> </span><span class="n">std</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">@import</span><span class="p">(</span><span class="s">&#34;std&#34;</span><span class="p">);</span><span class="w">
+</span><span class="w"></span><span class="kr">const</span><span class="w"> </span><span class="n">print</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="p">.</span><span class="n">debug</span><span class="p">.</span><span class="n">print</span><span class="p">;</span></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>You have your usual floating-point types&hellip;</p>
+
+          </td>
+          <td class="code leading">
+            
+            <pre class="chroma"><span class="kr">const</span><span class="w"> </span><span class="n">a</span><span class="o">:</span><span class="w"> </span><span class="kt">f16</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0</span><span class="p">;</span><span class="w">
+</span><span class="w"></span><span class="kr">const</span><span class="w"> </span><span class="n">b</span><span class="o">:</span><span class="w"> </span><span class="kt">f32</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">100.0</span><span class="p">;</span><span class="w">
+</span><span class="w"></span><span class="kr">const</span><span class="w"> </span><span class="n">c</span><span class="o">:</span><span class="w"> </span><span class="kt">f64</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1_000</span><span class="p">.</span><span class="mi">0</span><span class="p">;</span><span class="w">
+</span><span class="w"></span><span class="kr">const</span><span class="w"> </span><span class="n">d</span><span class="o">:</span><span class="w"> </span><span class="kt">f128</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10_000</span><span class="p">.</span><span class="mi">0</span><span class="p">;</span></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>And a type for compile-time known floating-point values. These have no size
+limit and are written as float literals.</p>
+
+          </td>
+          <td class="code leading">
+            
+            <pre class="chroma"><span class="kr">const</span><span class="w"> </span><span class="n">e</span><span class="o">:</span><span class="w"> </span><span class="kt">comptime_float</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100_000</span><span class="p">.</span><span class="mi">0</span><span class="p">;</span><span class="w">
+</span><span class="w"></span><span class="kr">const</span><span class="w"> </span><span class="n">float_literal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1_000_000</span><span class="p">.</span><span class="mi">0</span><span class="p">;</span></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code">
+            
+            <pre class="chroma"><span class="kr">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="kt">anyerror</span><span class="o">!</span><span class="kt">void</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="w">    </span><span class="n">print</span><span class="p">(</span><span class="s">&#34;float: {}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="n">float_literal</span><span class="p">});</span><span class="w">
+</span><span class="w"></span><span class="p">}</span></pre>
+          </td>
+        </tr>
+        
+      </table>
+      
+      <table>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code">
+            
+            <pre class="chroma"><span class="gp">$</span> zig run floats.zig
+<span class="go">float: 1.0e+06</span></pre>
+          </td>
+        </tr>
+        
+      </table>
+      
+      
+      <p class="next">
+        Next example: <a href="arrays">Arrays</a>.
+      </p>
+      
+
+    <p class="footer">
+      by <a href="https://github.com/ibokuri">Jason Phan</a> | <a href="https://github.com/ibokuri/zig-by-example">source</a> | <a href="https://github.com/ibokuri/zig-by-example#license">license</a>
+    </p>
+
+    </div>
+    <script>
+      var codeLines = [];
+      codeLines.push('');codeLines.push('const std \u003D @import(\"std\");\u000Aconst print \u003D std.debug.print;\u000A');codeLines.push('const a: f16 \u003D 1.0;\u000Aconst b: f32 \u003D 100.0;\u000Aconst c: f64 \u003D 1_000.0;\u000Aconst d: f128 \u003D 10_000.0;\u000A');codeLines.push('const e: comptime_float \u003D 100_000.0;\u000Aconst float_literal \u003D 1_000_000.0;\u000A');codeLines.push('pub fn main() anyerror!void {\u000A    print(\"float: {}\\n\", .{float_literal});\u000A}\u000A');codeLines.push('');
+    </script>
+    <script src="site.js" async></script>
+  </body>
+</html>

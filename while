@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Zig by Example: While</title>
+    <link rel=stylesheet href="site.css">
+  </head>
+  <script>
+      onkeydown = (e) => {
+          
+          if (e.key == "ArrowLeft") {
+              window.location.href = 'slices';
+          }
+          
+          
+          if (e.key == "ArrowRight") {
+              window.location.href = 'for';
+          }
+          
+      }
+  </script>
+  <body>
+    <div class="example" id="while">
+      <h2><a href="./">Zig by Example</a>: While</h2>
+      
+      <table>
+        
+        <tr>
+          <td class="docs">
+            <p>To repeat an expression in Zig, <em>while</em> loops can be used.</p>
+
+          </td>
+          <td class="code empty leading">
+            
+            
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code leading">
+            <img title="Copy code" src="clipboard.png" class="copy" />
+            <pre class="chroma"><span class="kr">const</span><span class="w"> </span><span class="n">std</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">@import</span><span class="p">(</span><span class="s">&#34;std&#34;</span><span class="p">);</span><span class="w">
+</span><span class="w"></span><span class="kr">const</span><span class="w"> </span><span class="n">print</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="p">.</span><span class="n">debug</span><span class="p">.</span><span class="n">print</span><span class="p">;</span></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code leading">
+            
+            <pre class="chroma"><span class="kr">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="kt">anyerror</span><span class="o">!</span><span class="kt">void</span><span class="w"> </span><span class="p">{</span></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>The body of a while loop will repeatedly execute until the while loop&rsquo;s
+condition is no longer true.</p>
+
+          </td>
+          <td class="code leading">
+            
+            <pre class="chroma"><span class="w">    </span><span class="kr">var</span><span class="w"> </span><span class="n">i</span><span class="o">:</span><span class="w"> </span><span class="kt">usize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">
+</span><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="w">        </span><span class="n">print</span><span class="p">(</span><span class="s">&#34;i: {}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="n">i</span><span class="p">});</span><span class="w">
+</span><span class="w">        </span><span class="n">i</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">
+</span><span class="w">    </span><span class="p">}</span></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>While loops support <em>continue expressions</em>, which are evaluated each
+time the loop&rsquo;s body is executed.</p>
+
+          </td>
+          <td class="code leading">
+            
+            <pre class="chroma"><span class="w">    </span><span class="kr">var</span><span class="w"> </span><span class="n">j</span><span class="o">:</span><span class="w"> </span><span class="kt">usize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">
+</span><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="w">        </span><span class="n">print</span><span class="p">(</span><span class="s">&#34;j: {}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="n">j</span><span class="p">});</span><span class="w">
+</span><span class="w">    </span><span class="p">}</span></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>To break out of a while loop, use the <code>break</code> keyword.</p>
+
+          </td>
+          <td class="code leading">
+            
+            <pre class="chroma"><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="kc">true</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="w">        </span><span class="k">break</span><span class="p">;</span><span class="w">
+</span><span class="w">    </span><span class="p">}</span></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>To jump to the next iteration of a while loop, use the <code>continue</code>
+keyword.</p>
+
+          </td>
+          <td class="code leading">
+            
+            <pre class="chroma"><span class="w">    </span><span class="kr">var</span><span class="w"> </span><span class="n">k</span><span class="o">:</span><span class="w"> </span><span class="kt">usize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">
+</span><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="kc">true</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="n">k</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">k</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="w">            </span><span class="n">print</span><span class="p">(</span><span class="s">&#34;k: {}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="n">k</span><span class="p">});</span><span class="w">
+</span><span class="w">            </span><span class="k">continue</span><span class="p">;</span><span class="w">
+</span><span class="w">        </span><span class="p">}</span></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code">
+            
+            <pre class="chroma"><span class="w">        </span><span class="k">break</span><span class="p">;</span><span class="w">
+</span><span class="w">    </span><span class="p">}</span><span class="w">
+</span><span class="w"></span><span class="p">}</span></pre>
+          </td>
+        </tr>
+        
+      </table>
+      
+      <table>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code">
+            
+            <pre class="chroma"><span class="gp">$</span> zig run while.zig
+<span class="go">i: 0
+</span><span class="go">i: 1
+</span><span class="go">j: 0
+</span><span class="go">j: 1
+</span><span class="go">k: 0
+</span><span class="go">k: 1</span></pre>
+          </td>
+        </tr>
+        
+      </table>
+      
+      
+      <p class="next">
+        Next example: <a href="for">For</a>.
+      </p>
+      
+
+    <p class="footer">
+      by <a href="https://github.com/ibokuri">Jason Phan</a> | <a href="https://github.com/ibokuri/zig-by-example">source</a> | <a href="https://github.com/ibokuri/zig-by-example#license">license</a>
+    </p>
+
+    </div>
+    <script>
+      var codeLines = [];
+      codeLines.push('');codeLines.push('const std \u003D @import(\"std\");\u000Aconst print \u003D std.debug.print;\u000A');codeLines.push('pub fn main() anyerror!void {\u000A');codeLines.push('    var i: usize \u003D 0;\u000A    while (i \u003C 2) {\u000A        print(\"i: {}\\n\", .{i});\u000A        i +\u003D 1;\u000A    }\u000A');codeLines.push('    var j: usize \u003D 0;\u000A    while (j \u003C 2) : (j +\u003D 1) {\u000A        print(\"j: {}\\n\", .{j});\u000A    }\u000A');codeLines.push('    while (true) {\u000A        break;\u000A    }\u000A');codeLines.push('    var k: usize \u003D 0;\u000A    while (true) : (k +\u003D 1) {\u000A        if (k \u003C 2) {\u000A            print(\"k: {}\\n\", .{k});\u000A            continue;\u000A        }\u000A');codeLines.push('        break;\u000A    }\u000A}\u000A');codeLines.push('');
+    </script>
+    <script src="site.js" async></script>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Zig by Example: Switch</title>
+    <link rel=stylesheet href="site.css">
+  </head>
+  <script>
+      onkeydown = (e) => {
+          
+          if (e.key == "ArrowLeft") {
+              window.location.href = 'if-else';
+          }
+          
+          
+          if (e.key == "ArrowRight") {
+              window.location.href = 'while';
+          }
+          
+      }
+  </script>
+  <body>
+    <div class="example" id="switch">
+      <h2><a href="./">Zig by Example</a>: Switch</h2>
+      
+      
+      <p class="next">
+        Next example: <a href="while">While</a>.
+      </p>
+      
+
+    <p class="footer">
+      by <a href="https://ket.so">Jason Phan</a> | <a href="https://github.com/ibokuri/zig-by-example">source</a> | <a href="https://github.com/ibokuri/zig-by-example#license">license</a>
+    </p>
+
+    </div>
+    <script>
+      var codeLines = [];
+      
+    </script>
+    <script src="site.js" async></script>
+  </body>
+</html>
