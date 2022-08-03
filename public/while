@@ -13,6 +13,10 @@
           }
           
           
+          if (e.key == "ArrowRight") {
+              window.location.href = 'for';
+          }
+          
       }
   </script>
   <body>
@@ -148,6 +152,10 @@ keyword.</p>
         
       </table>
       
+      
+      <p class="next">
+        Next example: <a href="for">For</a>.
+      </p>
       
 
     <p class="footer">
