@@ -27,8 +27,7 @@
         
         <tr>
           <td class="docs">
-            <p>Unlike integers, there are only a few <em>floating-point</em> types supported by
-Zig.</p>
+            <p><em>Floating-points</em> in Zig are just like integers, except there aren&rsquo;t any arbitrary bit-width floats.</p>
 
           </td>
           <td class="code empty leading">
@@ -49,7 +48,7 @@ Zig.</p>
         
         <tr>
           <td class="docs">
-            <p>You have the usual suspects&hellip;</p>
+            <p>You have your usual floating-point types&hellip;</p>
 
           </td>
           <td class="code leading">
@@ -63,8 +62,8 @@ Zig.</p>
         
         <tr>
           <td class="docs">
-            <p>And a type for compile-time known floating-point values. These have no
-size limit and are written as float literals.</p>
+            <p>And a type for compile-time known floating-point values. These have no size
+limit and are written as float literals.</p>
 
           </td>
           <td class="code leading">
