@@ -119,7 +119,8 @@ side.</p>
         
         <tr>
           <td class="docs">
-            <p>To access an element of an array, use the <code>[N]</code> syntax, where <code>N</code> is the position of the element (starting from 0).</p>
+            <p>To access an element of an array, use the <code>[N]</code> syntax, where <code>N</code> is the
+position of the element (starting from 0).</p>
 
           </td>
           <td class="code leading">
@@ -133,7 +134,8 @@ side.</p>
         
         <tr>
           <td class="docs">
-            <p>To iterate over an array, you can use a <code>for</code> loop.</p>
+            <p>To iterate over an array, you can use a <a
+href="https://zig-by-example.com/for">For loop</a>.</p>
 
           </td>
           <td class="code">
