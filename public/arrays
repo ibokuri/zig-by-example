@@ -27,7 +27,7 @@
         
         <tr>
           <td class="docs">
-            <p>In Zig, an <em>array</em> is a fixed-size, sequential collection of elements of the
+            <p>An <em>array</em> is a fixed-size, sequential collection of elements of the
 same type.</p>
 
           </td>
@@ -59,8 +59,8 @@ same type.</p>
         
         <tr>
           <td class="docs">
-            <p>To create an array, you can use an <em>array literal</em>. Doing so
-allows the compiler to infer its size if it is specified as <code>_</code>.</p>
+            <p>To make an array, you can use an <em>array literal</em>. The compiler
+will infer the array&rsquo;s size if it is specified as <code>_</code>.</p>
 
           </td>
           <td class="code leading">
@@ -72,9 +72,9 @@ allows the compiler to infer its size if it is specified as <code>_</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>Another approach is to use an <em>anonymous list literal</em>. Here, the
-anonymous list literal on the right-hand side coerces to the array type
-specified in the type annotation.</p>
+            <p>You can also use an <em>anonymous list literal</em>. Here, the value on the
+right-hand side coerces to the array type specified on the left-hand
+side.</p>
 
           </td>
           <td class="code leading">
@@ -85,7 +85,7 @@ specified in the type annotation.</p>
         
         <tr>
           <td class="docs">
-            <p>To see the size of an array, access its <code>len</code> field.</p>
+            <p>Every array has a <code>len</code> field that stores the array&rsquo;s size.</p>
 
           </td>
           <td class="code leading">
@@ -96,20 +96,29 @@ specified in the type annotation.</p>
         
         <tr>
           <td class="docs">
-            <p>If two arrays are compile-time known, you can concatenate and repeat
-them.</p>
+            <p>If an array is compile-time known, it can be repeated.</p>
 
           </td>
           <td class="code leading">
             
-            <pre class="chroma"><span class="w">    </span><span class="n">std</span><span class="p">.</span><span class="n">debug</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&#34;{any}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="n">a</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="n">b</span><span class="p">});</span><span class="w">
-</span><span class="w">    </span><span class="n">std</span><span class="p">.</span><span class="n">debug</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&#34;{any}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{[</span><span class="n">_</span><span class="p">]</span><span class="kt">i32</span><span class="p">{</span><span class="mi">0</span><span class="p">}</span><span class="w"> </span><span class="o">**</span><span class="w"> </span><span class="mi">6</span><span class="p">});</span></pre>
+            <pre class="chroma"><span class="w">    </span><span class="n">std</span><span class="p">.</span><span class="n">debug</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&#34;{any}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{[</span><span class="n">_</span><span class="p">]</span><span class="kt">i32</span><span class="p">{</span><span class="mi">0</span><span class="p">}</span><span class="w"> </span><span class="o">**</span><span class="w"> </span><span class="mi">6</span><span class="p">});</span></pre>
           </td>
         </tr>
         
         <tr>
           <td class="docs">
-            <p>To access an element of an array, use the <code>[N]</code> syntax.</p>
+            <p>If two arrays are compile-time known, they can be concatenated.</p>
+
+          </td>
+          <td class="code leading">
+            
+            <pre class="chroma"><span class="w">    </span><span class="n">std</span><span class="p">.</span><span class="n">debug</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&#34;{any}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="n">a</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="n">b</span><span class="p">});</span></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>To access an element of an array, use the <code>[N]</code> syntax, where <code>N</code> is the position of the element (starting from 0).</p>
 
           </td>
           <td class="code leading">
@@ -147,8 +156,8 @@ them.</p>
             
             <pre class="chroma"><span class="gp">$</span> zig run arrays.zig
 <span class="go">3
-</span><span class="go">{ 1, 2, 3, 4, 5, 6 }
 </span><span class="go">{ 0, 0, 0, 0, 0, 0 }
+</span><span class="go">{ 1, 2, 3, 4, 5, 6 }
 </span><span class="go">10
 </span><span class="go">11
 </span><span class="go">12</span></pre>
@@ -170,7 +179,7 @@ them.</p>
     </div>
     <script>
       var codeLines = [];
-      codeLines.push('');codeLines.push('const std \u003D @import(\"std\");\u000A');codeLines.push('pub fn main() anyerror!void {\u000A');codeLines.push('    const a \u003D [3]i32{ 1, 2, 3 };\u000A    const b \u003D [_]i32{ 4, 5, 6 };\u000A');codeLines.push('    const c: [3]i32 \u003D .{ 7, 8, 9 };\u000A');codeLines.push('    std.debug.print(\"{}\\n\", .{c.len});\u000A');codeLines.push('    std.debug.print(\"{any}\\n\", .{a ++ b});\u000A    std.debug.print(\"{any}\\n\", .{[_]i32{0} ** 6});\u000A');codeLines.push('    var d: [3]i32 \u003D undefined;\u000A    d[0] \u003D 10;\u000A    d[1] \u003D 11;\u000A    d[2] \u003D 12;\u000A');codeLines.push('    for (d) |elem| {\u000A        std.debug.print(\"{}\\n\", .{elem});\u000A    }\u000A}\u000A');codeLines.push('');
+      codeLines.push('');codeLines.push('const std \u003D @import(\"std\");\u000A');codeLines.push('pub fn main() anyerror!void {\u000A');codeLines.push('    const a \u003D [3]i32{ 1, 2, 3 };\u000A    const b \u003D [_]i32{ 4, 5, 6 };\u000A');codeLines.push('    const c: [3]i32 \u003D .{ 7, 8, 9 };\u000A');codeLines.push('    std.debug.print(\"{}\\n\", .{c.len});\u000A');codeLines.push('    std.debug.print(\"{any}\\n\", .{[_]i32{0} ** 6});\u000A');codeLines.push('    std.debug.print(\"{any}\\n\", .{a ++ b});\u000A');codeLines.push('    var d: [3]i32 \u003D undefined;\u000A    d[0] \u003D 10;\u000A    d[1] \u003D 11;\u000A    d[2] \u003D 12;\u000A');codeLines.push('    for (d) |elem| {\u000A        std.debug.print(\"{}\\n\", .{elem});\u000A    }\u000A}\u000A');codeLines.push('');
     </script>
     <script src="site.js" async></script>
   </body>
