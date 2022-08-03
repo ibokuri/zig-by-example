@@ -13,6 +13,10 @@
           }
           
           
+          if (e.key == "ArrowRight") {
+              window.location.href = 'while';
+          }
+          
       }
   </script>
   <body>
@@ -137,9 +141,13 @@ values (<code>comptime_int</code>s).</p>
       </table>
       
       
+      <p class="next">
+        Next example: <a href="while">While</a>.
+      </p>
+      
 
     <p class="footer">
-      by <a href="https://ket.so">Jason Phan</a> | <a href="https://github.com/ibokuri/zig-by-example">source</a> | <a href="https://github.com/ibokuri/zig-by-example#license">license</a>
+      by <a href="https://github.com/ibokuri">Jason Phan</a> | <a href="https://github.com/ibokuri/zig-by-example">source</a> | <a href="https://github.com/ibokuri/zig-by-example#license">license</a>
     </p>
 
     </div>
