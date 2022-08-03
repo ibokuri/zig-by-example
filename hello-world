@@ -51,7 +51,7 @@
         
         <tr>
           <td class="docs">
-            <p>To run a Zig program, use <code>zig run</code>.</p>
+            <p>To run this Zig program, use <code>zig run</code>.</p>
 
           </td>
           <td class="code leading">
@@ -64,7 +64,7 @@
         
         <tr>
           <td class="docs">
-            <p>To compile a Zig program, use <code>zig build-exe</code>.</p>
+            <p>To compile this Zig program, use <code>zig build-exe</code>.</p>
 
           </td>
           <td class="code">
