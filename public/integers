@@ -27,7 +27,7 @@
         
         <tr>
           <td class="docs">
-            <p><em>Integers</em> in Zig are more or less as you&rsquo;d expect&hellip; Sort of.</p>
+            <p><em>Integers</em> in Zig are pretty neat.</p>
 
           </td>
           <td class="code empty leading">
@@ -48,7 +48,7 @@
         
         <tr>
           <td class="docs">
-            <p>You certainly have your usual integer types&hellip;</p>
+            <p>You have your usual integer types&hellip;</p>
 
           </td>
           <td class="code leading">
@@ -62,7 +62,7 @@
         
         <tr>
           <td class="docs">
-            <p>But then you also have arbitrary bit-width integers!</p>
+            <p>But you also have arbitrary bit-width integers.</p>
 
           </td>
           <td class="code leading">
@@ -74,8 +74,8 @@
         
         <tr>
           <td class="docs">
-            <p>Additionally, Zig supports compile-time known integers. These integers have
-no size limit and can be written as integer literals or Unicode code point
+            <p>Additionally, Zig supports compile-time known integers. These have no size
+limit and can be written as either integer literals or Unicode code point
 literals.</p>
 
           </td>
