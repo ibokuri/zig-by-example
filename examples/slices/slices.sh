@@ -1,6 +1,6 @@
 $ zig run slices.zig
-len: 3
-first: 1
+length: 3
+access: 1
 elem: 1
 elem: 2
 elem: 3

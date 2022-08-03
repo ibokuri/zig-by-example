@@ -1,3 +1,3 @@
 $ zig run integers.zig
-128175
-💯
+integer: 128175
+unicode: 💯

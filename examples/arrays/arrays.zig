@@ -2,6 +2,7 @@
 // same type.
 
 const std = @import("std");
+const print = std.debug.print;
 
 pub fn main() anyerror!void {
 
@@ -16,13 +17,13 @@ pub fn main() anyerror!void {
     const c: [3]i32 = .{ 7, 8, 9 };
 
     // Every array has a `len` field that stores the array's size.
-    std.debug.print("len: {}\n", .{c.len});
+    print("len: {}\n", .{c.len});
 
     // If an array is compile-time known, it can be repeated.
-    std.debug.print("repeat: {any}\n", .{a ** 2});
+    print("repeat: {any}\n", .{a ** 2});
 
     // If two arrays are compile-time known, they can be concatenated.
-    std.debug.print("concat: {any}\n", .{a ++ b});
+    print("concat: {any}\n", .{a ++ b});
 
     // To access an element of an array, use the `[N]` syntax, where `N` is the position of the element (starting from 0).
     var d: [3]i32 = undefined;
@@ -32,6 +33,6 @@ pub fn main() anyerror!void {
 
     // To iterate over an array, you can use a `for` loop.
     for (d) |elem| {
-        std.debug.print("elem: {}\n", .{elem});
+        print("elem: {}\n", .{elem});
     }
 }

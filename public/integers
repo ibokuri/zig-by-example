@@ -42,7 +42,8 @@
           </td>
           <td class="code leading">
             <img title="Copy code" src="clipboard.png" class="copy" />
-            <pre class="chroma"><span class="kr">const</span><span class="w"> </span><span class="n">std</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">@import</span><span class="p">(</span><span class="s">&#34;std&#34;</span><span class="p">);</span></pre>
+            <pre class="chroma"><span class="kr">const</span><span class="w"> </span><span class="n">std</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">@import</span><span class="p">(</span><span class="s">&#34;std&#34;</span><span class="p">);</span><span class="w">
+</span><span class="w"></span><span class="kr">const</span><span class="w"> </span><span class="n">print</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="p">.</span><span class="n">debug</span><span class="p">.</span><span class="n">print</span><span class="p">;</span></pre>
           </td>
         </tr>
         
@@ -94,8 +95,8 @@ literals.</p>
           <td class="code">
             
             <pre class="chroma"><span class="kr">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="kt">anyerror</span><span class="o">!</span><span class="kt">void</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span><span class="w">    </span><span class="n">std</span><span class="p">.</span><span class="n">debug</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&#34;{}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="n">unicode_literal</span><span class="p">});</span><span class="w">
-</span><span class="w">    </span><span class="n">std</span><span class="p">.</span><span class="n">debug</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&#34;{u}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="n">unicode_literal</span><span class="p">});</span><span class="w">
+</span><span class="w">    </span><span class="n">print</span><span class="p">(</span><span class="s">&#34;integer: {}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="n">unicode_literal</span><span class="p">});</span><span class="w">
+</span><span class="w">    </span><span class="n">print</span><span class="p">(</span><span class="s">&#34;unicode: {u}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="n">unicode_literal</span><span class="p">});</span><span class="w">
 </span><span class="w"></span><span class="p">}</span></pre>
           </td>
         </tr>
@@ -111,8 +112,8 @@ literals.</p>
           <td class="code">
             
             <pre class="chroma"><span class="gp">$</span> zig run integers.zig
-<span class="go">128175
-</span><span class="go">💯</span></pre>
+<span class="go">integer: 128175
+</span><span class="go">unicode: 💯</span></pre>
           </td>
         </tr>
         
@@ -131,7 +132,7 @@ literals.</p>
     </div>
     <script>
       var codeLines = [];
-      codeLines.push('');codeLines.push('const std \u003D @import(\"std\");\u000A');codeLines.push('const a: u8 \u003D 1;\u000Aconst b: i32 \u003D 10;\u000Aconst c: i64 \u003D 100;\u000Aconst d: usize \u003D 1_000;\u000A');codeLines.push('const e: u21 \u003D 10_000;\u000Aconst f: i42 \u003D 100_000;\u000A');codeLines.push('const g: comptime_int \u003D 1_000_000;\u000Aconst integer_literal \u003D 10_000_000;\u000Aconst unicode_literal \u003D \'💯\';\u000A');codeLines.push('pub fn main() anyerror!void {\u000A    std.debug.print(\"{}\\n\", .{unicode_literal});\u000A    std.debug.print(\"{u}\\n\", .{unicode_literal});\u000A}\u000A');codeLines.push('');
+      codeLines.push('');codeLines.push('const std \u003D @import(\"std\");\u000Aconst print \u003D std.debug.print;\u000A');codeLines.push('const a: u8 \u003D 1;\u000Aconst b: i32 \u003D 10;\u000Aconst c: i64 \u003D 100;\u000Aconst d: usize \u003D 1_000;\u000A');codeLines.push('const e: u21 \u003D 10_000;\u000Aconst f: i42 \u003D 100_000;\u000A');codeLines.push('const g: comptime_int \u003D 1_000_000;\u000Aconst integer_literal \u003D 10_000_000;\u000Aconst unicode_literal \u003D \'💯\';\u000A');codeLines.push('pub fn main() anyerror!void {\u000A    print(\"integer: {}\\n\", .{unicode_literal});\u000A    print(\"unicode: {u}\\n\", .{unicode_literal});\u000A}\u000A');codeLines.push('');
     </script>
     <script src="site.js" async></script>
   </body>

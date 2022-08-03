@@ -1,6 +1,7 @@
 // _Floating-points_ in Zig are just like integers, except there aren't any arbitrary bit-width floats.
 
 const std = @import("std");
+const print = std.debug.print;
 
 // You have your usual floating-point types...
 const a: f16 = 1.0;
@@ -14,5 +15,5 @@ const e: comptime_float = 100_000.0;
 const float_literal = 1_000_000.0;
 
 pub fn main() anyerror!void {
-    std.debug.print("{}\n", .{float_literal});
+    print("float: {}\n", .{float_literal});
 }

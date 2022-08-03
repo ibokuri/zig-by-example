@@ -1,6 +1,7 @@
 // _Integers_ in Zig are pretty neat.
 
 const std = @import("std");
+const print = std.debug.print;
 
 // You have your usual integer types...
 const a: u8 = 1;
@@ -20,6 +21,6 @@ const integer_literal = 10_000_000;
 const unicode_literal = '💯';
 
 pub fn main() anyerror!void {
-    std.debug.print("{}\n", .{unicode_literal});
-    std.debug.print("{u}\n", .{unicode_literal});
+    print("integer: {}\n", .{unicode_literal});
+    print("unicode: {u}\n", .{unicode_literal});
 }

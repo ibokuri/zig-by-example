@@ -2,6 +2,7 @@
 // of pointers in Zig: single-item, many-item, and slices (we'll talk about slices in a later section).
 
 const std = @import("std");
+const print = std.debug.print;
 
 // Single-item pointers point to exactly one value.
 const Single = *bool;
@@ -21,16 +22,16 @@ pub fn main() anyerror!void {
     // To create a single-item pointer, use the `&` operator.
     var value = true;
     var ptr: *bool = &value;
-    std.debug.print("ptr: {}\n", .{ptr});
+    print("pointer: {}\n", .{ptr});
 
     // To access the value located at the memory address stored by a
     // single-item pointer, use the `*` operator.
-    std.debug.print("before: {}\n", .{ptr.*});
+    print("before: {}\n", .{ptr.*});
     ptr.* = false;
-    std.debug.print("after: {}\n", .{ptr.*});
+    print("after: {}\n", .{ptr.*});
 
     // Note that if a value is `const`, its pointer type is also `const`.
     const const_value = true;
     var ptr_to_const: *const bool = &const_value;
-    std.debug.print("ptr: {}\n", .{ptr_to_const});
+    print("pointer: {}\n", .{ptr_to_const});
 }
