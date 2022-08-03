@@ -95,8 +95,8 @@ Variables are mutable, so the value of <code>v</code> can be re-assigned.</p>
         
         <tr>
           <td class="docs">
-            <p>To create an uninitialized constant or variable, you assign the
-<code>undefined</code> value to it.</p>
+            <p>To create an uninitialized constant or variable, assign <code>undefined</code>
+to it. Note that you need type annotations here.</p>
 
           </td>
           <td class="code leading">
@@ -108,8 +108,7 @@ Variables are mutable, so the value of <code>v</code> can be re-assigned.</p>
         
         <tr>
           <td class="docs">
-            <p>An assignment can also be used to ignore expressions. Here, we use it to
-reference our previous declarations.</p>
+            <p>Assignments can also be used to ignore expressions.</p>
 
           </td>
           <td class="code">
