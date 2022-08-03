@@ -11,25 +11,23 @@
 
 ## Building
 
-To build the site you'll need Go installed. Run:
+To build the site:
 
 ```sh
 tools/build
 ```
 
-To build continuously in a loop:
+To build the site continuously in a loop:
 
 ```sh
 tools/build-loop
 ```
 
-To see the site locally:
+To serve the site locally:
 
 ```sh
 tools/serve
 ```
-
-and open `http://127.0.0.1:8000/` in your browser.
 
 ## License
 
