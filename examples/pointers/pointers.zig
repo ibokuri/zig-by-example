@@ -21,7 +21,7 @@ pub fn main() anyerror!void {
     // To create a single-item pointer, use the `&` operator.
     var value = true;
     var ptr: *bool = &value;
-    std.debug.print("{}\n", .{ptr});
+    std.debug.print("ptr: {}\n", .{ptr});
 
     // To access the value located at the memory address stored by a
     // single-item pointer, use the `*` operator.
@@ -32,5 +32,5 @@ pub fn main() anyerror!void {
     // Note that if a value is `const`, its pointer type is also `const`.
     const const_value = true;
     var ptr_to_const: *const bool = &const_value;
-    std.debug.print("{}\n", .{ptr_to_const});
+    std.debug.print("ptr: {}\n", .{ptr_to_const});
 }

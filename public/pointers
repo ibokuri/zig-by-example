@@ -103,7 +103,7 @@ href="https://zig-by-example.com/optionals">Optionals</a>.</p>
             
             <pre class="chroma"><span class="w">    </span><span class="kr">var</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span><span class="w">
 </span><span class="w">    </span><span class="kr">var</span><span class="w"> </span><span class="n">ptr</span><span class="o">:</span><span class="w"> </span><span class="o">*</span><span class="kt">bool</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">value</span><span class="p">;</span><span class="w">
-</span><span class="w">    </span><span class="n">std</span><span class="p">.</span><span class="n">debug</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&#34;{}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="n">ptr</span><span class="p">});</span></pre>
+</span><span class="w">    </span><span class="n">std</span><span class="p">.</span><span class="n">debug</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&#34;ptr: {}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="n">ptr</span><span class="p">});</span></pre>
           </td>
         </tr>
         
@@ -130,7 +130,7 @@ single-item pointer, use the <code>*</code> operator.</p>
             
             <pre class="chroma"><span class="w">    </span><span class="kr">const</span><span class="w"> </span><span class="n">const_value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span><span class="w">
 </span><span class="w">    </span><span class="kr">var</span><span class="w"> </span><span class="n">ptr_to_const</span><span class="o">:</span><span class="w"> </span><span class="o">*</span><span class="kr">const</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">const_value</span><span class="p">;</span><span class="w">
-</span><span class="w">    </span><span class="n">std</span><span class="p">.</span><span class="n">debug</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&#34;{}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="n">ptr_to_const</span><span class="p">});</span><span class="w">
+</span><span class="w">    </span><span class="n">std</span><span class="p">.</span><span class="n">debug</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&#34;ptr: {}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="n">ptr_to_const</span><span class="p">});</span><span class="w">
 </span><span class="w"></span><span class="p">}</span></pre>
           </td>
         </tr>
@@ -146,10 +146,10 @@ single-item pointer, use the <code>*</code> operator.</p>
           <td class="code">
             
             <pre class="chroma"><span class="gp">$</span> zig run pointers.zig
-<span class="go">bool@7ff7b26e24a7
+<span class="go">ptr: bool@7ff7b26e24a7
 </span><span class="go">before: true
 </span><span class="go">after: false
-</span><span class="go">bool@10d869c68</span></pre>
+</span><span class="go">ptr: bool@10d869c68</span></pre>
           </td>
         </tr>
         
@@ -168,7 +168,7 @@ single-item pointer, use the <code>*</code> operator.</p>
     </div>
     <script>
       var codeLines = [];
-      codeLines.push('');codeLines.push('const std \u003D @import(\"std\");\u000A');codeLines.push('const Single \u003D *bool;\u000A');codeLines.push('const Many \u003D [*]bool;\u000A');codeLines.push('const Null \u003D ?*bool;\u000A');codeLines.push('pub fn main() anyerror!void {\u000A');codeLines.push('    var value \u003D true;\u000A    var ptr: *bool \u003D \u0026value;\u000A    std.debug.print(\"{}\\n\", .{ptr});\u000A');codeLines.push('    std.debug.print(\"before: {}\\n\", .{ptr.*});\u000A    ptr.* \u003D false;\u000A    std.debug.print(\"after: {}\\n\", .{ptr.*});\u000A');codeLines.push('    const const_value \u003D true;\u000A    var ptr_to_const: *const bool \u003D \u0026const_value;\u000A    std.debug.print(\"{}\\n\", .{ptr_to_const});\u000A}\u000A');codeLines.push('');
+      codeLines.push('');codeLines.push('const std \u003D @import(\"std\");\u000A');codeLines.push('const Single \u003D *bool;\u000A');codeLines.push('const Many \u003D [*]bool;\u000A');codeLines.push('const Null \u003D ?*bool;\u000A');codeLines.push('pub fn main() anyerror!void {\u000A');codeLines.push('    var value \u003D true;\u000A    var ptr: *bool \u003D \u0026value;\u000A    std.debug.print(\"ptr: {}\\n\", .{ptr});\u000A');codeLines.push('    std.debug.print(\"before: {}\\n\", .{ptr.*});\u000A    ptr.* \u003D false;\u000A    std.debug.print(\"after: {}\\n\", .{ptr.*});\u000A');codeLines.push('    const const_value \u003D true;\u000A    var ptr_to_const: *const bool \u003D \u0026const_value;\u000A    std.debug.print(\"ptr: {}\\n\", .{ptr_to_const});\u000A}\u000A');codeLines.push('');
     </script>
     <script src="site.js" async></script>
   </body>
