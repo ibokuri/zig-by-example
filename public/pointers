@@ -13,6 +13,10 @@
           }
           
           
+          if (e.key == "ArrowRight") {
+              window.location.href = 'slices';
+          }
+          
       }
   </script>
   <body>
@@ -151,6 +155,10 @@ single-item pointer, use the <code>*</code> operator.</p>
         
       </table>
       
+      
+      <p class="next">
+        Next example: <a href="slices">Slices</a>.
+      </p>
       
 
     <p class="footer">
