@@ -1,4 +1,4 @@
-// Our first program will print the classic
+// To kick things off, let's print the classic
 // "Hello, World!" message.
 const std = @import("std");
 

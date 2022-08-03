@@ -23,7 +23,7 @@
         
         <tr>
           <td class="docs">
-            <p>Our first program will print the classic
+            <p>To kick things off, let&rsquo;s print the classic
 &ldquo;Hello, World!&rdquo; message.</p>
 
           </td>
@@ -51,7 +51,7 @@
         
         <tr>
           <td class="docs">
-            <p>To run the program, use <code>zig run</code>.</p>
+            <p>To run a Zig program, use <code>zig run</code>.</p>
 
           </td>
           <td class="code leading">
@@ -64,8 +64,7 @@
         
         <tr>
           <td class="docs">
-            <p>To compile the program into a binary, use
-<code>zig build-exe</code>.</p>
+            <p>To compile a Zig program, use <code>zig build-exe</code>.</p>
 
           </td>
           <td class="code">
