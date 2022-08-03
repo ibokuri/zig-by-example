@@ -25,13 +25,15 @@ pub fn main() anyerror!void {
     // If two arrays are compile-time known, they can be concatenated.
     print("concat: {any}\n", .{a ++ b});
 
-    // To access an element of an array, use the `[N]` syntax, where `N` is the position of the element (starting from 0).
+    // To access an element of an array, use the `[N]` syntax, where `N` is the
+    // position of the element (starting from 0).
     var d: [3]i32 = undefined;
     d[0] = 10;
     d[1] = 11;
     d[2] = 12;
 
-    // To iterate over an array, you can use a `for` loop.
+    // To iterate over an array, you can use a <a
+    // href="https://zig-by-example.com/for">For loop</a>.
     for (d) |elem| {
         print("elem: {}\n", .{elem});
     }
