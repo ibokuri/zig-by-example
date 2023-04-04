@@ -14,16 +14,16 @@ pub fn main() anyerror!void {
 
     // To iterate by reference, prefix the payload's name with a `*`. This will
     // let you modify the captured value.
-    for (array) |*elem| {
-        elem += 10;
-        print("by ref: {}\n", .{elem});
+    for (&array) |*elem| {
+        elem.* *= 10;
+        print("by ref: {}\n", .{elem.*});
     }
 
     // To ignore a for loop's payload, use `_`.
     for (array) |_| {}
 
     // To access a for loop's index, use the `|PAYLOAD, INDEX|` syntax.
-    for (array) |elem, i| {
+    for (array, 0..) |elem, i| {
         print("{}: {}\n", .{ i, elem });
     }
 }
