@@ -76,9 +76,9 @@ let you modify the captured value.</p>
           </td>
           <td class="code leading">
             
-            <pre class="chroma"><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">array</span><span class="p">)</span><span class="w"> </span><span class="o">|*</span><span class="n">elem</span><span class="o">|</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span><span class="w">        </span><span class="n">elem</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w">
-</span><span class="w">        </span><span class="n">print</span><span class="p">(</span><span class="s">&#34;by ref: {}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="n">elem</span><span class="p">});</span><span class="w">
+            <pre class="chroma"><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="o">&amp;</span><span class="n">array</span><span class="p">)</span><span class="w"> </span><span class="o">|*</span><span class="n">elem</span><span class="o">|</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="w">        </span><span class="n">elem</span><span class="p">.</span><span class="o">*</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w">
+</span><span class="w">        </span><span class="n">print</span><span class="p">(</span><span class="s">&#34;by ref: {}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="n">elem</span><span class="p">.</span><span class="o">*</span><span class="p">});</span><span class="w">
 </span><span class="w">    </span><span class="p">}</span></pre>
           </td>
         </tr>
@@ -101,7 +101,7 @@ let you modify the captured value.</p>
           </td>
           <td class="code">
             
-            <pre class="chroma"><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">array</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="n">elem</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="o">|</span><span class="w"> </span><span class="p">{</span><span class="w">
+            <pre class="chroma"><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">array</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">..)</span><span class="w"> </span><span class="o">|</span><span class="n">elem</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="o">|</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span><span class="w">        </span><span class="n">print</span><span class="p">(</span><span class="s">&#34;{}: {}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">elem</span><span class="w"> </span><span class="p">});</span><span class="w">
 </span><span class="w">    </span><span class="p">}</span><span class="w">
 </span><span class="w"></span><span class="p">}</span></pre>
@@ -142,7 +142,7 @@ let you modify the captured value.</p>
     </div>
     <script>
       var codeLines = [];
-      codeLines.push('');codeLines.push('const std \u003D @import(\"std\");\u000Aconst print \u003D std.debug.print;\u000A');codeLines.push('pub fn main() anyerror!void {\u000A    var array \u003D [_]u32{ 1, 2, 3 };\u000A');codeLines.push('    for (array) |elem| {\u000A        print(\"by val: {}\\n\", .{elem});\u000A    }\u000A');codeLines.push('    for (array) |*elem| {\u000A        elem +\u003D 10;\u000A        print(\"by ref: {}\\n\", .{elem});\u000A    }\u000A');codeLines.push('    for (array) |_| {}\u000A');codeLines.push('    for (array) |elem, i| {\u000A        print(\"{}: {}\\n\", .{ i, elem });\u000A    }\u000A}\u000A');codeLines.push('');
+      codeLines.push('');codeLines.push('const std \u003D @import(\"std\");\u000Aconst print \u003D std.debug.print;\u000A');codeLines.push('pub fn main() anyerror!void {\u000A    var array \u003D [_]u32{ 1, 2, 3 };\u000A');codeLines.push('    for (array) |elem| {\u000A        print(\"by val: {}\\n\", .{elem});\u000A    }\u000A');codeLines.push('    for (\u0026array) |*elem| {\u000A        elem.* *\u003D 10;\u000A        print(\"by ref: {}\\n\", .{elem.*});\u000A    }\u000A');codeLines.push('    for (array) |_| {}\u000A');codeLines.push('    for (array, 0..) |elem, i| {\u000A        print(\"{}: {}\\n\", .{ i, elem });\u000A    }\u000A}\u000A');codeLines.push('');
     </script>
     <script src="site.js" async></script>
   </body>
