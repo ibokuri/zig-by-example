@@ -70,15 +70,46 @@ the loop&rsquo;s payload (in this case, <code>elem</code>).</p>
         
         <tr>
           <td class="docs">
-            <p>To iterate by reference, prefix the payload&rsquo;s name with a <code>*</code>. This will
-let you modify the captured value.</p>
+            <p>With slices, however, you can iterate by reference by prefixing the
+payload&rsquo;s name with a <code>*</code>. This turns the payload value into a pointer
+and enables modification.</p>
 
           </td>
           <td class="code leading">
             
-            <pre class="chroma"><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="o">&amp;</span><span class="n">array</span><span class="p">)</span><span class="w"> </span><span class="o">|*</span><span class="n">elem</span><span class="o">|</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span><span class="w">        </span><span class="n">elem</span><span class="p">.</span><span class="o">*</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w">
-</span><span class="w">        </span><span class="n">print</span><span class="p">(</span><span class="s">&#34;by ref: {}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="n">elem</span><span class="p">.</span><span class="o">*</span><span class="p">});</span><span class="w">
+            <pre class="chroma"><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="o">&amp;</span><span class="n">array</span><span class="p">)</span><span class="w"> </span><span class="o">|*</span><span class="n">ptr</span><span class="o">|</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="w">        </span><span class="n">ptr</span><span class="p">.</span><span class="o">*</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span><span class="w">
+</span><span class="w">        </span><span class="n">print</span><span class="p">(</span><span class="s">&#34;by ref: {}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="n">ptr</span><span class="p">.</span><span class="o">*</span><span class="p">});</span><span class="w">
+</span><span class="w">    </span><span class="p">}</span></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>You can iterate over multiple values, so long as they all have the same
+length.</p>
+
+          </td>
+          <td class="code leading">
+            
+            <pre class="chroma"><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">array</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">array</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="n">val</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">ref</span><span class="o">|</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="w">        </span><span class="n">_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">val</span><span class="p">;</span><span class="w">
+</span><span class="w">        </span><span class="n">_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ref</span><span class="p">;</span><span class="w">
+</span><span class="w">    </span><span class="p">}</span></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>You may also specify a <em>range</em> with the <code>START..END</code> syntax. Note that
+<code>END</code> can be omitted if another sequence is being iterated over as well.
+The compiler will infer its value.</p>
+
+          </td>
+          <td class="code leading">
+            
+            <pre class="chroma"><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">..,</span><span class="w"> </span><span class="n">array</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">elem</span><span class="o">|</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="w">        </span><span class="n">print</span><span class="p">(</span><span class="s">&#34;{}: {}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">elem</span><span class="w"> </span><span class="p">});</span><span class="w">
 </span><span class="w">    </span><span class="p">}</span></pre>
           </td>
         </tr>
@@ -88,22 +119,9 @@ let you modify the captured value.</p>
             <p>To ignore a for loop&rsquo;s payload, use <code>_</code>.</p>
 
           </td>
-          <td class="code leading">
-            
-            <pre class="chroma"><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">array</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="n">_</span><span class="o">|</span><span class="w"> </span><span class="p">{}</span></pre>
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>To access a for loop&rsquo;s index, use the <code>|PAYLOAD, INDEX|</code> syntax.</p>
-
-          </td>
           <td class="code">
             
-            <pre class="chroma"><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">array</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">..)</span><span class="w"> </span><span class="o">|</span><span class="n">elem</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="o">|</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span><span class="w">        </span><span class="n">print</span><span class="p">(</span><span class="s">&#34;{}: {}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">elem</span><span class="w"> </span><span class="p">});</span><span class="w">
-</span><span class="w">    </span><span class="p">}</span><span class="w">
+            <pre class="chroma"><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">array</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="n">_</span><span class="o">|</span><span class="w"> </span><span class="p">{}</span><span class="w">
 </span><span class="w"></span><span class="p">}</span></pre>
           </td>
         </tr>
@@ -122,12 +140,12 @@ let you modify the captured value.</p>
 <span class="go">by val: 1
 </span><span class="go">by val: 2
 </span><span class="go">by val: 3
-</span><span class="go">by ref: 10
-</span><span class="go">by ref: 20
-</span><span class="go">by ref: 30
-</span><span class="go">0: 10
-</span><span class="go">1: 20
-</span><span class="go">2: 30</span></pre>
+</span><span class="go">by ref: 101
+</span><span class="go">by ref: 102
+</span><span class="go">by ref: 103
+</span><span class="go">0: 101
+</span><span class="go">1: 102
+</span><span class="go">2: 103</span></pre>
           </td>
         </tr>
         
@@ -142,7 +160,7 @@ let you modify the captured value.</p>
     </div>
     <script>
       var codeLines = [];
-      codeLines.push('');codeLines.push('const std \u003D @import(\"std\");\u000Aconst print \u003D std.debug.print;\u000A');codeLines.push('pub fn main() anyerror!void {\u000A    var array \u003D [_]u32{ 1, 2, 3 };\u000A');codeLines.push('    for (array) |elem| {\u000A        print(\"by val: {}\\n\", .{elem});\u000A    }\u000A');codeLines.push('    for (\u0026array) |*elem| {\u000A        elem.* *\u003D 10;\u000A        print(\"by ref: {}\\n\", .{elem.*});\u000A    }\u000A');codeLines.push('    for (array) |_| {}\u000A');codeLines.push('    for (array, 0..) |elem, i| {\u000A        print(\"{}: {}\\n\", .{ i, elem });\u000A    }\u000A}\u000A');codeLines.push('');
+      codeLines.push('');codeLines.push('const std \u003D @import(\"std\");\u000Aconst print \u003D std.debug.print;\u000A');codeLines.push('pub fn main() anyerror!void {\u000A    var array \u003D [_]u32{ 1, 2, 3 };\u000A');codeLines.push('    for (array) |elem| {\u000A        print(\"by val: {}\\n\", .{elem});\u000A    }\u000A');codeLines.push('    for (\u0026array) |*ptr| {\u000A        ptr.* +\u003D 100;\u000A        print(\"by ref: {}\\n\", .{ptr.*});\u000A    }\u000A');codeLines.push('    for (array, \u0026array) |val, *ref| {\u000A        _ \u003D val;\u000A        _ \u003D ref;\u000A    }\u000A');codeLines.push('    for (0.., array) |i, elem| {\u000A        print(\"{}: {}\\n\", .{ i, elem });\u000A    }\u000A');codeLines.push('    for (array) |_| {}\u000A}\u000A');codeLines.push('');
     </script>
     <script src="site.js" async></script>
   </body>

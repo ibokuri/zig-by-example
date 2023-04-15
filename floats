@@ -27,7 +27,7 @@
         
         <tr>
           <td class="docs">
-            <p><em>Floating-points</em> in Zig are just like integers, except there aren&rsquo;t any arbitrary bit-width floats.</p>
+            <p><em>Floating-points</em> in Zig are also pretty neat (less so than integers, though).</p>
 
           </td>
           <td class="code empty leading">

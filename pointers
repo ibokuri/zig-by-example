@@ -28,7 +28,8 @@
         <tr>
           <td class="docs">
             <p>A <em>pointer</em> is an object that stores a memory address. There are three types
-of pointers in Zig: single-item, many-item, and slices (we&rsquo;ll talk about slices in a later section).</p>
+of pointers in Zig: single-item, many-item, and <a
+href="https://zig-by-example.com/for">Slices</a>.</p>
 
           </td>
           <td class="code empty leading">
@@ -74,8 +75,8 @@ we&rsquo;ll skip over them.</p>
         
         <tr>
           <td class="docs">
-            <p>Note that all pointers in Zig point to a non-<code>null</code> value. If you want
-<code>null</code> pointers, you&rsquo;ll need to use <a
+            <p>Note that all pointers in Zig point to a non-<code>null</code> value. To get
+<code>null</code> pointers, you need to use <a
 href="https://zig-by-example.com/optionals">Optionals</a>.</p>
 
           </td>

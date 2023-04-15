@@ -96,7 +96,7 @@ Variables are mutable, so the value of <code>v</code> can be re-assigned.</p>
         <tr>
           <td class="docs">
             <p>To create an uninitialized constant or variable, assign <code>undefined</code>
-to it. Note that you need type annotations here.</p>
+to it. Note that this requires type annotations.</p>
 
           </td>
           <td class="code leading">
@@ -114,7 +114,6 @@ to it. Note that you need type annotations here.</p>
           <td class="code">
             
             <pre class="chroma"><span class="w">    </span><span class="n">_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">c</span><span class="p">;</span><span class="w">
-</span><span class="w">    </span><span class="n">_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">v</span><span class="p">;</span><span class="w">
 </span><span class="w">    </span><span class="n">_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">inferred_c</span><span class="p">;</span><span class="w">
 </span><span class="w">    </span><span class="n">_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">inferred_v</span><span class="p">;</span><span class="w">
 </span><span class="w">    </span><span class="n">_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">undefined_c</span><span class="p">;</span><span class="w">
@@ -138,7 +137,7 @@ to it. Note that you need type annotations here.</p>
     </div>
     <script>
       var codeLines = [];
-      codeLines.push('');codeLines.push('const std \u003D @import(\"std\");\u000A');codeLines.push('pub fn main() anyerror!void {\u000A');codeLines.push('    const c: bool \u003D true;\u000A');codeLines.push('    var v: bool \u003D false;\u000A    v \u003D true;\u000A');codeLines.push('    const inferred_c \u003D true;\u000A    var inferred_v \u003D true;\u000A');codeLines.push('    const undefined_c: bool \u003D undefined;\u000A    var undefined_v: bool \u003D undefined;\u000A');codeLines.push('    _ \u003D c;\u000A    _ \u003D v;\u000A    _ \u003D inferred_c;\u000A    _ \u003D inferred_v;\u000A    _ \u003D undefined_c;\u000A    _ \u003D undefined_v;\u000A}\u000A');
+      codeLines.push('');codeLines.push('const std \u003D @import(\"std\");\u000A');codeLines.push('pub fn main() anyerror!void {\u000A');codeLines.push('    const c: bool \u003D true;\u000A');codeLines.push('    var v: bool \u003D false;\u000A    v \u003D true;\u000A');codeLines.push('    const inferred_c \u003D true;\u000A    var inferred_v \u003D true;\u000A');codeLines.push('    const undefined_c: bool \u003D undefined;\u000A    var undefined_v: bool \u003D undefined;\u000A');codeLines.push('    _ \u003D c;\u000A    _ \u003D inferred_c;\u000A    _ \u003D inferred_v;\u000A    _ \u003D undefined_c;\u000A    _ \u003D undefined_v;\u000A}\u000A');
     </script>
     <script src="site.js" async></script>
   </body>

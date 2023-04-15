@@ -50,9 +50,9 @@ sequence.</p>
         
         <tr>
           <td class="docs">
-            <p>The easiest way to understand slices is to think of them as a pointer plus a
-length. The pointer tells you where the slice begins and the length tells
-you the size of the slice.</p>
+            <p>The easiest way to understand slices is to think of them as a pointer plus
+an index. The pointer tells you where the slice begins and the index tells
+you where the slice ends.</p>
 
           </td>
           <td class="code leading">
@@ -73,15 +73,15 @@ you the size of the slice.</p>
         
         <tr>
           <td class="docs">
-            <p>Slices are made with the slicing syntax: <code>[start..len]</code>.
-Here, <code>slice</code> points to <code>array[0]</code> and has a length of 3.</p>
+            <p>Slices are made with the syntax: <code>[start..idx]</code>. Here, <code>slice</code>
+starts at <code>array[0]</code> and ends just before <code>array[3]</code>.</p>
 
           </td>
           <td class="code leading">
             
-            <pre class="chroma"><span class="w">    </span><span class="kr">var</span><span class="w"> </span><span class="n">len</span><span class="o">:</span><span class="w"> </span><span class="kt">usize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w">
+            <pre class="chroma"><span class="w">    </span><span class="kr">var</span><span class="w"> </span><span class="n">idx</span><span class="o">:</span><span class="w"> </span><span class="kt">usize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w">
 </span><span class="w">    </span><span class="kr">var</span><span class="w"> </span><span class="n">array</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="kt">i32</span><span class="p">{</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="p">};</span><span class="w">
-</span><span class="w">    </span><span class="kr">var</span><span class="w"> </span><span class="n">slice</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">array</span><span class="p">[</span><span class="mi">0</span><span class="p">..</span><span class="n">len</span><span class="p">];</span></pre>
+</span><span class="w">    </span><span class="kr">var</span><span class="w"> </span><span class="n">slice</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">array</span><span class="p">[</span><span class="mi">0</span><span class="p">..</span><span class="n">idx</span><span class="p">];</span></pre>
           </td>
         </tr>
         
@@ -104,16 +104,31 @@ them.</p>
         
         <tr>
           <td class="docs">
-            <p>Note that a slice&rsquo;s length is always a runtime-known value. Here, we are
-<em>not</em> creating a slice, but rather a pointer to an array of three <code>i32</code>
-values. The reason is because we sliced <code>array</code> using compile-time known
-values (<code>comptime_int</code>s).</p>
+            <p>Now, you might think that <code>ptr</code> here is a slice. But it is not!
+Rather, it is a pointer to an array of three <code>i32</code> values.
+The difference is that <code>ptr</code> sliced <code>array</code> using only compile-time
+known values, while <code>slice</code> used a runtime-known value.</p>
+
+          </td>
+          <td class="code leading">
+            
+            <pre class="chroma"><span class="w">    </span><span class="kr">var</span><span class="w"> </span><span class="n">ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">array</span><span class="p">[</span><span class="mi">0</span><span class="p">..</span><span class="mi">3</span><span class="p">];</span><span class="w">
+</span><span class="w">    </span><span class="n">print</span><span class="p">(</span><span class="s">&#34;type: {}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="nb">@TypeOf</span><span class="p">(</span><span class="n">ptr</span><span class="p">)});</span></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>That being said, they&rsquo;re more or less the same in practice.</p>
 
           </td>
           <td class="code">
             
-            <pre class="chroma"><span class="w">    </span><span class="kr">var</span><span class="w"> </span><span class="n">ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">array</span><span class="p">[</span><span class="mi">0</span><span class="p">..</span><span class="mi">3</span><span class="p">];</span><span class="w">
-</span><span class="w">    </span><span class="n">print</span><span class="p">(</span><span class="s">&#34;type: {}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="nb">@TypeOf</span><span class="p">(</span><span class="n">ptr</span><span class="p">)});</span><span class="w">
+            <pre class="chroma"><span class="w">    </span><span class="n">print</span><span class="p">(</span><span class="s">&#34;length: {}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="n">ptr</span><span class="p">.</span><span class="n">len</span><span class="p">});</span><span class="w">
+</span><span class="w">    </span><span class="n">print</span><span class="p">(</span><span class="s">&#34;access: {}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="n">ptr</span><span class="p">[</span><span class="mi">0</span><span class="p">]});</span><span class="w">
+</span><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">ptr</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="n">elem</span><span class="o">|</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="w">        </span><span class="n">print</span><span class="p">(</span><span class="s">&#34;elem: {}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="n">elem</span><span class="p">});</span><span class="w">
+</span><span class="w">    </span><span class="p">}</span><span class="w">
 </span><span class="w"></span><span class="p">}</span></pre>
           </td>
         </tr>
@@ -134,7 +149,12 @@ values (<code>comptime_int</code>s).</p>
 </span><span class="go">elem: 1
 </span><span class="go">elem: 2
 </span><span class="go">elem: 3
-</span><span class="go">type: *[3]i32</span></pre>
+</span><span class="go">type: *[3]i32
+</span><span class="go">length: 3
+</span><span class="go">access: 1
+</span><span class="go">elem: 1
+</span><span class="go">elem: 2
+</span><span class="go">elem: 3</span></pre>
           </td>
         </tr>
         
@@ -153,7 +173,7 @@ values (<code>comptime_int</code>s).</p>
     </div>
     <script>
       var codeLines = [];
-      codeLines.push('');codeLines.push('const std \u003D @import(\"std\");\u000Aconst print \u003D std.debug.print;\u000A');codeLines.push('const Slice \u003D []bool;\u000A');codeLines.push('pub fn main() anyerror!void {\u000A');codeLines.push('    var len: usize \u003D 3;\u000A    var array \u003D [5]i32{ 1, 2, 3, 4, 5 };\u000A    var slice \u003D array[0..len];\u000A');codeLines.push('    print(\"length: {}\\n\", .{slice.len});\u000A    print(\"access: {}\\n\", .{slice[0]});\u000A    for (slice) |elem| {\u000A        print(\"elem: {}\\n\", .{elem});\u000A    }\u000A');codeLines.push('    var ptr \u003D array[0..3];\u000A    print(\"type: {}\\n\", .{@TypeOf(ptr)});\u000A}\u000A');codeLines.push('');
+      codeLines.push('');codeLines.push('const std \u003D @import(\"std\");\u000Aconst print \u003D std.debug.print;\u000A');codeLines.push('const Slice \u003D []bool;\u000A');codeLines.push('pub fn main() anyerror!void {\u000A');codeLines.push('    var idx: usize \u003D 3;\u000A    var array \u003D [5]i32{ 1, 2, 3, 4, 5 };\u000A    var slice \u003D array[0..idx];\u000A');codeLines.push('    print(\"length: {}\\n\", .{slice.len});\u000A    print(\"access: {}\\n\", .{slice[0]});\u000A    for (slice) |elem| {\u000A        print(\"elem: {}\\n\", .{elem});\u000A    }\u000A');codeLines.push('    var ptr \u003D array[0..3];\u000A    print(\"type: {}\\n\", .{@TypeOf(ptr)});\u000A');codeLines.push('    print(\"length: {}\\n\", .{ptr.len});\u000A    print(\"access: {}\\n\", .{ptr[0]});\u000A    for (ptr) |elem| {\u000A        print(\"elem: {}\\n\", .{elem});\u000A    }\u000A}\u000A');codeLines.push('');
     </script>
     <script src="site.js" async></script>
   </body>
