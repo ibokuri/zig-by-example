@@ -1,4 +1,4 @@
-// _Floating-points_ in Zig are just like integers, except there aren't any arbitrary bit-width floats.
+// _Floating-points_ in Zig are also pretty neat (less so than integers, though).
 
 const std = @import("std");
 const print = std.debug.print;

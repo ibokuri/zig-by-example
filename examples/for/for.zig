@@ -12,18 +12,28 @@ pub fn main() anyerror!void {
         print("by val: {}\n", .{elem});
     }
 
-    // To iterate by reference, prefix the payload's name with a `*`. This will
-    // let you modify the captured value.
-    for (&array) |*elem| {
-        elem.* *= 10;
-        print("by ref: {}\n", .{elem.*});
+    // With slices, however, you can iterate by reference by prefixing the
+    // payload's name with a `*`. This turns the payload value into a pointer
+    // and enables modification.
+    for (&array) |*ptr| {
+        ptr.* += 100;
+        print("by ref: {}\n", .{ptr.*});
+    }
+
+    // You can iterate over multiple values, so long as they all have the same
+    // length.
+    for (array, &array) |val, *ref| {
+        _ = val;
+        _ = ref;
+    }
+
+    // You may also specify a _range_ with the `START..END` syntax. Note that
+    // `END` can be omitted if another sequence is being iterated over as well.
+    // The compiler will infer its value.
+    for (0.., array) |i, elem| {
+        print("{}: {}\n", .{ i, elem });
     }
 
     // To ignore a for loop's payload, use `_`.
     for (array) |_| {}
-
-    // To access a for loop's index, use the `|PAYLOAD, INDEX|` syntax.
-    for (array, 0..) |elem, i| {
-        print("{}: {}\n", .{ i, elem });
-    }
 }

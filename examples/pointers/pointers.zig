@@ -1,5 +1,6 @@
 // A _pointer_ is an object that stores a memory address. There are three types
-// of pointers in Zig: single-item, many-item, and slices (we'll talk about slices in a later section).
+// of pointers in Zig: single-item, many-item, and <a
+// href="https://zig-by-example.com/for">Slices</a>.
 
 const std = @import("std");
 const print = std.debug.print;
@@ -12,8 +13,8 @@ const Single = *bool;
 // we'll skip over them.
 const Many = [*]bool;
 
-// Note that all pointers in Zig point to a non-`null` value. If you want
-// `null` pointers, you'll need to use <a
+// Note that all pointers in Zig point to a non-`null` value. To get
+// `null` pointers, you need to use <a
 // href="https://zig-by-example.com/optionals">Optionals</a>.
 const Null = ?*bool;
 
