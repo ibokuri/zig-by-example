@@ -23,8 +23,7 @@
         
         <tr>
           <td class="docs">
-            <p>To kick things off, let&rsquo;s print the classic
-&ldquo;Hello, World!&rdquo; message.</p>
+            <p>To start, we&rsquo;ll print the classic &ldquo;Hello, World!&rdquo; message.</p>
 
           </td>
           <td class="code leading">
