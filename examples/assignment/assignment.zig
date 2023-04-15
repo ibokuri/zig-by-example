@@ -18,13 +18,12 @@ pub fn main() anyerror!void {
     var inferred_v = true;
 
     // To create an uninitialized constant or variable, assign `undefined`
-    // to it. Note that you need type annotations here.
+    // to it. Note that this requires type annotations.
     const undefined_c: bool = undefined;
     var undefined_v: bool = undefined;
 
     // Assignments can also be used to ignore expressions.
     _ = c;
-    _ = v;
     _ = inferred_c;
     _ = inferred_v;
     _ = undefined_c;
