@@ -5,27 +5,24 @@ const std = @import("std");
 pub fn main() anyerror!void {
 
     // Here, we assign the value `true` to the `bool` constant `c`.
-    // Constants are immutable, so the value of `c` cannot change.
+    // Constants are immutable, so the value of `c` _cannot_ change.
     const c: bool = true;
 
     // Here, we assign the value `false` to the `bool` variable `v`.
-    // Variables are mutable, so the value of `v` can be re-assigned.
+    // Variables are mutable, so the value of `v` _can_ change.
     var v: bool = false;
     v = true;
 
     // Note that the compiler can often infer types for you.
-    const inferred_c = true;
-    var inferred_v = true;
+    const inferred = true;
 
     // To create an uninitialized constant or variable, assign `undefined`
-    // to it. Note that this requires type annotations.
-    const undefined_c: bool = undefined;
-    var undefined_v: bool = undefined;
+    // to it. Using undefined values will result in either a crash or undefined
+    // behavior, so be careful!
+    var u: bool = undefined;
+    u = true;
 
     // Assignments can also be used to ignore expressions.
     _ = c;
-    _ = inferred_c;
-    _ = inferred_v;
-    _ = undefined_c;
-    _ = undefined_v;
+    _ = inferred;
 }
