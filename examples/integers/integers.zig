@@ -1,26 +1,26 @@
-// _Integers_ in Zig are pretty neat.
+// _Integers_ in Zig have arbitrary bit-widths.
 
 const std = @import("std");
 const print = std.debug.print;
 
-// You have your usual integer types...
+// Here, we define some common integer types.
 const a: u8 = 1;
 const b: i32 = 10;
 const c: i64 = 100;
-const d: usize = 1_000;
+const d: isize = 1_000;
 
-// But you also have arbitrary bit-width integers.
+// Here, we define some not so common integer types.
 const e: u21 = 10_000;
 const f: i42 = 100_000;
 
-// Additionally, Zig supports compile-time known integers. These have no size
-// limit and can be written as either integer literals or Unicode code point
+// Here, we define some compile-time known integers. These have no size limit
+// and can be written as either integer literals or Unicode code point
 // literals.
 const g: comptime_int = 1_000_000;
-const integer_literal = 10_000_000;
-const unicode_literal = '💯';
+const h = 10_000_000;
+const i = '💯';
 
 pub fn main() anyerror!void {
-    print("integer: {}\n", .{unicode_literal});
-    print("unicode: {u}\n", .{unicode_literal});
+    print("integer: {}\n", .{i});
+    print("unicode: {u}\n", .{i});
 }
