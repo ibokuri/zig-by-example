@@ -27,7 +27,8 @@
         
         <tr>
           <td class="docs">
-            <p><em>Floating-points</em> in Zig are also pretty neat (less so than integers, though).</p>
+            <p><em>Floating-points</em> in Zig are similar to integers, though they cannot have
+arbitrary bit-widths.</p>
 
           </td>
           <td class="code empty leading">
@@ -49,7 +50,7 @@
         
         <tr>
           <td class="docs">
-            <p>You have your usual floating-point types&hellip;</p>
+            <p>Here, we define some common floating types.</p>
 
           </td>
           <td class="code leading">
@@ -63,14 +64,14 @@
         
         <tr>
           <td class="docs">
-            <p>And a type for compile-time known floating-point values. These have no size
-limit and are written as float literals.</p>
+            <p>Here, we define some <em>compile-time</em> known floats. These have
+no size limit and are written as float literals.</p>
 
           </td>
           <td class="code leading">
             
             <pre class="chroma"><span class="kr">const</span><span class="w"> </span><span class="n">e</span><span class="o">:</span><span class="w"> </span><span class="kt">comptime_float</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100_000</span><span class="p">.</span><span class="mi">0</span><span class="p">;</span><span class="w">
-</span><span class="w"></span><span class="kr">const</span><span class="w"> </span><span class="n">float_literal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1_000_000</span><span class="p">.</span><span class="mi">0</span><span class="p">;</span></pre>
+</span><span class="w"></span><span class="kr">const</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1_000_000</span><span class="p">.</span><span class="mi">0</span><span class="p">;</span></pre>
           </td>
         </tr>
         
@@ -80,8 +81,8 @@ limit and are written as float literals.</p>
           </td>
           <td class="code">
             
-            <pre class="chroma"><span class="kr">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="kt">anyerror</span><span class="o">!</span><span class="kt">void</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span><span class="w">    </span><span class="n">print</span><span class="p">(</span><span class="s">&#34;float: {}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="n">float_literal</span><span class="p">});</span><span class="w">
+            <pre class="chroma"><span class="kr">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="o">!</span><span class="kt">void</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="w">    </span><span class="n">print</span><span class="p">(</span><span class="s">&#34;float: {}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="n">f</span><span class="p">});</span><span class="w">
 </span><span class="w"></span><span class="p">}</span></pre>
           </td>
         </tr>
@@ -116,7 +117,7 @@ limit and are written as float literals.</p>
     </div>
     <script>
       var codeLines = [];
-      codeLines.push('');codeLines.push('const std \u003D @import(\"std\");\u000Aconst print \u003D std.debug.print;\u000A');codeLines.push('const a: f16 \u003D 1.0;\u000Aconst b: f32 \u003D 100.0;\u000Aconst c: f64 \u003D 1_000.0;\u000Aconst d: f128 \u003D 10_000.0;\u000A');codeLines.push('const e: comptime_float \u003D 100_000.0;\u000Aconst float_literal \u003D 1_000_000.0;\u000A');codeLines.push('pub fn main() anyerror!void {\u000A    print(\"float: {}\\n\", .{float_literal});\u000A}\u000A');codeLines.push('');
+      codeLines.push('');codeLines.push('const std \u003D @import(\"std\");\u000Aconst print \u003D std.debug.print;\u000A');codeLines.push('const a: f16 \u003D 1.0;\u000Aconst b: f32 \u003D 100.0;\u000Aconst c: f64 \u003D 1_000.0;\u000Aconst d: f128 \u003D 10_000.0;\u000A');codeLines.push('const e: comptime_float \u003D 100_000.0;\u000Aconst f \u003D 1_000_000.0;\u000A');codeLines.push('pub fn main() !void {\u000A    print(\"float: {}\\n\", .{f});\u000A}\u000A');codeLines.push('');
     </script>
     <script src="site.js" async></script>
   </body>

@@ -27,7 +27,7 @@
         
         <tr>
           <td class="docs">
-            <p><em>Integers</em> in Zig have arbitrary bit-widths.</p>
+            <p><em>Integers</em> in Zig can have arbitrary bit-widths.</p>
 
           </td>
           <td class="code empty leading">
@@ -75,7 +75,7 @@
         
         <tr>
           <td class="docs">
-            <p>Here, we define some compile-time known integers. These have no size limit
+            <p>Here, we define some <em>compile-time</em> known integers. These have no size limit
 and can be written as either integer literals or Unicode code point
 literals.</p>
 
@@ -94,8 +94,8 @@ literals.</p>
           </td>
           <td class="code">
             
-            <pre class="chroma"><span class="kr">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="kt">anyerror</span><span class="o">!</span><span class="kt">void</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span><span class="w">    </span><span class="n">print</span><span class="p">(</span><span class="s">&#34;integer: {}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="n">i</span><span class="p">});</span><span class="w">
+            <pre class="chroma"><span class="kr">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="o">!</span><span class="kt">void</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="w">    </span><span class="n">print</span><span class="p">(</span><span class="s">&#34;integer: {d}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="n">i</span><span class="p">});</span><span class="w">
 </span><span class="w">    </span><span class="n">print</span><span class="p">(</span><span class="s">&#34;unicode: {u}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="n">i</span><span class="p">});</span><span class="w">
 </span><span class="w"></span><span class="p">}</span></pre>
           </td>
@@ -132,7 +132,7 @@ literals.</p>
     </div>
     <script>
       var codeLines = [];
-      codeLines.push('');codeLines.push('const std \u003D @import(\"std\");\u000Aconst print \u003D std.debug.print;\u000A');codeLines.push('const a: u8 \u003D 1;\u000Aconst b: i32 \u003D 10;\u000Aconst c: i64 \u003D 100;\u000Aconst d: isize \u003D 1_000;\u000A');codeLines.push('const e: u21 \u003D 10_000;\u000Aconst f: i42 \u003D 100_000;\u000A');codeLines.push('const g: comptime_int \u003D 1_000_000;\u000Aconst h \u003D 10_000_000;\u000Aconst i \u003D \'💯\';\u000A');codeLines.push('pub fn main() anyerror!void {\u000A    print(\"integer: {}\\n\", .{i});\u000A    print(\"unicode: {u}\\n\", .{i});\u000A}\u000A');codeLines.push('');
+      codeLines.push('');codeLines.push('const std \u003D @import(\"std\");\u000Aconst print \u003D std.debug.print;\u000A');codeLines.push('const a: u8 \u003D 1;\u000Aconst b: i32 \u003D 10;\u000Aconst c: i64 \u003D 100;\u000Aconst d: isize \u003D 1_000;\u000A');codeLines.push('const e: u21 \u003D 10_000;\u000Aconst f: i42 \u003D 100_000;\u000A');codeLines.push('const g: comptime_int \u003D 1_000_000;\u000Aconst h \u003D 10_000_000;\u000Aconst i \u003D \'💯\';\u000A');codeLines.push('pub fn main() !void {\u000A    print(\"integer: {d}\\n\", .{i});\u000A    print(\"unicode: {u}\\n\", .{i});\u000A}\u000A');codeLines.push('');
     </script>
     <script src="site.js" async></script>
   </body>

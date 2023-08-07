@@ -52,7 +52,7 @@
           </td>
           <td class="code leading">
             
-            <pre class="chroma"><span class="kr">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="kt">anyerror</span><span class="o">!</span><span class="kt">void</span><span class="w"> </span><span class="p">{</span></pre>
+            <pre class="chroma"><span class="kr">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="o">!</span><span class="kt">void</span><span class="w"> </span><span class="p">{</span></pre>
           </td>
         </tr>
         
@@ -134,7 +134,7 @@ behavior, so be careful!</p>
     </div>
     <script>
       var codeLines = [];
-      codeLines.push('');codeLines.push('const std \u003D @import(\"std\");\u000A');codeLines.push('pub fn main() anyerror!void {\u000A');codeLines.push('    const c: bool \u003D true;\u000A');codeLines.push('    var v: bool \u003D false;\u000A    v \u003D true;\u000A');codeLines.push('    const inferred \u003D true;\u000A');codeLines.push('    var u: bool \u003D undefined;\u000A    u \u003D true;\u000A');codeLines.push('    _ \u003D c;\u000A    _ \u003D inferred;\u000A}\u000A');
+      codeLines.push('');codeLines.push('const std \u003D @import(\"std\");\u000A');codeLines.push('pub fn main() !void {\u000A');codeLines.push('    const c: bool \u003D true;\u000A');codeLines.push('    var v: bool \u003D false;\u000A    v \u003D true;\u000A');codeLines.push('    const inferred \u003D true;\u000A');codeLines.push('    var u: bool \u003D undefined;\u000A    u \u003D true;\u000A');codeLines.push('    _ \u003D c;\u000A    _ \u003D inferred;\u000A}\u000A');
     </script>
     <script src="site.js" async></script>
   </body>
