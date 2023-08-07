@@ -56,9 +56,9 @@
         
         <tr>
           <td class="docs">
-            <p>Here, we iterate over the contents of <code>array</code>, storing a copy of each
-element in <code>elem</code>. Note that since <code>elem</code> is just a copy, we cannot
-actually modify <code>array</code>&rsquo;s contents like this.</p>
+            <p>Here, we iterate over <code>array</code> by <em>value</em>, storing a copy of each element
+in <code>elem</code>. Note that since <code>elem</code> is just a copy, we cannot use it to
+modify <code>array</code>&rsquo;s contents.</p>
 
           </td>
           <td class="code leading">
@@ -71,9 +71,9 @@ actually modify <code>array</code>&rsquo;s contents like this.</p>
         
         <tr>
           <td class="docs">
-            <p>Here, we iterate over the contents of <code>array</code> <em>by reference</em> by
-prefixing <code>elem</code> with a <code>*</code>. This turns <code>elem</code> into a pointer, which we
-can use to modify <code>array</code>&rsquo;s contents.</p>
+            <p>To iterate by <em>reference</em>, we can loop over a slice of <code>array</code> and
+prefix <code>elem</code> with a <code>*</code>. Here, <code>elem</code> is a pointer to an element in
+<code>array</code>, which we can use to modify <code>array</code>&rsquo;s contents.</p>
 
           </td>
           <td class="code leading">
@@ -87,8 +87,8 @@ can use to modify <code>array</code>&rsquo;s contents.</p>
         
         <tr>
           <td class="docs">
-            <p>You can iterate over multiple sequences, so long as they all have the
-same length.</p>
+            <p>Here, we iterate over multiple sequences. Note that every sequence
+<em>must</em> have the same length.</p>
 
           </td>
           <td class="code leading">
@@ -102,14 +102,14 @@ same length.</p>
         
         <tr>
           <td class="docs">
-            <p>You may also specify a <em>range</em> with the <code>START..END</code> syntax. Note that
-<code>END</code> may be omitted if another sequence is being iterated over as well;
+            <p>You may also specify a <em>range</em> with the <code>start..end</code> syntax. Note that
+<code>end</code> may be omitted if another sequence is being iterated over as well;
 the compiler will infer its size.</p>
 
           </td>
           <td class="code leading">
             
-            <pre class="chroma"><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">array</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">..)</span><span class="w"> </span><span class="o">|</span><span class="n">elem</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="o">|</span><span class="w"> </span><span class="p">{</span><span class="w">
+            <pre class="chroma"><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">..,</span><span class="w"> </span><span class="n">array</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">elem</span><span class="o">|</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span><span class="w">        </span><span class="n">print</span><span class="p">(</span><span class="s">&#34;{}: {}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">elem</span><span class="w"> </span><span class="p">});</span><span class="w">
 </span><span class="w">    </span><span class="p">}</span></pre>
           </td>
@@ -161,7 +161,7 @@ the compiler will infer its size.</p>
     </div>
     <script>
       var codeLines = [];
-      codeLines.push('');codeLines.push('const std \u003D @import(\"std\");\u000Aconst print \u003D std.debug.print;\u000A');codeLines.push('pub fn main() !void {\u000A    var array \u003D [_]u32{ 1, 2, 3 };\u000A');codeLines.push('    for (array) |elem| {\u000A        print(\"by val: {}\\n\", .{elem});\u000A    }\u000A');codeLines.push('    for (\u0026array) |*elem| {\u000A        elem.* +\u003D 100;\u000A        print(\"by ref: {}\\n\", .{elem.*});\u000A    }\u000A');codeLines.push('    for (array, \u0026array) |val, *ref| {\u000A        _ \u003D val;\u000A        _ \u003D ref;\u000A    }\u000A');codeLines.push('    for (array, 0..) |elem, i| {\u000A        print(\"{}: {}\\n\", .{ i, elem });\u000A    }\u000A');codeLines.push('    for (array) |_| {}\u000A}\u000A');codeLines.push('');
+      codeLines.push('');codeLines.push('const std \u003D @import(\"std\");\u000Aconst print \u003D std.debug.print;\u000A');codeLines.push('pub fn main() !void {\u000A    var array \u003D [_]u32{ 1, 2, 3 };\u000A');codeLines.push('    for (array) |elem| {\u000A        print(\"by val: {}\\n\", .{elem});\u000A    }\u000A');codeLines.push('    for (\u0026array) |*elem| {\u000A        elem.* +\u003D 100;\u000A        print(\"by ref: {}\\n\", .{elem.*});\u000A    }\u000A');codeLines.push('    for (array, \u0026array) |val, *ref| {\u000A        _ \u003D val;\u000A        _ \u003D ref;\u000A    }\u000A');codeLines.push('    for (0.., array) |i, elem| {\u000A        print(\"{}: {}\\n\", .{ i, elem });\u000A    }\u000A');codeLines.push('    for (array) |_| {}\u000A}\u000A');codeLines.push('');
     </script>
     <script src="site.js" async></script>
   </body>
