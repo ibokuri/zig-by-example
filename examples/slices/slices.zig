@@ -17,7 +17,7 @@ pub fn main() !void {
     var end: usize = 4;
     var slice = array[1..end];
 
-    // Functionally, slices are very similar to arrays. You can see their
+    // Functionally, slices are very similar to arrays. You can get their
     // length, index into them, and iterate over them.
     print("len: {}\n", .{slice.len});
     print("first: {}\n", .{slice[0]});
@@ -25,12 +25,14 @@ pub fn main() !void {
         print("elem: {}\n", .{elem});
     }
 
-    // All slices _must_ have a runtime-known length. If their lengths are
-    // compile-time known, the compiler will convert the slice into a
-    // single-item array pointer for us.
+    // All slices _must_ have a runtime-known length. If, instead, their
+    // lengths are compile-time known, the compiler will convert the slice into
+    // a single-item array pointer for us.
     var ptr: *[3]i32 = array[1..4];
 
-    // In practice, single-item array pointers work just like slices.
+    // In practice, single-item array pointers are just like slices.
+    // The only real difference is that with array pointers, bounds checking
+    // occurs at compile-time.
     print("len: {}\n", .{ptr.len});
     print("first: {}\n", .{ptr[0]});
     for (ptr) |elem| {
