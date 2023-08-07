@@ -150,8 +150,8 @@ the value of <code>const</code> pointees cannot be modified.</p>
           </td>
           <td class="code">
             
-            <pre class="chroma"><span class="w">    </span><span class="n">_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ptr_to_const</span><span class="p">;</span><span class="w">
-</span><span class="w">    </span><span class="n">_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">const_ptr</span><span class="p">;</span><span class="w">
+            <pre class="chroma"><span class="w">    </span><span class="n">_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">const_ptr</span><span class="p">;</span><span class="w">
+</span><span class="w">    </span><span class="n">_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ptr_to_const</span><span class="p">;</span><span class="w">
 </span><span class="w"></span><span class="p">}</span></pre>
           </td>
         </tr>
@@ -187,7 +187,7 @@ the value of <code>const</code> pointees cannot be modified.</p>
     </div>
     <script>
       var codeLines = [];
-      codeLines.push('');codeLines.push('const std \u003D @import(\"std\");\u000Aconst print \u003D std.debug.print;\u000A');codeLines.push('const Single \u003D *bool;\u000A');codeLines.push('const Many \u003D [*]bool;\u000A');codeLines.push('const Null \u003D ?*bool;\u000A');codeLines.push('pub fn main() !void {\u000A');codeLines.push('    var value \u003D false;\u000A    var ptr: *bool \u003D \u0026value;\u000A    print(\"pointer: {}\\n\", .{ptr});\u000A');codeLines.push('    ptr.* \u003D true;\u000A    print(\"value: {}\\n\", .{ptr.*});\u000A');codeLines.push('    const const_ptr: *bool \u003D \u0026value;\u000A');codeLines.push('    const const_value \u003D true;\u000A    var ptr_to_const: *const bool \u003D \u0026const_value;\u000A');codeLines.push('    _ \u003D ptr_to_const;\u000A    _ \u003D const_ptr;\u000A}\u000A');codeLines.push('');
+      codeLines.push('');codeLines.push('const std \u003D @import(\"std\");\u000Aconst print \u003D std.debug.print;\u000A');codeLines.push('const Single \u003D *bool;\u000A');codeLines.push('const Many \u003D [*]bool;\u000A');codeLines.push('const Null \u003D ?*bool;\u000A');codeLines.push('pub fn main() !void {\u000A');codeLines.push('    var value \u003D false;\u000A    var ptr: *bool \u003D \u0026value;\u000A    print(\"pointer: {}\\n\", .{ptr});\u000A');codeLines.push('    ptr.* \u003D true;\u000A    print(\"value: {}\\n\", .{ptr.*});\u000A');codeLines.push('    const const_ptr: *bool \u003D \u0026value;\u000A');codeLines.push('    const const_value \u003D true;\u000A    var ptr_to_const: *const bool \u003D \u0026const_value;\u000A');codeLines.push('    _ \u003D const_ptr;\u000A    _ \u003D ptr_to_const;\u000A}\u000A');codeLines.push('');
     </script>
     <script src="site.js" async></script>
   </body>
