@@ -1,12 +1,11 @@
 $ zig run slices.zig
-length: 3
-access: 1
-elem: 1
+len: 2
+first: 2
 elem: 2
 elem: 3
-type: *[3]i32
-length: 3
-access: 1
-elem: 1
+elem: 4
+len: 2
+first: 2
 elem: 2
 elem: 3
+elem: 4
