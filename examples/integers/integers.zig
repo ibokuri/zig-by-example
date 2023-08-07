@@ -5,7 +5,7 @@ const print = std.debug.print;
 
 // Here, we define some common integer types.
 const a: u8 = 1;
-const b: i32 = 10;
+const b: u32 = 10;
 const c: i64 = 100;
 const d: isize = 1_000;
 
