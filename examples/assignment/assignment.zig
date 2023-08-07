@@ -2,7 +2,7 @@
 
 const std = @import("std");
 
-pub fn main() anyerror!void {
+pub fn main() !void {
 
     // Here, we assign the value `true` to the `bool` constant `c`.
     // Constants are immutable, so the value of `c` _cannot_ change.

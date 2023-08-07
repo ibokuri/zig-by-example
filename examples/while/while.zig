@@ -3,7 +3,7 @@
 const std = @import("std");
 const print = std.debug.print;
 
-pub fn main() anyerror!void {
+pub fn main() !void {
     var i: usize = 0;
     var j: usize = 0;
     var k: usize = 0;

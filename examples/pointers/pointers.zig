@@ -16,7 +16,7 @@ const Many = [*]bool;
 // <a href="https://zig-by-example.com/optionals">optional</a>.
 const Null = ?*bool;
 
-pub fn main() anyerror!void {
+pub fn main() !void {
 
     // To create a single-item pointer, use the `&` operator.
     var value = false;

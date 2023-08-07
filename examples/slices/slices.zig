@@ -9,7 +9,7 @@ const print = std.debug.print;
 // length tells you its size.
 const Slice = []bool;
 
-pub fn main() anyerror!void {
+pub fn main() !void {
 
     // Here, we define a slice using the `[start..end]` syntax.
     // `slice` begins at `array[1]` and ends just before `array[4]`.

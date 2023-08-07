@@ -1,39 +1,40 @@
-// _For loops_ allow you to iterate over an array, slice, or tuple.
+// _For loops_ can be used to iterate over sequences.
 
 const std = @import("std");
 const print = std.debug.print;
 
-pub fn main() anyerror!void {
+pub fn main() !void {
     var array = [_]u32{ 1, 2, 3 };
 
-    // By default, for loops iterate by value, meaning that you cannot modify
-    // the loop's payload (in this case, `elem`).
+    // Here, we iterate over the contents of `array`, storing a copy of each
+    // element in `elem`. Note that since `elem` is just a copy, we cannot
+    // actually modify `array`'s contents like this.
     for (array) |elem| {
         print("by val: {}\n", .{elem});
     }
 
-    // With slices, however, you can iterate by reference by prefixing the
-    // payload's name with a `*`. This turns the payload value into a pointer
-    // and enables modification.
-    for (&array) |*ptr| {
-        ptr.* += 100;
-        print("by ref: {}\n", .{ptr.*});
+    // Here, we iterate over the contents of `array` _by reference_ by
+    // prefixing `elem` with a `*`. This turns `elem` into a pointer, which we
+    // can use to modify `array`'s contents.
+    for (&array) |*elem| {
+        elem.* += 100;
+        print("by ref: {}\n", .{elem.*});
     }
 
-    // You can iterate over multiple values, so long as they all have the same
-    // length.
+    // You can iterate over multiple sequences, so long as they all have the
+    // same length.
     for (array, &array) |val, *ref| {
         _ = val;
         _ = ref;
     }
 
     // You may also specify a _range_ with the `START..END` syntax. Note that
-    // `END` can be omitted if another sequence is being iterated over as well.
-    // The compiler will infer its value.
-    for (0.., array) |i, elem| {
+    // `END` may be omitted if another sequence is being iterated over as well;
+    // the compiler will infer its size.
+    for (array, 0..) |elem, i| {
         print("{}: {}\n", .{ i, elem });
     }
 
-    // To ignore a for loop's payload, use `_`.
+    // To ignore the elements of a sequence, use `_`.
     for (array) |_| {}
 }

@@ -4,7 +4,7 @@
 const std = @import("std");
 const print = std.debug.print;
 
-pub fn main() anyerror!void {
+pub fn main() !void {
 
     // Here, we define an array using the _array literal_ syntax.
     const a = [3]i32{ 1, 2, 3 };

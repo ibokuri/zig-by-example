@@ -20,7 +20,7 @@ const g: comptime_int = 1_000_000;
 const h = 10_000_000;
 const i = '💯';
 
-pub fn main() anyerror!void {
+pub fn main() !void {
     print("integer: {d}\n", .{i});
     print("unicode: {u}\n", .{i});
 }

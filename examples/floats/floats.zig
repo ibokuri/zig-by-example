@@ -15,6 +15,6 @@ const d: f128 = 10_000.0;
 const e: comptime_float = 100_000.0;
 const f = 1_000_000.0;
 
-pub fn main() anyerror!void {
+pub fn main() !void {
     print("float: {}\n", .{f});
 }
