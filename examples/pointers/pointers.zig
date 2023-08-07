@@ -19,8 +19,8 @@ const Null = ?*bool;
 pub fn main() !void {
 
     // To create a single-item pointer, use the `&` operator.
-    var value = false;
-    var ptr: *bool = &value;
+    var v = false;
+    var ptr: *bool = &v;
     print("pointer: {}\n", .{ptr});
 
     // To access the value located at the memory address stored by a
@@ -28,14 +28,16 @@ pub fn main() !void {
     ptr.* = true;
     print("value: {}\n", .{ptr.*});
 
-    // If a pointer is `const`, its pointee cannot be re-assigned.
-    const const_ptr: *bool = &value;
+    // If a _pointer_ is `const`, the value of its pointee can be modified, but
+    // the pointee itself cannot be re-assigned.
+    const const_ptr: *bool = &v;
+    const_ptr.* = false;
 
-    // If a pointee is `const`, its pointer type will reflect that. Naturally,
-    // the value of `const` pointees cannot be modified.
-    const const_value = true;
-    var ptr_to_const: *const bool = &const_value;
-
-    _ = const_ptr;
-    _ = ptr_to_const;
+    // If a _pointee_ is `const`, its pointer type will reflect that. The value
+    // of `const` pointees cannot be modified, but the pointee itself can be
+    // re-assigned.
+    const cf = false;
+    const ct = true;
+    var ptr_to_const: *const bool = &cf;
+    ptr_to_const = &ct;
 }
