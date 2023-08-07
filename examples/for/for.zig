@@ -6,32 +6,32 @@ const print = std.debug.print;
 pub fn main() !void {
     var array = [_]u32{ 1, 2, 3 };
 
-    // Here, we iterate over the contents of `array`, storing a copy of each
-    // element in `elem`. Note that since `elem` is just a copy, we cannot
-    // actually modify `array`'s contents like this.
+    // Here, we iterate over `array` by _value_, storing a copy of each element
+    // in `elem`. Note that since `elem` is just a copy, we cannot use it to
+    // modify `array`'s contents.
     for (array) |elem| {
         print("by val: {}\n", .{elem});
     }
 
-    // Here, we iterate over the contents of `array` _by reference_ by
-    // prefixing `elem` with a `*`. This turns `elem` into a pointer, which we
-    // can use to modify `array`'s contents.
+    // To iterate by _reference_, we can loop over a slice of `array` and
+    // prefix `elem` with a `*`. Here, `elem` is a pointer to an element in
+    // `array`, which we can use to modify `array`'s contents.
     for (&array) |*elem| {
         elem.* += 100;
         print("by ref: {}\n", .{elem.*});
     }
 
-    // You can iterate over multiple sequences, so long as they all have the
-    // same length.
+    // Here, we iterate over multiple sequences. Note that every sequence
+    // _must_ have the same length.
     for (array, &array) |val, *ref| {
         _ = val;
         _ = ref;
     }
 
-    // You may also specify a _range_ with the `START..END` syntax. Note that
-    // `END` may be omitted if another sequence is being iterated over as well;
+    // You may also specify a _range_ with the `start..end` syntax. Note that
+    // `end` may be omitted if another sequence is being iterated over as well;
     // the compiler will infer its size.
-    for (array, 0..) |elem, i| {
+    for (0.., array) |i, elem| {
         print("{}: {}\n", .{ i, elem });
     }
 
