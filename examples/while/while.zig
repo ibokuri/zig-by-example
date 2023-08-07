@@ -1,4 +1,4 @@
-// _While_ loops can be used to repeat expressions in Zig.
+// _While_ loops can be used to repeat expressions.
 
 const std = @import("std");
 const print = std.debug.print;
