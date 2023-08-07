@@ -1,4 +1,4 @@
-// To repeat an expression in Zig, _while_ loops can be used.
+// _While_ loops can be used to repeat expressions in Zig.
 
 const std = @import("std");
 const print = std.debug.print;
@@ -15,8 +15,8 @@ pub fn main() anyerror!void {
         i += 1;
     }
 
-    // While loops support _continue expressions_, which are evaluated each
-    // time the loop's body is executed.
+    // _Continue expressions_ can be specified to evaluate an expression after
+    // each execution of a while loop's body.
     while (j < 2) : (j += 1) {
         print("j: {}\n", .{j});
     }
