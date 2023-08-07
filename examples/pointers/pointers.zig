@@ -36,6 +36,6 @@ pub fn main() !void {
     const const_value = true;
     var ptr_to_const: *const bool = &const_value;
 
-    _ = ptr_to_const;
     _ = const_ptr;
+    _ = ptr_to_const;
 }
