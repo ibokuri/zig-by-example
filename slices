@@ -87,7 +87,7 @@ length tells you its size.</p>
         
         <tr>
           <td class="docs">
-            <p>Functionally, slices are very similar to arrays. You can see their
+            <p>Functionally, slices are very similar to arrays. You can get their
 length, index into them, and iterate over them.</p>
 
           </td>
@@ -103,9 +103,9 @@ length, index into them, and iterate over them.</p>
         
         <tr>
           <td class="docs">
-            <p>All slices <em>must</em> have a runtime-known length. If their lengths are
-compile-time known, the compiler will convert the slice into a
-single-item array pointer for us.</p>
+            <p>All slices <em>must</em> have a runtime-known length. If, instead, their
+lengths are compile-time known, the compiler will convert the slice into
+a single-item array pointer for us.</p>
 
           </td>
           <td class="code leading">
@@ -116,7 +116,9 @@ single-item array pointer for us.</p>
         
         <tr>
           <td class="docs">
-            <p>In practice, single-item array pointers work just like slices.</p>
+            <p>In practice, single-item array pointers are just like slices.
+The only real difference is that with array pointers, bounds checking
+occurs at compile-time.</p>
 
           </td>
           <td class="code">

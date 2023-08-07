@@ -54,9 +54,10 @@
           <td class="code leading">
             
             <pre class="chroma"><span class="kr">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="o">!</span><span class="kt">void</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span><span class="w">    </span><span class="kr">var</span><span class="w"> </span><span class="n">i</span><span class="o">:</span><span class="w"> </span><span class="kt">usize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">
-</span><span class="w">    </span><span class="kr">var</span><span class="w"> </span><span class="n">j</span><span class="o">:</span><span class="w"> </span><span class="kt">usize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">
-</span><span class="w">    </span><span class="kr">var</span><span class="w"> </span><span class="n">k</span><span class="o">:</span><span class="w"> </span><span class="kt">usize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span></pre>
+</span><span class="w">    </span><span class="kr">var</span><span class="w"> </span><span class="n">a</span><span class="o">:</span><span class="w"> </span><span class="kt">usize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">
+</span><span class="w">    </span><span class="kr">var</span><span class="w"> </span><span class="n">b</span><span class="o">:</span><span class="w"> </span><span class="kt">usize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">
+</span><span class="w">    </span><span class="kr">var</span><span class="w"> </span><span class="n">c</span><span class="o">:</span><span class="w"> </span><span class="kt">usize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">
+</span><span class="w">    </span><span class="kr">var</span><span class="w"> </span><span class="n">d</span><span class="o">:</span><span class="w"> </span><span class="kt">usize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span></pre>
           </td>
         </tr>
         
@@ -68,23 +69,39 @@ condition is no longer true.</p>
           </td>
           <td class="code leading">
             
-            <pre class="chroma"><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span><span class="w">        </span><span class="n">print</span><span class="p">(</span><span class="s">&#34;i: {}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="n">i</span><span class="p">});</span><span class="w">
-</span><span class="w">        </span><span class="n">i</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">
+            <pre class="chroma"><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="w">        </span><span class="n">print</span><span class="p">(</span><span class="s">&#34;a: {}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="n">a</span><span class="p">});</span><span class="w">
+</span><span class="w">        </span><span class="n">a</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">
 </span><span class="w">    </span><span class="p">}</span></pre>
           </td>
         </tr>
         
         <tr>
           <td class="docs">
-            <p><em>Continue expressions</em> can be specified to evaluate an expression after
-each execution of a while loop&rsquo;s body.</p>
+            <p><em>Continue expressions</em> can be used to evaluate an expression after each
+execution of a while loop&rsquo;s body.</p>
 
           </td>
           <td class="code leading">
             
-            <pre class="chroma"><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span><span class="w">        </span><span class="n">print</span><span class="p">(</span><span class="s">&#34;j: {}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="n">j</span><span class="p">});</span><span class="w">
+            <pre class="chroma"><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">b</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="n">b</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="w">        </span><span class="n">print</span><span class="p">(</span><span class="s">&#34;b: {}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="n">b</span><span class="p">});</span><span class="w">
+</span><span class="w">    </span><span class="p">}</span></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>You can specify multiple continue expressions by using the <code>({ &lt;expr1&gt;; &lt;expr2&gt;; ... })</code> syntax.</p>
+
+          </td>
+          <td class="code leading">
+            
+            <pre class="chroma"><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">c</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">({</span><span class="w">
+</span><span class="w">        </span><span class="n">c</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">
+</span><span class="w">        </span><span class="n">c</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">
+</span><span class="w">    </span><span class="p">})</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="w">        </span><span class="n">print</span><span class="p">(</span><span class="s">&#34;c: {}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="n">c</span><span class="p">});</span><span class="w">
 </span><span class="w">    </span><span class="p">}</span></pre>
           </td>
         </tr>
@@ -110,9 +127,9 @@ keyword.</p>
           </td>
           <td class="code leading">
             
-            <pre class="chroma"><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="kc">true</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="n">k</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">k</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span><span class="w">            </span><span class="n">print</span><span class="p">(</span><span class="s">&#34;k: {}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="n">k</span><span class="p">});</span><span class="w">
+            <pre class="chroma"><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="kc">true</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="n">d</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">d</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="w">            </span><span class="n">print</span><span class="p">(</span><span class="s">&#34;d: {}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="n">d</span><span class="p">});</span><span class="w">
 </span><span class="w">            </span><span class="k">continue</span><span class="p">;</span><span class="w">
 </span><span class="w">        </span><span class="p">}</span></pre>
           </td>
@@ -141,12 +158,14 @@ keyword.</p>
           <td class="code">
             
             <pre class="chroma"><span class="gp">$</span> zig run while.zig
-<span class="go">i: 0
-</span><span class="go">i: 1
-</span><span class="go">j: 0
-</span><span class="go">j: 1
-</span><span class="go">k: 0
-</span><span class="go">k: 1</span></pre>
+<span class="go">a: 0
+</span><span class="go">a: 1
+</span><span class="go">b: 0
+</span><span class="go">b: 1
+</span><span class="go">c: 0
+</span><span class="go">c: 2
+</span><span class="go">d: 0
+</span><span class="go">d: 1</span></pre>
           </td>
         </tr>
         
@@ -165,7 +184,7 @@ keyword.</p>
     </div>
     <script>
       var codeLines = [];
-      codeLines.push('');codeLines.push('const std \u003D @import(\"std\");\u000Aconst print \u003D std.debug.print;\u000A');codeLines.push('pub fn main() !void {\u000A    var i: usize \u003D 0;\u000A    var j: usize \u003D 0;\u000A    var k: usize \u003D 0;\u000A');codeLines.push('    while (i \u003C 2) {\u000A        print(\"i: {}\\n\", .{i});\u000A        i +\u003D 1;\u000A    }\u000A');codeLines.push('    while (j \u003C 2) : (j +\u003D 1) {\u000A        print(\"j: {}\\n\", .{j});\u000A    }\u000A');codeLines.push('    while (true) {\u000A        break;\u000A    }\u000A');codeLines.push('    while (true) : (k +\u003D 1) {\u000A        if (k \u003C 2) {\u000A            print(\"k: {}\\n\", .{k});\u000A            continue;\u000A        }\u000A');codeLines.push('        break;\u000A    }\u000A}\u000A');codeLines.push('');
+      codeLines.push('');codeLines.push('const std \u003D @import(\"std\");\u000Aconst print \u003D std.debug.print;\u000A');codeLines.push('pub fn main() !void {\u000A    var a: usize \u003D 0;\u000A    var b: usize \u003D 0;\u000A    var c: usize \u003D 0;\u000A    var d: usize \u003D 0;\u000A');codeLines.push('    while (a \u003C 2) {\u000A        print(\"a: {}\\n\", .{a});\u000A        a +\u003D 1;\u000A    }\u000A');codeLines.push('    while (b \u003C 2) : (b +\u003D 1) {\u000A        print(\"b: {}\\n\", .{b});\u000A    }\u000A');codeLines.push('    while (c \u003C 4) : ({\u000A        c +\u003D 1;\u000A        c +\u003D 1;\u000A    }) {\u000A        print(\"c: {}\\n\", .{c});\u000A    }\u000A');codeLines.push('    while (true) {\u000A        break;\u000A    }\u000A');codeLines.push('    while (true) : (d +\u003D 1) {\u000A        if (d \u003C 2) {\u000A            print(\"d: {}\\n\", .{d});\u000A            continue;\u000A        }\u000A');codeLines.push('        break;\u000A    }\u000A}\u000A');codeLines.push('');
     </script>
     <script src="site.js" async></script>
   </body>
