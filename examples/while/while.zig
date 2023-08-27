@@ -22,7 +22,7 @@ pub fn main() !void {
         print("b: {}\n", .{b});
     }
 
-    // You can specify multiple continue expressions by using the `({ <expr1>; <expr2>; ... })` syntax.
+    // You can specify multiple continue expressions by using the `{ <expr1>; <expr2>; ... }` syntax.
     while (c < 4) : ({
         c += 1;
         c += 1;
