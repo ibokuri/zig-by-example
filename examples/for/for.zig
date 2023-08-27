@@ -30,7 +30,7 @@ pub fn main() !void {
 
     // You may also specify a _range_ with the `start..end` syntax. Note that
     // `end` may be omitted if another sequence is being iterated over as well;
-    // the compiler will infer its size.
+    // the compiler will infer the range's size.
     for (0.., array) |i, elem| {
         print("{}: {}\n", .{ i, elem });
     }
