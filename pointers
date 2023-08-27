@@ -123,7 +123,7 @@ single-item pointer, use the <code>*</code> operator.</p>
         <tr>
           <td class="docs">
             <p>If a <em>pointer</em> is <code>const</code>, the value of its pointee can be modified, but
-the pointee itself cannot be re-assigned.</p>
+the pointer itself cannot be re-assigned.</p>
 
           </td>
           <td class="code leading">
@@ -136,7 +136,7 @@ the pointee itself cannot be re-assigned.</p>
         <tr>
           <td class="docs">
             <p>If a <em>pointee</em> is <code>const</code>, its pointer type will reflect that. The value
-of <code>const</code> pointees cannot be modified, but the pointee itself can be
+of <code>const</code> pointees cannot be modified, but the pointer itself can be
 re-assigned.</p>
 
           </td>
