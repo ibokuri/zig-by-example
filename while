@@ -92,7 +92,7 @@ execution of a while loop&rsquo;s body.</p>
         
         <tr>
           <td class="docs">
-            <p>You can specify multiple continue expressions by using the <code>({ &lt;expr1&gt;; &lt;expr2&gt;; ... })</code> syntax.</p>
+            <p>You can specify multiple continue expressions by using the <code>{ &lt;expr1&gt;; &lt;expr2&gt;; ... }</code> syntax.</p>
 
           </td>
           <td class="code leading">
