@@ -29,12 +29,12 @@ pub fn main() !void {
     print("value: {}\n", .{ptr.*});
 
     // If a _pointer_ is `const`, the value of its pointee can be modified, but
-    // the pointee itself cannot be re-assigned.
+    // the pointer itself cannot be re-assigned.
     const const_ptr: *bool = &v;
     const_ptr.* = false;
 
     // If a _pointee_ is `const`, its pointer type will reflect that. The value
-    // of `const` pointees cannot be modified, but the pointee itself can be
+    // of `const` pointees cannot be modified, but the pointer itself can be
     // re-assigned.
     const cf = false;
     const ct = true;
