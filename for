@@ -104,7 +104,7 @@ prefix <code>elem</code> with a <code>*</code>. Here, <code>elem</code> is a poi
           <td class="docs">
             <p>You may also specify a <em>range</em> with the <code>start..end</code> syntax. Note that
 <code>end</code> may be omitted if another sequence is being iterated over as well;
-the compiler will infer its size.</p>
+the compiler will infer the range&rsquo;s size.</p>
 
           </td>
           <td class="code leading">
