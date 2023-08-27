@@ -21,7 +21,7 @@ pub fn main() !void {
         print("by ref: {}\n", .{elem.*});
     }
 
-    // Here, we iterate over multiple sequences. Note that every sequence
+    // Here, we iterate over multiple sequences. Note that both sequences
     // _must_ have the same length.
     for (array, &array) |val, *ref| {
         _ = val;
