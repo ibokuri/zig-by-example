@@ -87,7 +87,7 @@ prefix <code>elem</code> with a <code>*</code>. Here, <code>elem</code> is a poi
         
         <tr>
           <td class="docs">
-            <p>Here, we iterate over multiple sequences. Note that every sequence
+            <p>Here, we iterate over multiple sequences. Note that both sequences
 <em>must</em> have the same length.</p>
 
           </td>
