@@ -143,12 +143,12 @@ occurs at compile-time.</p>
           <td class="code">
             
             <pre class="chroma"><span class="gp">$</span> zig run slices.zig
-<span class="go">len: 2
+<span class="go">len: 3
 </span><span class="go">first: 2
 </span><span class="go">elem: 2
 </span><span class="go">elem: 3
 </span><span class="go">elem: 4
-</span><span class="go">len: 2
+</span><span class="go">len: 3
 </span><span class="go">first: 2
 </span><span class="go">elem: 2
 </span><span class="go">elem: 3
