@@ -20,6 +20,6 @@ pub fn main() !void {
     print("x = 1? {}\n", .{x == 1});
 
     // If statements also work as expressions.
-    x += if (a) 1 else 2;
+    x += if (x == 1) 1 else 2;
     print("x now is: {d}\n", .{x});
 }

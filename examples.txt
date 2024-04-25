@@ -8,3 +8,4 @@ Slices
 While
 For
 If/Else
+Switch

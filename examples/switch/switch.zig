@@ -1,27 +1,43 @@
-// _Zig's switch_ works as both a statement and an expression.
-
-//The types of all branches must coerce to the type which is being switched upon. All possible values must have an associated branch - values cannot be left out. Cases cannot fall through to other branches.
+// _Switch_ works as both a statement and an expression.
 
 const std = @import("std");
 const print = std.debug.print;
 
 pub fn main() !void {
+    var x: i8 = 10;
 
-    //Here the classic FizzBuzz as example of a switch statement. The else is required to satisfy the exhaustiveness of this switch.
+    // An example of a _switch_ statement. The _else_ is required to satisfy the exhaustiveness of this _switch_. All possible values must have an associated branch, values cannot be left out. Cases cannot fall through to other branches.
+    switch (x) {
+        -1...1 => {
+            x = -x;
+        },
+        10, 100 => print("x: {d}\n", .{x}),
+        else => {},
+    }
+    // Here the classic FizzBuzz exercise using a _switch_ statement.
     var count: u8 = 1;
-    while (count <= 10) : (count += 1) {
-        //const div_3: u2 = @intFromBool(count % 3 == 0);
-        //const div_5 = @intFromBool(count % 5 == 0);
-        switch (count) {
-            (count % 3 == 0) => print("Fizz\n", .{}),
-            (count % 3 == 0) and (count % 5 == 0) => print("Fizz Buzz\n", .{}),
-            (count % 5 == 0) => print("Buzz\n", .{}),
+    while (count <= 15) : (count += 1) {
+
+        // After define _while_ to count until 15 we use _@intFromBool_ which converts true to 1 and false to 0 resulting into a u1 value (i.e. a 1 bit unsigned integer).
+        const div3: u2 = @intFromBool(count % 3 == 0);
+
+        // You may notice that we haven't given _div5_ an explicit type, this is because it is inferred from the value that is assigned to it.
+        const div5 = @intFromBool(count % 5 == 0);
+
+        // We need _u2_ to fit two booleans and perform this multiplication of _div3_, you can see the binary notation in action as result to satisfy the expression evaluated.
+        // We can rewrite the _switch_ value to use bitwise operations: _switch_ _(div3 << 1 | div5)_.
+        switch (div3 * 2 + div5) {
+            0b10 => print("Fizz\n", .{}),
+            0b01 => print("Buzz\n", .{}),
+            0b11 => {
+                print("Fizz", .{});
+                print("Buzz\n", .{});
+            },
             else => print("{d}\n", .{count}),
         }
     }
 
-    // _switch_ can also be used as expression, here the classic FizzBuzz
-    var x: i8 = 10;
+    // _switch_ can also be used as expression.
     x = switch (x) {
         -1...1 => -x,
         10, 100 => @divExact(x, 10),
