@@ -141,7 +141,7 @@ func resetURLHashFile(codehash, code, sourcePath string) string {
 		fmt.Println("  Sending request to play.golang.org")
 	}
 	payload := strings.NewReader(code)
-	resp, err := http.Post("https://play.golang.org/share", "text/plain", payload)
+	resp, err := http.Post("https://zig.fly.dev/share", "text/plain", payload)
 	check(err)
 	defer resp.Body.Close()
 	body, err := io.ReadAll(resp.Body)
