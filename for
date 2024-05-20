@@ -13,6 +13,10 @@
           }
           
           
+          if (e.key == "ArrowRight") {
+              window.location.href = 'if-else';
+          }
+          
       }
   </script>
   <body>
@@ -152,6 +156,10 @@ the compiler will infer the range&rsquo;s size.</p>
         
       </table>
       
+      
+      <p class="next">
+        Next example: <a href="if-else">If/Else</a>.
+      </p>
       
 
     <p class="footer">

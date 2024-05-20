@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Zig by Example: Switch</title>
+    <link rel=stylesheet href="site.css">
+  </head>
+  <script>
+      onkeydown = (e) => {
+          
+          if (e.key == "ArrowLeft") {
+              window.location.href = 'if-else';
+          }
+          
+          
+      }
+  </script>
+  <body>
+    <div class="example" id="switch">
+      <h2><a href="./">Zig by Example</a>: Switch</h2>
+      
+      <table>
+        
+        <tr>
+          <td class="docs">
+            <p><em>Switch</em> works as both a statement and an expression.</p>
+
+          </td>
+          <td class="code empty leading">
+            
+            
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code leading">
+            <img title="Copy code" src="clipboard.png" class="copy" />
+            <pre class="chroma"><span class="kr">const</span><span class="w"> </span><span class="n">std</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">@import</span><span class="p">(</span><span class="s">&#34;std&#34;</span><span class="p">);</span><span class="w">
+</span><span class="w"></span><span class="kr">const</span><span class="w"> </span><span class="n">print</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="p">.</span><span class="n">debug</span><span class="p">.</span><span class="n">print</span><span class="p">;</span></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code leading">
+            
+            <pre class="chroma"><span class="kr">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="o">!</span><span class="kt">void</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="w">    </span><span class="kr">var</span><span class="w"> </span><span class="n">x</span><span class="o">:</span><span class="w"> </span><span class="n">i8</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>An example of a <em>switch</em> statement. The <em>else</em> is required to satisfy the exhaustiveness of this <em>switch</em>. All possible values must have an associated branch, values cannot be left out. Cases cannot fall through to other branches.</p>
+
+          </td>
+          <td class="code leading">
+            
+            <pre class="chroma"><span class="w">    </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="w">        </span><span class="o">-</span><span class="mi">1</span><span class="p">...</span><span class="mi">1</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="w">            </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="n">x</span><span class="p">;</span><span class="w">
+</span><span class="w">        </span><span class="p">},</span><span class="w">
+</span><span class="w">        </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">print</span><span class="p">(</span><span class="s">&#34;x: {d}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="n">x</span><span class="p">}),</span><span class="w">
+</span><span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">{},</span><span class="w">
+</span><span class="w">    </span><span class="p">}</span></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Here the classic FizzBuzz exercise using a <em>switch</em> statement.</p>
+
+          </td>
+          <td class="code leading">
+            
+            <pre class="chroma"><span class="w">    </span><span class="kr">var</span><span class="w"> </span><span class="n">count</span><span class="o">:</span><span class="w"> </span><span class="kt">u8</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">
+</span><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">count</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">15</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="n">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>After define <em>while</em> to count until 15 we use <em>@intFromBool</em> which converts true to 1 and false to 0 resulting into a u1 value (i.e. a 1 bit unsigned integer).</p>
+
+          </td>
+          <td class="code leading">
+            
+            <pre class="chroma"><span class="w">        </span><span class="kr">const</span><span class="w"> </span><span class="n">div3</span><span class="o">:</span><span class="w"> </span><span class="n">u2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">@intFromBool</span><span class="p">(</span><span class="n">count</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>You may notice that we haven&rsquo;t given <em>div5</em> an explicit type, this is because it is inferred from the value that is assigned to it.</p>
+
+          </td>
+          <td class="code leading">
+            
+            <pre class="chroma"><span class="w">        </span><span class="kr">const</span><span class="w"> </span><span class="n">div5</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">@intFromBool</span><span class="p">(</span><span class="n">count</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>We need <em>u2</em> to fit two booleans and perform this multiplication of <em>div3</em>, you can see the binary notation in action as result to satisfy the expression evaluated.
+We can rewrite the <em>switch</em> value to use bitwise operations: <em>switch</em> <em>(div3 &lt;&lt; 1 | div5)</em>.</p>
+
+          </td>
+          <td class="code leading">
+            
+            <pre class="chroma"><span class="w">        </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">div3</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">div5</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="w">            </span><span class="mb">0b10</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">print</span><span class="p">(</span><span class="s">&#34;Fizz</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{}),</span><span class="w">
+</span><span class="w">            </span><span class="mb">0b01</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">print</span><span class="p">(</span><span class="s">&#34;Buzz</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{}),</span><span class="w">
+</span><span class="w">            </span><span class="mb">0b11</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="w">                </span><span class="n">print</span><span class="p">(</span><span class="s">&#34;Fizz&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{});</span><span class="w">
+</span><span class="w">                </span><span class="n">print</span><span class="p">(</span><span class="s">&#34;Buzz</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{});</span><span class="w">
+</span><span class="w">            </span><span class="p">},</span><span class="w">
+</span><span class="w">            </span><span class="k">else</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">print</span><span class="p">(</span><span class="s">&#34;{d}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="n">count</span><span class="p">}),</span><span class="w">
+</span><span class="w">        </span><span class="p">}</span><span class="w">
+</span><span class="w">    </span><span class="p">}</span></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p><em>switch</em> can also be used as expression.</p>
+
+          </td>
+          <td class="code">
+            
+            <pre class="chroma"><span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="w">        </span><span class="o">-</span><span class="mi">1</span><span class="p">...</span><span class="mi">1</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="o">-</span><span class="n">x</span><span class="p">,</span><span class="w">
+</span><span class="w">        </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="nb">@divExact</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">),</span><span class="w">
+</span><span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w">
+</span><span class="w">    </span><span class="p">};</span><span class="w">
+</span><span class="w">    </span><span class="n">print</span><span class="p">(</span><span class="s">&#34;x: {d}</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="n">x</span><span class="p">});</span><span class="w">
+</span><span class="w"></span><span class="p">}</span></pre>
+          </td>
+        </tr>
+        
+      </table>
+      
+      <table>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code">
+            
+            <pre class="chroma"><span class="gp">$</span> zig run switch.zig
+<span class="go">x: 10
+</span><span class="go">1
+</span><span class="go">2
+</span><span class="go">Fizz
+</span><span class="go">4
+</span><span class="go">Buzz
+</span><span class="go">Fizz
+</span><span class="go">7
+</span><span class="go">8
+</span><span class="go">Fizz
+</span><span class="go">Buzz
+</span><span class="go">11
+</span><span class="go">Fizz
+</span><span class="go">13
+</span><span class="go">14
+</span><span class="go">FizzBuzz
+</span><span class="go">x: 1</span></pre>
+          </td>
+        </tr>
+        
+      </table>
+      
+      
+
+    <p class="footer">
+      by <a href="https://github.com/ibokuri">Jason Phan</a> | <a href="https://github.com/ibokuri/zig-by-example">source</a> | <a href="https://github.com/ibokuri/zig-by-example#license">license</a>
+    </p>
+
+    </div>
+    <script>
+      var codeLines = [];
+      codeLines.push('');codeLines.push('const std \u003D @import(\"std\");\u000Aconst print \u003D std.debug.print;\u000A');codeLines.push('pub fn main() !void {\u000A    var x: i8 \u003D 10;\u000A');codeLines.push('    switch (x) {\u000A        -1...1 \u003D\u003E {\u000A            x \u003D -x;\u000A        },\u000A        10, 100 \u003D\u003E print(\"x: {d}\\n\", .{x}),\u000A        else \u003D\u003E {},\u000A    }\u000A');codeLines.push('    var count: u8 \u003D 1;\u000A    while (count \u003C\u003D 15) : (count +\u003D 1) {\u000A');codeLines.push('        const div3: u2 \u003D @intFromBool(count % 3 \u003D\u003D 0);\u000A');codeLines.push('        const div5 \u003D @intFromBool(count % 5 \u003D\u003D 0);\u000A');codeLines.push('        switch (div3 * 2 + div5) {\u000A            0b10 \u003D\u003E print(\"Fizz\\n\", .{}),\u000A            0b01 \u003D\u003E print(\"Buzz\\n\", .{}),\u000A            0b11 \u003D\u003E {\u000A                print(\"Fizz\", .{});\u000A                print(\"Buzz\\n\", .{});\u000A            },\u000A            else \u003D\u003E print(\"{d}\\n\", .{count}),\u000A        }\u000A    }\u000A');codeLines.push('    x \u003D switch (x) {\u000A        -1...1 \u003D\u003E -x,\u000A        10, 100 \u003D\u003E @divExact(x, 10),\u000A        else \u003D\u003E x,\u000A    };\u000A    print(\"x: {d}\\n\", .{x});\u000A}\u000A');codeLines.push('');
+    </script>
+    <script src="site.js" async></script>
+  </body>
+</html>
