@@ -41,7 +41,7 @@
             
           </td>
           <td class="code leading">
-            <img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="http://zig.fly.dev/p/EXsyGh6yCfK"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
             <pre class="chroma"><span class="kr">const</span><span class="w"> </span><span class="n">std</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">@import</span><span class="p">(</span><span class="s">&#34;std&#34;</span><span class="p">);</span><span class="w">
 </span><span class="w"></span><span class="kr">const</span><span class="w"> </span><span class="n">print</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="p">.</span><span class="n">debug</span><span class="p">.</span><span class="n">print</span><span class="p">;</span></pre>
           </td>
